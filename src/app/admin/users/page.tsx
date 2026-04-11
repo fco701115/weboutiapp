@@ -74,8 +74,8 @@ export default function AdminUsers() {
             if (res.ok) {
                 const data = await res.json();
                 
-                const orderAddresses = data.orders?.map((o: any) => o.address) || [];
-                let savedAddresses = [];
+                const orderAddresses: string[] = data.orders?.map((o: any) => o.address) || [];
+                let savedAddresses: string[] = [];
                 if (user.addresses) {
                     try {
                         const parsed = typeof user.addresses === 'string' ? JSON.parse(user.addresses) : user.addresses;
