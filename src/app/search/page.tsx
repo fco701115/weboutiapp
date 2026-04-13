@@ -80,7 +80,7 @@ function SearchResults() {
     const activeCategory = categories.find(c => c.id === categoryId);
 
     return (
-        <div className="max-w-[1200px] mx-auto px-4 py-10">
+        <div className="max-w-[1200px] mx-auto px-2 sm:px-4 py-10">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-[32px] font-black text-slate-900 tracking-tighter leading-tight flex items-center gap-4">
@@ -172,7 +172,7 @@ function SearchResults() {
 
             {isLoading ? (
 
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-6">
                     {[1, 2, 3, 4, 5].map(i => (
                         <div key={i} className="h-[350px] bg-white rounded-[32px] animate-pulse border border-slate-50" />
                     ))}
@@ -186,7 +186,7 @@ function SearchResults() {
                     <p className="text-slate-500 font-medium">Intenta con otras palabras clave o explora las categorías.</p>
                 </div>
             ) : (
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-6">
                     {products.map(p => (
                         <ProductCard key={p.id} product={{
                             ...p,
