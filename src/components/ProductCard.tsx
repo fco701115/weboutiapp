@@ -51,7 +51,7 @@ export function ProductCard({ product }: { product: Product }) {
     };
 
     return (
-        <div className="w-full max-w-[280px] h-[340px] sm:h-[370px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group">
+        <div className="w-[168px] h-[308px] sm:w-full sm:max-w-[280px] sm:h-[370px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group">
             {/* Discount Badge */}
             {(product.discountBadge || product.salePrice) && (
                 <div
@@ -122,7 +122,7 @@ export function ProductCard({ product }: { product: Product }) {
             </div>
 
             {/* Actions Area */}
-            <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-1 gap-2 pt-2">
+            <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row m-2 sm:m-0 sm:mb-1 gap-2 pt-2">
                 <button
                     onClick={handleBuyNow}
                     className="flex-1 h-[35px] bg-[#1c3892] hover:bg-blue-800 text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
