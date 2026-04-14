@@ -616,7 +616,7 @@ export default function ProductPage() {
 
             {/* Related Products Section */}
             {relatedProducts.length > 0 && (
-                <div className="max-w-[1200px] mx-auto px-2 sm:px-4 mt-16 pb-10">
+                <div className="max-w-[1200px] mx-auto px-0 sm:px-4 mt-16 pb-10">
                     <div className="flex flex-col gap-1 mb-10">
                         <h2 className="text-[24px] font-black text-slate-900 tracking-tighter capitalize">Productos Relacionados</h2>
                         <div className="h-1 w-20 bg-[#124baf] rounded-full" />
