@@ -225,7 +225,7 @@ export default function ProductPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen pb-10">
-            <div className="max-w-[1200px] mx-auto px-4 py-4">
+            <div className="max-w-[1200px] mx-auto px-2 sm:px-4 py-4">
                 {/* Breadcrumbs */}
                 <div className="flex items-center gap-2 text-[13px] text-gray-400 mb-6 font-medium">
                     <span onClick={() => router.push('/')} className="hover:text-[#1a3da1] cursor-pointer">Inicio</span>
@@ -616,13 +616,13 @@ export default function ProductPage() {
 
             {/* Related Products Section */}
             {relatedProducts.length > 0 && (
-                <div className="mt-16 pb-10">
+                <div className="max-w-[1200px] mx-auto px-2 sm:px-4 mt-16 pb-10">
                     <div className="flex flex-col gap-1 mb-10">
                         <h2 className="text-[24px] font-black text-slate-900 tracking-tighter capitalize">Productos Relacionados</h2>
                         <div className="h-1 w-20 bg-[#124baf] rounded-full" />
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-6">
                         {relatedProducts.map((p) => (
                             <ProductCard key={p.id} product={p} />
                         ))}
