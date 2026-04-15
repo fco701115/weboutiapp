@@ -421,7 +421,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                         >
                             Descripción
                         </button>
-                         <button
+                        <button
                             onClick={() => setActiveTab('reviews')}
                             className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'reviews' ? 'text-[#1a3da1] bg-white border-b-2 border-[#1a3da1]' : 'text-slate-400 hover:text-slate-600'}`}
                         >
@@ -439,103 +439,104 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                             </div>
                         ) : (
                             <div className="flex flex-col gap-6">
-                        {/* Add Review Form */}
-                        {!mounted ? (
-                             <div className="h-32 bg-slate-50 animate-pulse rounded-2xl" />
-                        ) : currentUser ? (
-                            <div className="flex flex-col gap-2 p-6 bg-slate-50/50 rounded-2xl border border-slate-100">
-                                <h3 className="text-[18px] font-bold text-[#1a3da1]">Agregar reseña</h3>
-                                <div className="flex items-center gap-2 mb-2">
-                                    {[1, 2, 3, 4, 5].map((i) => (
-                                        <i
-                                            key={i}
-                                            className={i <= newRating ? "fa-solid fa-star text-amber-400" : "fa-regular fa-star text-amber-400 opacity-60"}
-                                            style={{
-                                                fontFamily: '"Font Awesome 6 Free"',
-                                                fontWeight: i <= newRating ? 900 : 400,
-                                                fontSize: '24px',
-                                                cursor: 'pointer'
-                                            }}
-                                            onClick={() => setNewRating(i)}
-                                        />
-                                    ))}
-                                    <span className="ml-2 text-[13px] font-bold text-slate-400 uppercase tracking-widest">{newRating} / 5</span>
-                                </div>
-                                <textarea
-                                    className="border border-slate-200 rounded-xl p-4 bg-white focus:outline-none focus:ring-2 focus:ring-[#1a3da1]/20 focus:border-[#1a3da1] transition-all"
-                                    rows={3}
-                                    placeholder="Cuéntanos tu experiencia con el producto..."
-                                    value={newComment}
-                                    onChange={(e) => setNewComment(e.target.value)}
-                                />
-                                
-                                <div className="flex items-center gap-2 mt-2 ml-1">
-                                    <input 
-                                        type="checkbox" 
-                                        id="anonymousReview"
-                                        checked={isAnonymous}
-                                        onChange={(e) => setIsAnonymous(e.target.checked)}
-                                        className="w-4 h-4 rounded border-slate-300 text-[#1a3da1] focus:ring-[#1a3da1]"
-                                    />
-                                    <label htmlFor="anonymousReview" className="text-[12px] font-bold text-slate-500 cursor-pointer select-none">Valoración anónima</label>
-                                </div>
-
-                                <button
-                                    className="self-start mt-2 bg-[#1a3da1] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-blue-500/10"
-                                    onClick={handleAddReview}
-                                >
-                                    Publicar reseña
-                                </button>
-                            </div>
-                        ) : (
-                            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 flex flex-col items-center justify-center text-center gap-4">
-                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-slate-400 shadow-sm">
-                                    <i className="fa-solid fa-lock text-2xl" />
-                                </div>
-                                <div className="flex flex-col gap-1">
-                                    <h4 className="text-[16px] font-bold text-slate-900">¿Deseas dejar una reseña?</h4>
-                                    <p className="text-[13px] text-slate-500">Debes iniciar sesión con tu cuenta para calificar este producto.</p>
-                                </div>
-                                <button 
-                                    onClick={() => router.push('/login')}
-                                    className="mt-2 bg-[#1a3da1] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-blue-500/10 uppercase tracking-widest text-[11px]"
-                                >
-                                    Iniciar Sesión
-                                </button>
-                            </div>
-                        )}
-
-                        {/* List of Reviews */}
-                        <div className="flex flex-col gap-4">
-                            {reviews.length === 0 ? (
-                                <p className="text-slate-400 font-bold uppercase tracking-widest text-[12px]">Aún no hay reseñas</p>
-                            ) : (
-                                reviews.map((rev, idx) => (
-                                    <div key={idx} className="border-b pb-2">
-                                        <div className="flex items-center gap-1">
+                                {/* Add Review Form */}
+                                {!mounted ? (
+                                    <div className="h-32 bg-slate-50 animate-pulse rounded-2xl" />
+                                ) : currentUser ? (
+                                    <div className="flex flex-col gap-2 p-6 bg-slate-50/50 rounded-2xl border border-slate-100">
+                                        <h3 className="text-[18px] font-bold text-[#1a3da1]">Agregar reseña</h3>
+                                        <div className="flex items-center gap-2 mb-2">
                                             {[1, 2, 3, 4, 5].map((i) => (
                                                 <i
                                                     key={i}
-                                                    className={i <= rev.rating ? "fa-solid fa-star text-amber-400" : "fa-regular fa-star text-gray-300"}
+                                                    className={i <= newRating ? "fa-solid fa-star text-amber-400" : "fa-regular fa-star text-amber-400 opacity-60"}
                                                     style={{
                                                         fontFamily: '"Font Awesome 6 Free"',
-                                                        fontWeight: i <= rev.rating ? 900 : 400,
-                                                        fontSize: '16px'
+                                                        fontWeight: i <= newRating ? 900 : 400,
+                                                        fontSize: '24px',
+                                                        cursor: 'pointer'
                                                     }}
+                                                    onClick={() => setNewRating(i)}
                                                 />
                                             ))}
-                                            <span className="text-xs text-slate-400 ml-2">{rev.date}</span>
+                                            <span className="ml-2 text-[13px] font-bold text-slate-400 uppercase tracking-widest">{newRating} / 5</span>
                                         </div>
-                                        <div className="flex flex-col gap-1 mt-2">
-                                            <span className="text-[13px] font-bold text-slate-700">{rev.userName || 'Usuario Dazlea'}</span>
-                                            <p className="text-[14px] text-slate-600 leading-relaxed">{rev.comment}</p>
+                                        <textarea
+                                            className="border border-slate-200 rounded-xl p-4 bg-white focus:outline-none focus:ring-2 focus:ring-[#1a3da1]/20 focus:border-[#1a3da1] transition-all"
+                                            rows={3}
+                                            placeholder="Cuéntanos tu experiencia con el producto..."
+                                            value={newComment}
+                                            onChange={(e) => setNewComment(e.target.value)}
+                                        />
+
+                                        <div className="flex items-center gap-2 mt-2 ml-1">
+                                            <input
+                                                type="checkbox"
+                                                id="anonymousReview"
+                                                checked={isAnonymous}
+                                                onChange={(e) => setIsAnonymous(e.target.checked)}
+                                                className="w-4 h-4 rounded border-slate-300 text-[#1a3da1] focus:ring-[#1a3da1]"
+                                            />
+                                            <label htmlFor="anonymousReview" className="text-[12px] font-bold text-slate-500 cursor-pointer select-none">Valoración anónima</label>
                                         </div>
+
+                                        <button
+                                            className="self-start mt-2 bg-[#1a3da1] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-blue-500/10"
+                                            onClick={handleAddReview}
+                                        >
+                                            Publicar reseña
+                                        </button>
                                     </div>
-                                ))
-                            )}
-                        </div>
-                    </div>
+                                ) : (
+                                    <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 flex flex-col items-center justify-center text-center gap-4">
+                                        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-slate-400 shadow-sm">
+                                            <i className="fa-solid fa-lock text-2xl" />
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <h4 className="text-[16px] font-bold text-slate-900">¿Deseas dejar una reseña?</h4>
+                                            <p className="text-[13px] text-slate-500">Debes iniciar sesión con tu cuenta para calificar este producto.</p>
+                                        </div>
+                                        <button
+                                            onClick={() => router.push('/login')}
+                                            className="mt-2 bg-[#1a3da1] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-blue-500/10 uppercase tracking-widest text-[11px]"
+                                        >
+                                            Iniciar Sesión
+                                        </button>
+                                    </div>
+                                )}
+
+                                {/* List of Reviews */}
+                                <div className="flex flex-col gap-4">
+                                    {reviews.length === 0 ? (
+                                        <p className="text-slate-400 font-bold uppercase tracking-widest text-[12px]">Aún no hay reseñas</p>
+                                    ) : (
+                                        reviews.map((rev, idx) => (
+                                            <div key={idx} className="border-b pb-2">
+                                                <div className="flex items-center gap-1">
+                                                    {[1, 2, 3, 4, 5].map((i) => (
+                                                        <i
+                                                            key={i}
+                                                            className={i <= rev.rating ? "fa-solid fa-star text-amber-400" : "fa-regular fa-star text-gray-300"}
+                                                            style={{
+                                                                fontFamily: '"Font Awesome 6 Free"',
+                                                                fontWeight: i <= rev.rating ? 900 : 400,
+                                                                fontSize: '16px'
+                                                            }}
+                                                        />
+                                                    ))}
+                                                    <span className="text-xs text-slate-400 ml-2">{rev.date}</span>
+                                                </div>
+                                                <div className="flex flex-col gap-1 mt-2">
+                                                    <span className="text-[13px] font-bold text-slate-700">{rev.userName || 'Usuario Dazlea'}</span>
+                                                    <p className="text-[14px] text-slate-600 leading-relaxed">{rev.comment}</p>
+                                                </div>
+                                            </div>
+                                        ))
+                                    )}
+                                </div>
+                            </div>
                         )}
+                    </div>
                 </div>
             </div>
 
