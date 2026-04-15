@@ -9,13 +9,19 @@ import { prisma } from '@/lib/prisma';
 
 export default async function Home() {
   // Fetch initial data on the server for instant loading
-  const categories = await prisma.category.findMany({
-    orderBy: { name: 'asc' }
-  });
+  const [categories, sliders] = await Promise.all([
+    prisma.category.findMany({
+      orderBy: { name: 'asc' }
+    }),
+    prisma.slider.findMany({
+      where: { status: 'ACTIVE' },
+      orderBy: { order: 'asc' }
+    })
+  ]);
 
   return (
     <>
-      <Hero />
+      <Hero initialCategories={categories} initialSliders={sliders} />
       <Categories initialCategories={categories} />
 
       {/* Container de Ancho Fijo */}
