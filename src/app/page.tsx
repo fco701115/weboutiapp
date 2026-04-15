@@ -19,10 +19,14 @@ export default async function Home() {
     })
   ]);
 
+  // Sanitize data for Client Components (convert Dates to strings)
+  const serializedCategories = JSON.parse(JSON.stringify(categories));
+  const serializedSliders = JSON.parse(JSON.stringify(sliders));
+
   return (
     <>
-      <Hero initialCategories={categories} initialSliders={sliders} />
-      <Categories initialCategories={categories} />
+      <Hero initialCategories={serializedCategories} initialSliders={serializedSliders} />
+      <Categories initialCategories={serializedCategories} />
 
       {/* Container de Ancho Fijo */}
       <div className="w-full max-w-[1200px] mx-auto px-2 pt-4 pb-8">

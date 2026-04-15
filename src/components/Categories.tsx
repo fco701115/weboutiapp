@@ -62,6 +62,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
     };
 
     const getIcon = (name: string) => {
+        if (!name) return LayoutGrid;
         const n = name.toLowerCase();
         if (n.includes('monit')) return Monitor;
         if (n.includes('comp') || n.includes('proc')) return Cpu;
@@ -129,14 +130,20 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                         <div className="w-[85px] h-[85px] sm:w-[100px] md:w-[120px] md:h-[120px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex items-center justify-center text-slate-400 group-hover:border-[#173495] group-hover:text-[#173495] group-hover:bg-blue-50/30 group-hover:shadow-2xl group-hover:shadow-blue-500/10 transition-all duration-500 ease-out overflow-hidden relative">
                                             {c.imageUrl ? (
                                                 <div className="relative w-full h-full p-2">
-                                                    <Image src={c.imageUrl} alt={c.name} fill className="object-cover" />
+                                                    <Image 
+                                                        src={c.imageUrl} 
+                                                        alt={c.name || 'Categoría'} 
+                                                        fill 
+                                                        className="object-cover" 
+                                                        unoptimized={c.imageUrl && c.imageUrl.startsWith('data:')}
+                                                    />
                                                 </div>
                                             ) : (
                                                 <IconComponent size={32} className="md:w-[48px] md:h-[48px]" strokeWidth={1.5} />
                                             )}
                                         </div>
                                         <span className="text-[16px] font-bold text-[#003F99] group-hover:text-[#1a3da1] transition-colors text-center capitalize tracking-tight leading-tight px-2">
-                                            {c.name.toLowerCase()}
+                                            {c.name ? c.name.toLowerCase() : ''}
                                         </span>
                                     </Link>
                                 )

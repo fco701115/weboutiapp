@@ -20,7 +20,12 @@ export async function HomeProducts() {
         }
 
         const formattedProducts = products.map(p => {
-            const images = typeof p.images === 'string' ? JSON.parse(p.images) : p.images;
+            let images = [];
+            try {
+                images = typeof p.images === 'string' ? JSON.parse(p.images) : p.images;
+            } catch (e) {
+                images = [];
+            }
             const firstImage = Array.isArray(images) ? images[0] : images;
 
             return {

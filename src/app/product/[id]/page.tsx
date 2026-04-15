@@ -23,12 +23,22 @@ export default async function Page({ params }: Props) {
         notFound();
     }
 
-    // Convert decimal/number fields for serialization
-    const serializedProduct = {
+    // Function to parse the images field safely
+    const parseImages = (imagesStr: any) => {
+        try {
+            return typeof imagesStr === 'string' ? JSON.parse(imagesStr) : imagesStr;
+        } catch {
+            return [];
+        }
+    };
+
+    // Convert and sanitize product for serialization
+    const serializedProduct = JSON.parse(JSON.stringify({
         ...product,
         price: Number(product.price),
         salePrice: product.salePrice ? Number(product.salePrice) : null,
-    };
+        images: parseImages(product.images)
+    }));
 
     // Fetch related products (same category, excluding current product)
     let relatedProducts: any[] = [];
@@ -42,11 +52,20 @@ export default async function Page({ params }: Props) {
             orderBy: { createdAt: 'desc' }
         });
 
-        relatedProducts = rawRelated.map(p => ({
-            ...p,
-            price: Number(p.price),
-            salePrice: p.salePrice ? Number(p.salePrice) : null,
-        }));
+        relatedProducts = JSON.parse(JSON.stringify(rawRelated.map(p => {
+            const images = parseImages(p.images);
+            const firstImage = Array.isArray(images) ? images[0] : images;
+            
+            return {
+                id: p.id,
+                name: p.name,
+                price: Number(p.price),
+                salePrice: p.salePrice ? Number(p.salePrice) : null,
+                imageUrl: firstImage || "https://via.placeholder.com/200",
+                rating: 0,
+                discountBadge: p.salePrice ? Math.round((1 - Number(p.salePrice) / Number(p.price)) * 100) + '%' : undefined
+            };
+        })));
     }
 
     return (

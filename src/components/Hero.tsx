@@ -56,6 +56,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
     }, [sliders]);
 
     const getIcon = (name: string) => {
+        if (!name) return <Laptop size={18} />;
         const n = name.toLowerCase();
         if (n.includes('lap') || n.includes('comp')) return <Laptop size={18} />;
         if (n.includes('smart') || n.includes('tab') || n.includes('celu')) return <Smartphone size={18} />;
@@ -94,7 +95,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                                             alt={cat.name}
                                                             fill
                                                             className="object-cover"
-                                                            unoptimized={cat.imageUrl.startsWith('data:')}
+                                                            unoptimized={cat.imageUrl && cat.imageUrl.startsWith('data:')}
                                                         />
                                                     </div>
                                                 ) : (
@@ -126,7 +127,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                                 alt={slider.title}
                                                 fill
                                                 className="object-cover"
-                                                unoptimized={slider.image.startsWith('data:')}
+                                                unoptimized={slider.image && slider.image.startsWith('data:')}
                                                 priority={index === 0}
                                             />
                                             {/* Subtle gradient only on the text area for legibility */}
@@ -147,7 +148,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                                     alt={slider.title + " thumbnail"}
                                                     fill
                                                     className="object-contain object-right md:object-center drop-shadow-2xl hover:scale-105 transition-transform duration-700"
-                                                    unoptimized={slider.thumbnail.startsWith('data:')}
+                                                    unoptimized={slider.thumbnail && slider.thumbnail.startsWith('data:')}
                                                 />
                                             </div>
                                         </div>
