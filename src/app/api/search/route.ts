@@ -50,7 +50,11 @@ export async function GET(req: Request) {
             };
         });
 
-        return NextResponse.json(formattedProducts);
+        return NextResponse.json(formattedProducts, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+            },
+        });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to search products' }, { status: 500 });
     }

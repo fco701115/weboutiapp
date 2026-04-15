@@ -4,19 +4,21 @@ import { Monitor, Cpu, HardDrive, Mouse, Keyboard, Headphones, Cable, Gamepad2, 
 import Link from 'next/link';
 import Image from 'next/image';
 
-export function Categories() {
+export function Categories({ initialCategories }: { initialCategories?: any[] }) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
     const [mounted, setMounted] = useState(false);
-    const [categories, setCategories] = useState<any[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [categories, setCategories] = useState<any[]>(initialCategories || []);
+    const [isLoading, setIsLoading] = useState(!initialCategories);
 
     useEffect(() => {
         setMounted(true);
-        fetchCategories();
-    }, []);
+        if (!initialCategories) {
+            fetchCategories();
+        }
+    }, [initialCategories]);
 
     const fetchCategories = async () => {
         try {
@@ -126,7 +128,9 @@ export function Categories() {
                                     >
                                         <div className="w-[85px] h-[85px] sm:w-[100px] md:w-[120px] md:h-[120px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex items-center justify-center text-slate-400 group-hover:border-[#173495] group-hover:text-[#173495] group-hover:bg-blue-50/30 group-hover:shadow-2xl group-hover:shadow-blue-500/10 transition-all duration-500 ease-out overflow-hidden relative">
                                             {c.imageUrl ? (
-                                                <Image src={c.imageUrl} alt={c.name} fill className="object-cover p-2" />
+                                                <div className="relative w-full h-full p-2">
+                                                    <Image src={c.imageUrl} alt={c.name} fill className="object-cover" />
+                                                </div>
                                             ) : (
                                                 <IconComponent size={32} className="md:w-[48px] md:h-[48px]" strokeWidth={1.5} />
                                             )}

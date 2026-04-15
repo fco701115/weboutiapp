@@ -1,14 +1,22 @@
+export const revalidate = 60;
+
 import { Hero } from '@/components/Hero';
 import { Categories } from '@/components/Categories';
 import { PromoBanners } from '@/components/PromoBanners';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { HomeProducts } from '@/components/HomeProducts';
+import { prisma } from '@/lib/prisma';
 
-export default function Home() {
+export default async function Home() {
+  // Fetch initial data on the server for instant loading
+  const categories = await prisma.category.findMany({
+    orderBy: { name: 'asc' }
+  });
+
   return (
     <>
       <Hero />
-      <Categories />
+      <Categories initialCategories={categories} />
 
       {/* Container de Ancho Fijo */}
       <div className="w-full max-w-[1200px] mx-auto px-2 pt-4 pb-8">
@@ -24,7 +32,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Grilla de Productos (Client-side fetch) */}
+        {/* Grilla de Productos (Server Component) */}
         <HomeProducts />
       </div>
 

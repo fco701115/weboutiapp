@@ -6,7 +6,11 @@ export async function GET() {
         const banners = await prisma.banner.findMany({
             orderBy: { createdAt: 'desc' }
         });
-        return NextResponse.json(banners);
+        return NextResponse.json(banners, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+            },
+        });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to fetch banners' }, { status: 500 });
     }

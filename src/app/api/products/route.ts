@@ -41,7 +41,11 @@ export async function GET() {
             images: p.images ? JSON.parse(p.images) : []
         }));
 
-        return NextResponse.json(formattedProducts);
+        return NextResponse.json(formattedProducts, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+            },
+        });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
     }
