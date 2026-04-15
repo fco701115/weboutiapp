@@ -56,78 +56,84 @@ export function ProductCard({ product }: { product: Product }) {
 
     return (
         <div 
-            onClick={handleNavigate}
-            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group cursor-pointer"
+            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group"
         >
-            {/* Discount Badge */}
-            {(product.discountBadge || product.salePrice) && (
-                <div
-                    className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#1a3da1] text-white flex flex-col items-center justify-center text-[10px] font-black leading-tight shadow-md border-2 border-white"
-                    style={{ fontFamily: '"Lato", sans-serif' }}
-                >
-                    -{product.discountBadge ? product.discountBadge.replace(/[^0-9%]/g, '') : Math.round((1 - Number(product.salePrice) / Number(product.price)) * 100) + '%'}
-                </div>
-            )}
-
-            {/* Image Area */}
-            <div className="relative mx-auto w-full h-[140px] sm:h-[180px] p-0">
-                <div className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-2xl group-hover:bg-slate-100/50 transition-all overflow-hidden">
-                    <Image
-                        src={product.imageUrl}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 640px) 50vw, 180px"
-                        className="object-contain group-hover:scale-110 transition-transform duration-500"
-                    />
-                </div>
-                {/* Wishlist Button */}
-                <button
-                    onClick={handleWishlist}
-                    className="absolute right-2 bottom-2 z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group/fav"
-                >
-                    <Heart 
-                        size={16} 
-                        className={`transition-colors ${isFav ? 'text-red-500 fill-red-500 scale-110' : 'text-slate-400 group-hover/fav:text-red-500'}`} 
-                    />
-                </button>
-            </div>
-
-            {/* Product Name Area */}
-            <div className="w-full px-1 mt-4">
-                <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] group-hover:text-[#1a3da1] transition-colors">
-                    {product.name}
-                </h3>
-            </div>
-
-            {/* Rating Area */}
-            <div className="w-full px-1 mt-2 flex items-center text-amber-400 gap-[2px]">
-                {Array.from({ length: 5 }).map((_, i) => (
-                    <i
-                        key={i}
-                        className={`${i < product.rating ? "fa-solid fa-star" : "fa-regular fa-star"}`}
-                        style={{
-                            fontFamily: '"Font Awesome 6 Free"',
-                            fontWeight: i < product.rating ? 900 : 400,
-                            fontSize: '13px'
-                        }}
-                    />
-                ))}
-            </div>
-
-            {/* Price Area */}
-            <div className="w-full px-1 mt-[5px] flex items-baseline gap-2">
-                <span className="text-[16px] font-black text-[#1a3da1] tracking-tight">
-                    $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                </span>
-                {product.salePrice && (
-                    <span className="text-[12px] text-[#999] line-through font-bold">
-                        $ {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                    </span>
+            <Link 
+                href={`/product/${product.id}`}
+                className="flex flex-col h-full no-underline"
+            >
+                {/* Discount Badge */}
+                {(product.discountBadge || product.salePrice) && (
+                    <div
+                        className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#1a3da1] text-white flex flex-col items-center justify-center text-[10px] font-black leading-tight shadow-md border-2 border-white"
+                        style={{ fontFamily: '"Lato", sans-serif' }}
+                    >
+                        -{product.discountBadge ? product.discountBadge.replace(/[^0-9%]/g, '') : Math.round((1 - Number(product.salePrice) / Number(product.price)) * 100) + '%'}
+                    </div>
                 )}
-            </div>
+
+                {/* Image Area */}
+                <div className="relative mx-auto w-full h-[140px] sm:h-[180px] p-0">
+                    <div className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-2xl sm:group-hover:bg-slate-100/50 transition-all overflow-hidden">
+                        <Image
+                            src={product.imageUrl}
+                            alt={product.name}
+                            fill
+                            sizes="(max-width: 640px) 50vw, 180px"
+                            className="object-contain sm:group-hover:scale-110 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+
+                {/* Product Name Area */}
+                <div className="w-full px-1 mt-4">
+                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] sm:group-hover:text-[#1a3da1] transition-colors">
+                        {product.name}
+                    </h3>
+                </div>
+
+                {/* Rating Area */}
+                <div className="w-full px-1 mt-2 flex items-center text-amber-400 gap-[2px]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                        <i
+                            key={i}
+                            className={`${i < product.rating ? "fa-solid fa-star" : "fa-regular fa-star"}`}
+                            style={{
+                                fontFamily: '"Font Awesome 6 Free"',
+                                fontWeight: i < product.rating ? 900 : 400,
+                                fontSize: '13px'
+                            }}
+                        />
+                    ))}
+                </div>
+
+                {/* Price Area */}
+                <div className="w-full px-1 mt-[5px] flex items-baseline gap-2 mb-4">
+                    <span className="text-[16px] font-black text-[#1a3da1] tracking-tight">
+                        $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                    {product.salePrice && (
+                        <span className="text-[12px] text-[#999] line-through font-bold">
+                            $ {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </span>
+                    )}
+                </div>
+            </Link>
+
+            {/* Wishlist Button - Outside the Link to avoid nesting interactivity */}
+            <button
+                onClick={handleWishlist}
+                className="absolute right-5 bottom-[105px] sm:right-[22px] sm:bottom-[150px] z-20 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group/fav"
+                aria-label="Toggle Wishlist"
+            >
+                <Heart 
+                    size={16} 
+                    className={`transition-colors ${isFav ? 'text-red-500 fill-red-500 scale-110' : 'text-slate-400 group-hover/fav:text-red-500'}`} 
+                />
+            </button>
 
             {/* Actions Area */}
-            <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-[2px] mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2">
+            <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-[2px] mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2 relative z-10">
                 <button
                     onClick={handleBuyNow}
                     className="flex-1 h-[35px] bg-[#1c3892] hover:bg-blue-800 text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"

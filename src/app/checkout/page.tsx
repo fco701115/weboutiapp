@@ -234,6 +234,16 @@ export default function CheckoutPage() {
                                                 {savedAddresses[selectedAddressIndex]?.title || 'Dirección de Envío'}
                                                 <span className="px-2 py-0.5 bg-[#1a3da1] text-white text-[10px] rounded-full uppercase tracking-widest font-bold ml-2">Seleccionada</span>
                                             </p>
+
+                                            {/* Mobile Change Button */}
+                                            <button 
+                                                type="button"
+                                                onClick={() => setIsAddressModalOpen(true)}
+                                                className="md:hidden text-[#1a3da1] font-black text-[11px] uppercase tracking-widest px-3 py-1 bg-[#1a3da1]/10 rounded-lg transition-colors mt-2 mb-2"
+                                            >
+                                                Cambiar Dirección
+                                            </button>
+
                                             <p className="text-slate-600 font-black mt-2 text-[15px]">{formData.firstName} {formData.lastName}</p>
                                             <p className="text-slate-800 font-bold mt-1 text-[16px]">{savedAddresses[selectedAddressIndex]?.street || formData.address}</p>
                                             
@@ -281,7 +291,7 @@ export default function CheckoutPage() {
                                     <button 
                                         type="button"
                                         onClick={() => setIsAddressModalOpen(true)}
-                                        className="text-[#1a3da1] font-black text-[12px] uppercase tracking-widest px-4 py-2 hover:bg-blue-100 rounded-xl transition-colors shrink-0"
+                                        className="hidden md:block text-[#1a3da1] font-black text-[12px] uppercase tracking-widest px-4 py-2 hover:bg-blue-100 rounded-xl transition-colors shrink-0"
                                     >
                                         Cambiar
                                     </button>
