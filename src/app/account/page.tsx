@@ -583,7 +583,7 @@ export default function AccountPage() {
                         {selectedOrder && (
                             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300">
                                 <div className="bg-white w-full max-w-2xl rounded-[40px] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
-                                    <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
+                                    <div className="p-4 sm:p-8 rounded-t-[10px] border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
                                         <div>
                                             <h3 className="text-2xl font-black text-slate-900 tracking-tight">Detalle del Pedido</h3>
                                             <p className="text-slate-400 font-bold text-sm">#{selectedOrder.id.slice(-6).toUpperCase()}</p>
@@ -593,7 +593,7 @@ export default function AccountPage() {
                                         </button>
                                     </div>
 
-                                    <div className="p-8 max-h-[70vh] overflow-y-auto no-scrollbar space-y-8">
+                                    <div className="p-4 sm:p-8 rounded-b-[10px] max-h-[70vh] overflow-y-auto no-scrollbar space-y-8">
                                         {/* Status & Date */}
                                         <div className="flex items-center justify-between p-6 bg-slate-50 rounded-3xl border border-slate-100">
                                             <div className="space-y-1">
