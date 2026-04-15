@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { User, Package, MapPin, Settings, LogOut, ChevronRight, ShoppingBag, Heart, ShieldCheck, Star, Trash2, CheckCircle2, Truck, Eye, X, Briefcase, Mountain } from 'lucide-react';
+import { User, Package, MapPin, Settings, LogOut, ChevronRight, ChevronLeft, ShoppingBag, Heart, ShieldCheck, Star, Trash2, CheckCircle2, Truck, Eye, X, Briefcase, Mountain } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
@@ -301,7 +301,7 @@ export default function AccountPage() {
 
     return (
         <div className="bg-[#f7f9fa] min-h-screen pb-20">
-            <div className="max-w-[1200px] mx-auto px-4 py-10">
+            <div className="max-w-[1200px] mx-auto px-2 sm:px-4 py-10">
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
@@ -328,52 +328,66 @@ export default function AccountPage() {
                             </div>
                         </div>
 
-                        <div className="bg-white rounded-[32px] border border-slate-100 shadow-sm overflow-hidden p-2 flex flex-row lg:flex-col overflow-x-auto no-scrollbar gap-1 lg:gap-0 sticky top-4 lg:relative lg:top-0 z-30">
-                            <button onClick={() => setActiveTab('profile')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-3 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'profile' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
-                                <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                    <User size={20} className={activeTab === 'profile' ? 'text-white' : 'text-[#1a3da1]'} />
-                                    <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Mi cuenta</span>
+                        <div className="sticky top-4 lg:relative lg:top-0 z-30">
+                            {/* Mobile scroll indicators */}
+                            <div className="lg:hidden absolute left-0 top-0 bottom-0 flex items-center px-1 z-40 pointer-events-none">
+                                <div className="bg-white/80 rounded-full shadow-sm p-0.5 text-[#1a3da1]/50 flex items-center justify-center border border-slate-100 backdrop-blur-sm">
+                                    <ChevronLeft size={12} />
                                 </div>
-                                <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'profile' ? 'text-white/40' : 'text-slate-200'}`} />
-                            </button>
-                            <button onClick={() => setActiveTab('orders')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-3 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'orders' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
-                                <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                    <Package size={20} className={activeTab === 'orders' ? 'text-white' : 'text-[#1a3da1]'} />
-                                    <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Mis Pedidos</span>
+                            </div>
+                            <div className="lg:hidden absolute right-0 top-0 bottom-0 flex items-center px-1 z-40 pointer-events-none">
+                                <div className="bg-white/80 rounded-full shadow-sm p-0.5 text-[#1a3da1]/50 flex items-center justify-center border border-slate-100 backdrop-blur-sm">
+                                    <ChevronRight size={12} />
                                 </div>
-                                <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'orders' ? 'text-white/40' : 'text-slate-200'}`} />
-                            </button>
-                            <button onClick={() => setActiveTab('favorites')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-3 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'favorites' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
-                                <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                    <Heart size={20} className={activeTab === 'favorites' ? 'text-white' : 'text-[#1a3da1]'} />
-                                    <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Favoritos</span>
-                                </div>
-                                <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'favorites' ? 'text-white/40' : 'text-slate-200'}`} />
-                            </button>
-                            <button onClick={() => setActiveTab('reviews')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-3 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'reviews' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
-                                <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                    <Star size={20} className={activeTab === 'reviews' ? 'text-white' : 'text-[#1a3da1]'} />
-                                    <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Valoraciones</span>
-                                </div>
-                                <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'reviews' ? 'text-white/40' : 'text-slate-200'}`} />
-                            </button>
-                            <button onClick={() => setActiveTab('addresses')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-3 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'addresses' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
-                                <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                    <MapPin size={20} className={activeTab === 'addresses' ? 'text-white' : 'text-[#1a3da1]'} />
-                                    <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Direcciones</span>
-                                </div>
-                                <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'addresses' ? 'text-white/40' : 'text-slate-200'}`} />
-                            </button>
+                            </div>
 
-                            <div className="hidden lg:block h-px bg-slate-50 my-2 mx-4" />
+                            <div className="bg-white rounded-[32px] border border-slate-100 shadow-sm overflow-hidden p-2 flex flex-row lg:flex-col overflow-x-auto no-scrollbar gap-1 lg:gap-0">
+                                <button onClick={() => setActiveTab('profile')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'profile' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                    <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
+                                        <User size={20} className={activeTab === 'profile' ? 'text-white' : 'text-[#1a3da1]'} />
+                                        <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Mi cuenta</span>
+                                    </div>
+                                    <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'profile' ? 'text-white/40' : 'text-slate-200'}`} />
+                                </button>
+                                <button onClick={() => setActiveTab('orders')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'orders' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                    <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
+                                        <Package size={20} className={activeTab === 'orders' ? 'text-white' : 'text-[#1a3da1]'} />
+                                        <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Mis Pedidos</span>
+                                    </div>
+                                    <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'orders' ? 'text-white/40' : 'text-slate-200'}`} />
+                                </button>
+                                <button onClick={() => setActiveTab('favorites')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'favorites' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                    <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
+                                        <Heart size={20} className={activeTab === 'favorites' ? 'text-white' : 'text-[#1a3da1]'} />
+                                        <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Favoritos</span>
+                                    </div>
+                                    <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'favorites' ? 'text-white/40' : 'text-slate-200'}`} />
+                                </button>
+                                <button onClick={() => setActiveTab('reviews')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'reviews' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                    <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
+                                        <Star size={20} className={activeTab === 'reviews' ? 'text-white' : 'text-[#1a3da1]'} />
+                                        <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Valoraciones</span>
+                                    </div>
+                                    <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'reviews' ? 'text-white/40' : 'text-slate-200'}`} />
+                                </button>
+                                <button onClick={() => setActiveTab('addresses')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'addresses' ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                    <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
+                                        <MapPin size={20} className={activeTab === 'addresses' ? 'text-white' : 'text-[#1a3da1]'} />
+                                        <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Direcciones</span>
+                                    </div>
+                                    <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'addresses' ? 'text-white/40' : 'text-slate-200'}`} />
+                                </button>
 
-                            <button
-                                onClick={handleLogout}
-                                className="flex flex-col lg:flex-row items-center lg:justify-start gap-1.5 lg:gap-3 p-3 lg:p-4 text-rose-500 hover:bg-rose-50 rounded-2xl transition-all font-bold text-[10px] lg:text-[14px] min-w-[85px] lg:w-full flex-shrink-0"
-                            >
-                                <LogOut size={20} />
-                                <span className="whitespace-nowrap">Cerrar Sesión</span>
-                            </button>
+                                <div className="hidden lg:block h-px bg-slate-50 my-2 mx-4" />
+
+                                <button
+                                    onClick={handleLogout}
+                                    className="flex flex-col lg:flex-row items-center lg:justify-start gap-1.5 lg:gap-3 p-2 lg:p-4 text-rose-500 hover:bg-rose-50 rounded-2xl transition-all font-bold text-[10px] lg:text-[14px] min-w-[85px] lg:w-full flex-shrink-0"
+                                >
+                                    <LogOut size={20} />
+                                    <span className="whitespace-nowrap">Cerrar Sesión</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -468,7 +482,7 @@ export default function AccountPage() {
                         {/* TAB CONTENT: ORDERS */}
                         {activeTab === 'orders' && (
                             <div className="bg-white rounded-[40px] border border-slate-100 shadow-xl shadow-slate-200/40 overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700">
-                                <div className="p-8 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div className="px-2 py-8 sm:p-8 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <h3 className="text-xl font-black text-slate-900 tracking-tight">Mis Pedidos</h3>
                                     <div className="flex gap-2 p-1 bg-slate-50 rounded-2xl border border-slate-100 sm:w-fit">
                                         {[
@@ -480,7 +494,7 @@ export default function AccountPage() {
                                             <button 
                                                 key={f.id}
                                                 onClick={() => setOrderFilter(f.id)}
-                                                className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-grow sm:flex-grow-0 ${
+                                                className={`px-[10px] py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-grow sm:flex-grow-0 ${
                                                     orderFilter === f.id 
                                                     ? 'bg-[#1a3da1] text-white shadow-lg shadow-blue-500/20 scale-105' 
                                                     : 'text-slate-400 hover:text-slate-600'
@@ -690,14 +704,15 @@ export default function AccountPage() {
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="p-8 bg-slate-50/50 border-t border-slate-100">
-                                        <button 
-                                            onClick={() => setSelectedOrder(null)}
-                                            className="w-full py-4 bg-slate-900 text-white rounded-2xl font-black text-[13px] uppercase tracking-[0.2em] shadow-xl shadow-slate-900/10 hover:bg-slate-800 transition-all active:scale-[0.98]"
-                                        >
-                                            Cerrar Detalle
-                                        </button>
+                                        {/* Close Button Inside Scrollable Area */}
+                                        <div className="pt-8 mt-8 border-t border-slate-100 pb-4">
+                                            <button 
+                                                onClick={() => setSelectedOrder(null)}
+                                                className="w-full py-4 bg-slate-900 text-white rounded-2xl font-black text-[13px] uppercase tracking-[0.2em] shadow-xl shadow-slate-900/10 hover:bg-slate-800 transition-all active:scale-[0.98]"
+                                            >
+                                                Cerrar Detalle
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
