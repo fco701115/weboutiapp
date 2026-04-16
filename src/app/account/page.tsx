@@ -1019,7 +1019,7 @@ export default function AccountPage() {
                                         <p className="text-slate-400 font-bold uppercase tracking-widest text-[11px]">No has guardado direcciones aún.</p>
                                     </div>
                                 ) : (
-                                    <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50/30">
+                                    <div className="p-4 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50/30">
                                         {addresses.map((addr) => (
                                             <div key={addr.id} className="p-6 bg-white border border-slate-200 shadow-sm rounded-[32px] relative hover:border-blue-300 hover:shadow-lg transition-all group cursor-pointer" onClick={() => setViewingAddress(addr)}>
                                                 <button 

@@ -217,7 +217,7 @@ export default function CheckoutPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                     {/* Form side */}
                     <div className="lg:col-span-7 space-y-8">
-                        <div className="bg-white rounded-[8px] shadow-sm border border-slate-100 p-8 md:p-12">
+                        <div className="bg-white rounded-[8px] shadow-sm border border-slate-100 p-4 sm:p-8 md:p-12">
                             <h2 className="text-[28px] font-black text-slate-900 mb-8 tracking-tighter flex items-center gap-4">
                                 <span className="w-10 h-10 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-900 text-lg">1</span>
                                 Información de Envío
