@@ -175,7 +175,7 @@ export default function AdminDashboard() {
             {/* Analytics & Recent Activity */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                 {/* Sales Chart - Premium Visualization */}
-                <div className="lg:col-span-2 bg-white rounded-[48px] border border-slate-100 p-4 shadow-sm relative overflow-hidden">
+                <div className="lg:col-span-2 bg-white rounded-[24px] border border-slate-100 p-4 shadow-sm relative overflow-hidden">
                     <div className="space-y-6 mb-10">
                         <div className="space-y-2">
                             <h3 className="text-2xl font-black text-slate-900 tracking-tight">Análisis de Ingresos</h3>
@@ -193,7 +193,7 @@ export default function AdminDashboard() {
                         </div>
                     </div>
 
-                    <div className="h-56 w-full flex items-end justify-between px-4 pb-4 gap-6">
+                    <div className="h-56 w-full flex items-end justify-between px-4 pb-4 gap-4">
                         {data?.revenueByMonth?.map((item: any, i: number) => {
                             const heightPercentage = Math.max((item.revenue / maxRevenue) * 100, 8);
                             return (
@@ -220,7 +220,7 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Recent Orders - Modern List Styling */}
-                <div className="bg-white rounded-[48px] border border-slate-100 p-4 sm:p-10 shadow-sm flex flex-col">
+                <div className="bg-white rounded-[24px] border border-slate-100 p-4 sm:p-10 shadow-sm flex flex-col">
                     <div className="flex items-center justify-between mb-10">
                         <div className="space-y-1">
                             <h3 className="text-xl font-black text-slate-900 tracking-tight">Actividad</h3>
