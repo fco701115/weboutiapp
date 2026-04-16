@@ -394,7 +394,7 @@ export default function AccountPage() {
                     {/* Main Content */}
                     <div className="lg:col-span-9 space-y-6 lg:space-y-8">
                         {/* Stats Row - Hides on mobile if not in profile tab to create a "window" feel for other sections */}
-                        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4 ${activeTab === 'profile' ? 'grid' : 'hidden lg:grid'}`}>
+                        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 ${activeTab === 'profile' ? 'grid' : 'hidden lg:grid'}`}>
                             {/* Proceso */}
                             <div 
                                 onClick={() => { 
@@ -474,6 +474,19 @@ export default function AccountPage() {
                                     <div className="overflow-hidden">
                                         <p className="text-slate-400 font-bold text-[8px] sm:text-[10px] uppercase tracking-widest truncate leading-tight">Opiniones</p>
                                         <p className="text-base sm:text-xl font-black text-slate-900 leading-tight">{userReviews.length}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Direcciones */}
+                            <div onClick={() => setActiveTab('addresses')} className="bg-white rounded-[24px] p-4 sm:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all group cursor-pointer border-b-4 border-b-violet-500/10">
+                                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-violet-50 rounded-xl flex items-center justify-center text-violet-600 group-hover:scale-110 transition-transform flex-shrink-0">
+                                        <MapPin size={18} className="sm:size-[20px]" />
+                                    </div>
+                                    <div className="overflow-hidden">
+                                        <p className="text-slate-400 font-bold text-[8px] sm:text-[10px] uppercase tracking-widest truncate leading-tight">Direcciones</p>
+                                        <p className="text-base sm:text-xl font-black text-slate-900 leading-tight">{addresses.length}</p>
                                     </div>
                                 </div>
                             </div>
@@ -583,7 +596,7 @@ export default function AccountPage() {
                         {selectedOrder && (
                             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300">
                                 <div className="bg-white w-full max-w-2xl rounded-[40px] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
-                                    <div className="p-4 sm:p-8 rounded-t-[10px] border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
+                                    <div className="p-4 sm:p-8 rounded-t-[6px] border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
                                         <div>
                                             <h3 className="text-2xl font-black text-slate-900 tracking-tight">Detalle del Pedido</h3>
                                             <p className="text-slate-400 font-bold text-sm">#{selectedOrder.id.slice(-6).toUpperCase()}</p>
@@ -593,7 +606,7 @@ export default function AccountPage() {
                                         </button>
                                     </div>
 
-                                    <div className="p-4 sm:p-8 rounded-b-[10px] max-h-[70vh] overflow-y-auto no-scrollbar space-y-8">
+                                    <div className="p-4 sm:p-8 rounded-b-[6px] max-h-[70vh] overflow-y-auto no-scrollbar space-y-8">
                                         {/* Status & Date */}
                                         <div className="flex items-center justify-between p-6 bg-slate-50 rounded-3xl border border-slate-100">
                                             <div className="space-y-1">
@@ -889,7 +902,7 @@ export default function AccountPage() {
                                                     {[
                                                         { label: '🏠 Casa', value: 'Casa' },
                                                         { label: '💼 Trabajo', value: 'Trabajo' },
-                                                        { label: '🛤️ lugar', value: 'Lugar' }
+                                                        { label: '🛤️ Lugar', value: 'Lugar' }
                                                     ].map((type) => (
                                                         <label key={type.value} className="flex items-center gap-3 cursor-pointer group">
                                                             <div 
