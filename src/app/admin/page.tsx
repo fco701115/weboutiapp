@@ -193,7 +193,7 @@ export default function AdminDashboard() {
                         </div>
                     </div>
 
-                    <div className="h-56 w-full flex items-end justify-between px-2 pb-4 gap-3">
+                    <div className="h-56 w-full flex items-end justify-between px-2 pb-4 gap-[10px]">
                         {data?.revenueByMonth?.map((item: any, i: number) => {
                             const heightPercentage = Math.max((item.revenue / maxRevenue) * 100, 8);
                             return (
