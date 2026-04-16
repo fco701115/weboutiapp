@@ -123,7 +123,7 @@ export function ProductCard({ product }: { product: Product }) {
             {/* Wishlist Button - Outside the Link to avoid nesting interactivity */}
             <button
                 onClick={handleWishlist}
-                className="absolute right-5 bottom-[155px] sm:right-[22px] sm:bottom-[150px] z-20 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group/fav"
+                className="absolute right-5 bottom-[160px] sm:right-[22px] sm:bottom-[150px] z-20 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group/fav"
                 aria-label="Toggle Wishlist"
             >
                 <Heart 
