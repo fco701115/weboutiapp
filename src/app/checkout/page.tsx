@@ -307,7 +307,7 @@ export default function CheckoutPage() {
                                             </div>
 
                                             <div className="flex flex-col gap-2">
-                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Nombre y Apellido:</label>
+                                                <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Nombre y Apellido:</label>
                                                 <input
                                                     required
                                                     value={`${formData.firstName} ${formData.lastName}`.trim()}
@@ -321,29 +321,29 @@ export default function CheckoutPage() {
                                                         });
                                                     }}
                                                     type="text"
-                                                    className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                 />
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Teléfono:</label>
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Teléfono:</label>
                                                     <input
                                                         required
                                                         value={formData.phone}
                                                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                                         type="tel"
-                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Correo Electrónico:</label>
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Correo Electrónico:</label>
                                                     <input
                                                         required
                                                         value={formData.email}
                                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                         type="email"
-                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                     />
                                                 </div>
                                             </div>
@@ -379,67 +379,67 @@ export default function CheckoutPage() {
                                             </div>
 
                                             <div className="flex flex-col gap-2">
-                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Dirección o lugar de entrega</label>
+                                                <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Dirección o lugar de entrega</label>
                                                 <input
                                                     required
                                                     value={formData.address}
                                                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                                     type="text"
                                                     placeholder="Ej. Nombre de la calle y Nro. domicilio"
-                                                    className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                 />
                                             </div>
 
                                             <div className="flex flex-col gap-2">
-                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Indicación para la entrega:</label>
+                                                <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Indicación para la entrega:</label>
                                                 <input
                                                     value={formData.indications}
                                                     onChange={(e) => setFormData({ ...formData, indications: e.target.value })}
                                                     type="text"
                                                     placeholder="Ej. Entre calles, color de casa, no tiene timbre"
-                                                    className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                 />
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Localidad:</label>
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Localidad:</label>
                                                     <input
                                                         required
                                                         value={formData.locality}
                                                         onChange={(e) => setFormData({ ...formData, locality: e.target.value })}
                                                         type="text"
-                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Colonia o Barrio (Opcional):</label>
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Colonia o Barrio (Opcional):</label>
                                                     <input
                                                         value={formData.neighborhood}
                                                         onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
                                                         type="text"
-                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                     />
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Ciudad (Opcional):</label>
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Ciudad (Opcional):</label>
                                                     <input
                                                         value={formData.city}
                                                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                                         type="text"
-                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Código Postal (Opcional):</label>
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Código Postal (Opcional):</label>
                                                     <input
                                                         value={formData.postalCode}
                                                         onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
                                                         type="text"
-                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                     />
                                                 </div>
                                             </div>
