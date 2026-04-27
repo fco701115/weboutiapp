@@ -8,19 +8,16 @@ export default withAuth(
     const role = token?.role as string;
     const pathname = req.nextUrl.pathname;
 
-    // Allow access to the admin login page even if not authorized
+    // Allow access to the admin login page
     if (pathname === '/admin/login') {
       return NextResponse.next();
     }
 
-    // Check for admin/editor roles
+    // Protection for all other /admin routes
     if (pathname.startsWith('/admin')) {
-      if (!role || (role !== 'SUPER_ADMIN' && role !== 'EDITOR')) {
-        // If they are logged in but not an admin, redirect to home
-        if (token) {
-           return NextResponse.redirect(new URL('/', req.url));
-        }
-        // If not logged in at all, the withAuth will handle redirect to signIn page (next-auth setting)
+      // If they are logged in but not an admin/editor, redirect to home
+      if (token && role !== 'SUPER_ADMIN' && role !== 'EDITOR') {
+        return NextResponse.redirect(new URL('/', req.url));
       }
     }
     
@@ -30,7 +27,9 @@ export default withAuth(
     callbacks: {
       authorized: ({ token, req }) => {
         const pathname = req.nextUrl.pathname;
+        // Allow the login page without a token
         if (pathname === '/admin/login') return true;
+        // Require a token for everything else under /admin
         return !!token;
       },
     },
@@ -41,5 +40,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin", "/admin/:path*"],
 };
