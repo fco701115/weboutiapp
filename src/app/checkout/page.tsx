@@ -448,7 +448,7 @@ export default function CheckoutPage() {
                                 )}
 
                                 {/* Step 3: Método de Pago */}
-                                <div className="pt-10 border-t border-slate-100 mt-12">
+                                <div className="pt-0 border-t border-slate-100 mt-6">
                                     <div className="flex items-center gap-4 mb-8">
                                         <span className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-slate-900 text-[14px] font-bold">3</span>
                                         <h2 className="text-[18px] font-bold text-slate-900 tracking-tight">Método de Pago</h2>

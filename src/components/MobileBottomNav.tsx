@@ -1,5 +1,5 @@
 'use client';
-import { Home, Menu, User, ShoppingCart } from 'lucide-react';
+import { Menu, User, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { useEffect, useState } from 'react';
@@ -70,11 +70,13 @@ export function MobileBottomNav() {
                 </Link>
 
                 {/* Home - Floating Center Button */}
-                <div className="relative -top-3">
+                <div className="relative -top-4">
                     <Link href="/" className="flex flex-col items-center">
-                        <div className="w-[64px] h-[64px] bg-[#004bb1] rounded-full border-[4px] border-white shadow-[0_4px_10px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center text-white transition-transform active:scale-90 overflow-hidden">
-                            <Home size={24} fill="white" className="mb-0.5" />
-                            <span className="text-[11px] font-bold leading-none">Inicio</span>
+                        <div className="w-[64px] h-[64px] bg-[#1991F2] rounded-full shadow-[0_4px_15px_rgba(25,145,242,0.4)] flex flex-col items-center justify-center text-white transition-transform active:scale-90 overflow-hidden">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="white" className="mb-0.5">
+                                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+                            </svg>
+                            <span className="text-[10px] font-bold leading-none">Inicio</span>
                         </div>
                     </Link>
                 </div>
