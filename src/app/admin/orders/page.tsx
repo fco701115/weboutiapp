@@ -590,7 +590,7 @@ export default function AdminOrders() {
             {/* Modal Detalle de Envío EXACTO al diseño de usuario */}
             {showShippingModal && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[110] flex items-center justify-center p-4">
-                    <div className="bg-white w-full max-w-sm rounded-[50px] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300 border border-slate-100 p-8 flex flex-col gap-6 relative">
+                    <div className="bg-white w-full max-w-sm rounded-[25px] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300 border border-slate-100 p-[15px] flex flex-col gap-6 relative">
                         {/* Botón Cerrar Flotante */}
                         <button 
                             onClick={() => setShowShippingModal(null)}
@@ -632,13 +632,13 @@ export default function AdminOrders() {
                                 <div className="space-y-3 pt-3">
                                     <div className="grid grid-cols-2 gap-4 px-1">
                                         <div className="flex flex-col gap-0.5">
-                                            <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest">Localidad:</span>
+                                            <span className="text-[9px] font-black text-[color:lab(68_-1.75_-7.17)] uppercase tracking-widest">Localidad:</span>
                                             <p className="text-slate-500 font-bold text-[15px] truncate">
                                                 {formatAddress(showShippingModal.address).locality || '---'}
                                             </p>
                                         </div>
                                         <div className="flex flex-col gap-0.5">
-                                            <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest">Colonia o barrio (opcional):</span>
+                                            <span className="text-[9px] font-black text-[color:lab(68_-1.75_-7.17)] uppercase tracking-widest">Colonia o barrio (opcional):</span>
                                             <p className="text-slate-500 font-bold text-[15px] truncate">
                                                 {formatAddress(showShippingModal.address).neighborhood || '---'}
                                             </p>
@@ -647,13 +647,13 @@ export default function AdminOrders() {
 
                                     <div className="grid grid-cols-2 gap-4 px-1">
                                         <div className="flex flex-col gap-0.5">
-                                            <span className="text-[9px] font-black text-slate-200 uppercase tracking-widest">Ciudad (opcional):</span>
+                                            <span className="text-[9px] font-black text-[color:lab(68_-1.75_-7.17)] uppercase tracking-widest">Ciudad (opcional):</span>
                                             <p className="text-slate-400 font-bold text-[14px] truncate">
                                                 {formatAddress(showShippingModal.address).city || '---'}
                                             </p>
                                         </div>
                                         <div className="flex flex-col gap-0.5">
-                                            <span className="text-[9px] font-black text-blue-200 uppercase tracking-widest">Código Postal (opcional):</span>
+                                            <span className="text-[9px] font-black text-[color:lab(71_-4.91_-38.2)] uppercase tracking-widest">Código Postal (opcional):</span>
                                             <p className="text-blue-500 font-black text-[14px] truncate underline decoration-1 underline-offset-2">
                                                 {formatAddress(showShippingModal.address).cp || '---'}
                                             </p>
