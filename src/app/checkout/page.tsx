@@ -128,7 +128,7 @@ export default function CheckoutPage() {
             const currentAddr = !showAddressForm && savedAddresses[selectedAddressIndex] 
                 ? savedAddresses[selectedAddressIndex]
                 : {
-                    title: 'Ingresada Manualmente',
+                    title: formData.addressType,
                     street: formData.address,
                     neighborhood: formData.neighborhood,
                     locality: formData.locality,
