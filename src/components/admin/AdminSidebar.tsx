@@ -10,8 +10,9 @@ import {
     ShoppingCart,
     Users,
     Mail,
-import { LogOut, Star } from 'lucide-react';
-
+    LogOut,
+    Star
+} from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
