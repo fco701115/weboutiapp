@@ -5,6 +5,7 @@ import { FeaturesSection } from '@/components/FeaturesSection';
 import { HomeProducts } from '@/components/HomeProducts';
 import { prisma } from '@/lib/prisma';
 import { unstable_cache } from 'next/cache';
+import { Suspense } from 'react';
 
 // Cached function to fetch layout-critical data
 const getBanners = unstable_cache(
@@ -71,7 +72,14 @@ export default async function Home() {
         </div>
 
         {/* Grilla de Productos (Server Component) */}
-        <HomeProducts />
+        <Suspense fallback={
+          <div className="py-20 text-center text-slate-400 font-bold uppercase tracking-widest text-[12px] flex items-center justify-center gap-3">
+            <div className="w-5 h-5 border-2 border-[#1a3da1] border-t-transparent rounded-full animate-spin"></div>
+            Cargando Novedades...
+          </div>
+        }>
+          <HomeProducts />
+        </Suspense>
       </div>
 
       <PromoBanners initialBanners={serializedBanners} />

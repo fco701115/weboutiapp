@@ -10,11 +10,11 @@ import {
     ShoppingCart,
     Users,
     Mail,
-    LogOut,
-    Star
-} from 'lucide-react';
+import { LogOut, Star } from 'lucide-react';
 
 import { signOut } from 'next-auth/react';
+import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
 
 const menuItems = [
     { name: 'Dashboard', icon: LayoutDashboard, href: '/admin' },
@@ -31,8 +31,16 @@ const menuItems = [
 
 export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: boolean) => void }) {
     const pathname = usePathname();
+    const { clearCart } = useCart();
+    const { clearWishlist } = useWishlist();
 
     const handleLogout = async () => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('cart');
+        localStorage.removeItem('wishlist');
+        clearCart();
+        clearWishlist();
+        window.dispatchEvent(new Event('local-user-updated'));
         await signOut({ callbackUrl: window.location.origin });
     };
 

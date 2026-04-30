@@ -7,11 +7,13 @@ import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import { useWishlist } from '@/context/WishlistContext';
 import { useReviews } from '@/context/ReviewsContext';
+import { useCart } from '@/context/CartContext';
 
 export default function AccountPage() {
     const router = useRouter();
     const { data: session, status } = useSession();
-    const { wishlist, toggleWishlist, wishlistCount } = useWishlist();
+    const { wishlist, toggleWishlist, wishlistCount, clearWishlist } = useWishlist();
+    const { clearCart } = useCart();
     const { reviews, getReviewsForUser } = useReviews();
     
     const [user, setUser] = useState<any>({ name: '', email: '', role: 'USER' });
@@ -292,6 +294,10 @@ export default function AccountPage() {
 
     const handleLogout = async () => {
         localStorage.removeItem('user');
+        localStorage.removeItem('cart');
+        localStorage.removeItem('wishlist');
+        clearCart();
+        clearWishlist();
         window.dispatchEvent(new Event('local-user-updated'));
         await signOut({ callbackUrl: window.location.origin });
     };

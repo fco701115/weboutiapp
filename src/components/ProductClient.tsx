@@ -155,7 +155,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
             <div className="max-w-[1200px] mx-auto px-2 sm:px-4 py-4">
                 {/* Breadcrumbs */}
                 <div className="flex items-center gap-2 text-[13px] text-gray-400 mb-6 font-medium">
-                    <Link href="/" className="hover:text-[#1a3da1] cursor-pointer">Inicio</Link>
+                    <Link href="/" prefetch={true} className="hover:text-[#1a3da1] cursor-pointer">Inicio</Link>
                     <ChevronRight size={14} />
                     <span className="hover:text-[#1a3da1] cursor-pointer font-bold">{product.category?.name || 'Categoría'}</span>
                     <ChevronRight size={14} />
