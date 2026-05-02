@@ -155,9 +155,9 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
             <div className="max-w-[1200px] mx-auto px-2 sm:px-4 py-4">
                 {/* Breadcrumbs */}
                 <div className="flex items-center gap-2 text-[13px] text-gray-400 mb-6 font-medium">
-                    <Link href="/" prefetch={true} className="hover:text-[#1a3da1] cursor-pointer">Inicio</Link>
+                    <Link href="/" prefetch={true} className="hover:text-[#e996a0] cursor-pointer">Inicio</Link>
                     <ChevronRight size={14} />
-                    <span className="hover:text-[#1a3da1] cursor-pointer font-bold">{product.category?.name || 'Categoría'}</span>
+                    <span className="hover:text-[#e996a0] cursor-pointer font-bold">{product.category?.name || 'Categoría'}</span>
                     <ChevronRight size={14} />
                     <span className="text-slate-900 truncate max-w-[200px]">{product.name}</span>
                 </div>
@@ -199,14 +199,14 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                     <div className="relative group/share">
                                         <button
                                             onClick={(e) => { e.stopPropagation(); handleShare(); }}
-                                            className="w-[45px] h-[45px] bg-white/90 border-2 border-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-slate-400 hover:text-[#1a3da1] transition-all duration-300 shadow-lg group-hover/share:scale-110"
+                                            className="w-[45px] h-[45px] bg-white/90 border-2 border-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-slate-400 hover:text-[#e996a0] transition-all duration-300 shadow-lg group-hover/share:scale-110"
                                             title="Compartir producto"
                                         >
                                             <Share2 size={20} />
                                         </button>
                                         
                                         {showShareToast && (
-                                            <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-[#1a3da1] text-white text-[11px] font-black py-2 px-4 rounded-xl whitespace-nowrap shadow-xl animate-in fade-in slide-in-from-right-4 duration-300 flex items-center gap-2">
+                                            <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-[#e996a0] text-white text-[11px] font-black py-2 px-4 rounded-xl whitespace-nowrap shadow-xl animate-in fade-in slide-in-from-right-4 duration-300 flex items-center gap-2">
                                                 <Check size={14} />
                                                 Copiado
                                             </div>
@@ -216,7 +216,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
 
                                 {/* Discount Badge */}
                                 {product.salePrice && (
-                                    <div className="absolute right-4 top-4 z-40 rounded-full w-[45px] h-[45px] bg-[#1a3da1] text-white flex flex-col items-center justify-center text-[11px] font-black leading-tight shadow-lg border-2 border-white animate-in zoom-in duration-500">
+                                    <div className="absolute right-4 top-4 z-40 rounded-full w-[45px] h-[45px] bg-[#e996a0] text-white flex flex-col items-center justify-center text-[11px] font-black leading-tight shadow-lg border-2 border-white animate-in zoom-in duration-500">
                                         -{Math.round((1 - Number(product.salePrice) / Number(product.price)) * 100)}%
                                     </div>
                                 )}
@@ -241,7 +241,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                         <div
                                             key={i}
                                             onClick={() => setMainImage(img)}
-                                            className={`aspect-square border-2 rounded-2xl p-1 cursor-pointer transition-all ${mainImage === img ? 'border-[#1a3da1] shadow-md' : 'border-slate-100 hover:border-slate-300'}`}
+                                            className={`aspect-square border-2 rounded-2xl p-1 cursor-pointer transition-all ${mainImage === img ? 'border-[#e996a0] shadow-md' : 'border-slate-100 hover:border-slate-300'}`}
                                         >
                                             <div className="relative w-full h-full rounded-xl overflow-hidden">
                                                 <Image
@@ -274,7 +274,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                             )}
 
                             <div className="flex flex-col gap-1 mb-4">
-                                <span className="text-[12px] font-black text-[#1a3da1] uppercase tracking-[0.2em]">{product.category?.name || 'TECNOLOGÍA'}</span>
+                                <span className="text-[12px] font-black text-[#e996a0] uppercase tracking-[0.2em]">{product.category?.name || 'TECNOLOGÍA'}</span>
                                 <h1 className="text-[26px] md:text-[32px] font-black text-slate-900 leading-[1.1] tracking-tight">
                                     {product.name}
                                 </h1>
@@ -282,7 +282,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
 
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-[36px] font-black text-[#1a3da1] tracking-tighter">
+                                    <span className="text-[36px] font-black text-[#e996a0] tracking-tighter">
                                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </span>
                                     {product.salePrice && (
@@ -291,7 +291,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                         </span>
                                     )}
                                 </div>
-                                <span className="bg-[#1a3da1]/5 text-[#1a3da1] px-3 py-1 rounded-full text-[11px] font-black uppercase">En Stock</span>
+                                <span className="bg-[#e996a0]/5 text-[#e996a0] px-3 py-1 rounded-full text-[11px] font-black uppercase">En Stock</span>
                             </div>
 
                             <div className="flex items-center gap-2 mb-8 border-b border-slate-100 pb-6">
@@ -368,7 +368,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                     </button>
                                     <button
                                         onClick={handleBuyNow}
-                                        className="h-[45px] bg-[#1a3da1] text-white rounded-[5px] font-bold text-[14px] hover:bg-[#153288] transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 border-b-2 border-blue-900/50 px-4"
+                                        className="h-[45px] bg-[#e996a0] text-white rounded-[5px] font-bold text-[14px] hover:bg-pink-600 transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 border-b-2 border-pink-900/50 px-4"
                                     >
                                         <Zap size={18} fill="currentColor" />
                                         Comprar Ahora
@@ -399,13 +399,13 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                 </div>
 
                                 {/* Shipping Info Box */}
-                                <div className="bg-blue-50/50 border border-blue-100 rounded-[20px] p-5 flex items-center gap-4 text-blue-900 shadow-sm">
-                                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-blue-600 shrink-0">
+                                <div className="bg-pink-50/50 border border-pink-100 rounded-[20px] p-5 flex items-center gap-4 text-pink-900 shadow-sm">
+                                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-[#e996a0] shrink-0">
                                         <Truck size={24} />
                                     </div>
                                     <div className="text-[12.5px] font-bold leading-tight">
                                         Envío Express GRATIS<br />
-                                        <span className="text-blue-500/60 font-medium">Recíbelo en 24-48 horas en todo el país.</span>
+                                        <span className="text-pink-500/60 font-medium">Recíbelo en 24-48 horas en todo el país.</span>
                                     </div>
                                 </div>
                             </div>
@@ -417,13 +417,13 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                     <div className="flex border-b border-slate-100 bg-slate-50/50 rounded-t-[5px]">
                         <button
                             onClick={() => setActiveTab('description')}
-                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'description' ? 'text-[#1a3da1] bg-white border-b-2 border-[#1a3da1]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'description' ? 'text-[#e996a0] bg-white border-b-2 border-[#e996a0]' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             Descripción
                         </button>
                         <button
                             onClick={() => setActiveTab('reviews')}
-                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'reviews' ? 'text-[#1a3da1] bg-white border-b-2 border-[#1a3da1]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'reviews' ? 'text-[#e996a0] bg-white border-b-2 border-[#e996a0]' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             Valoraciones ({reviews.length})
                         </button>
@@ -444,7 +444,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                     <div className="h-32 bg-slate-50 animate-pulse rounded-2xl" />
                                 ) : currentUser ? (
                                     <div className="flex flex-col gap-2 p-6 bg-slate-50/50 rounded-2xl border border-slate-100">
-                                        <h3 className="text-[18px] font-bold text-[#1a3da1]">Agregar reseña</h3>
+                                        <h3 className="text-[18px] font-bold text-[#e996a0]">Agregar reseña</h3>
                                         <div className="flex items-center gap-2 mb-2">
                                             {[1, 2, 3, 4, 5].map((i) => (
                                                 <i
@@ -462,7 +462,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                             <span className="ml-2 text-[13px] font-bold text-slate-400 uppercase tracking-widest">{newRating} / 5</span>
                                         </div>
                                         <textarea
-                                            className="border border-slate-200 rounded-xl p-4 bg-white focus:outline-none focus:ring-2 focus:ring-[#1a3da1]/20 focus:border-[#1a3da1] transition-all"
+                                            className="border border-slate-200 rounded-xl p-4 bg-white focus:outline-none focus:ring-2 focus:ring-[#e996a0]/20 focus:border-[#e996a0] transition-all"
                                             rows={3}
                                             placeholder="Cuéntanos tu experiencia con el producto..."
                                             value={newComment}
@@ -475,13 +475,13 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                                 id="anonymousReview"
                                                 checked={isAnonymous}
                                                 onChange={(e) => setIsAnonymous(e.target.checked)}
-                                                className="w-4 h-4 rounded border-slate-300 text-[#1a3da1] focus:ring-[#1a3da1]"
+                                                className="w-4 h-4 rounded border-slate-300 text-[#e996a0] focus:ring-[#e996a0]"
                                             />
                                             <label htmlFor="anonymousReview" className="text-[12px] font-bold text-slate-500 cursor-pointer select-none">Valoración anónima</label>
                                         </div>
 
                                         <button
-                                            className="self-start mt-2 bg-[#1a3da1] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-blue-500/10"
+                                            className="self-start mt-2 bg-[#e996a0] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-[#e996a0]/10"
                                             onClick={handleAddReview}
                                         >
                                             Publicar reseña
@@ -498,7 +498,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                         </div>
                                         <button
                                             onClick={() => router.push('/login')}
-                                            className="mt-2 bg-[#1a3da1] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-blue-500/10 uppercase tracking-widest text-[11px]"
+                                            className="mt-2 bg-[#e996a0] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#153288] transition-all active:scale-95 shadow-lg shadow-[#e996a0]/10 uppercase tracking-widest text-[11px]"
                                         >
                                             Iniciar Sesión
                                         </button>
@@ -545,7 +545,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                 <div className="max-w-[1200px] mx-auto px-2 sm:px-4 mt-16 pb-10">
                     <div className="flex flex-col gap-1 mb-10">
                         <h2 className="text-[24px] font-black text-slate-900 tracking-tighter capitalize">Productos Relacionados</h2>
-                        <div className="h-1 w-20 bg-[#124baf] rounded-full" />
+                        <div className="h-1 w-20 bg-[#e996a0] rounded-full" />
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-6">

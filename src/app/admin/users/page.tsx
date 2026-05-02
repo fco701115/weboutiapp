@@ -618,7 +618,7 @@ export default function AdminUsers() {
                                                         <div key={i} className="p-5 bg-white border border-slate-100 shadow-sm rounded-[28px] relative hover:border-rose-300 transition-all group">
                                                             <div className="flex items-center gap-3 mb-3 flex-wrap">
                                                                 <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 border ${
-                                                                    addr.type === 'Casa' ? 'bg-blue-50 text-[#1a3da1] border-blue-100' :
+                                                                    addr.type === 'Casa' ? 'bg-pink-50 text-[#e996a0] border-pink-100' :
                                                                     addr.type === 'Trabajo' ? 'bg-amber-50 text-amber-900 border-amber-100' :
                                                                     'bg-slate-50 text-slate-700 border-slate-100'
                                                                 }`}>

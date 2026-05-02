@@ -50,7 +50,7 @@ export default function AdminDashboard() {
         switch (status) {
             case 'COMPLETED': return 'text-emerald-600 bg-emerald-100';
             case 'PENDING': return 'text-amber-600 bg-amber-100';
-            case 'PROCESSING': return 'text-blue-600 bg-blue-100';
+            case 'PROCESSING': return 'text-pink-600 bg-pink-100';
             case 'CANCELLED': return 'text-rose-600 bg-rose-100';
             default: return 'text-slate-600 bg-slate-100';
         }
@@ -71,9 +71,9 @@ export default function AdminDashboard() {
             <div className="flex items-center justify-center min-h-[600px]">
                 <div className="flex flex-col items-center gap-6">
                     <div className="relative">
-                        <Loader2 className="w-16 h-16 text-blue-600 animate-spin" />
+                        <Loader2 className="w-16 h-16 text-[#e996a0] animate-spin" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-8 h-8 bg-blue-100 rounded-full" />
+                            <div className="w-8 h-8 bg-pink-100 rounded-full" />
                         </div>
                     </div>
                     <p className="text-slate-500 font-black uppercase tracking-[0.2em] text-[11px]">Sincronizando Datos...</p>
@@ -84,8 +84,8 @@ export default function AdminDashboard() {
 
     const statsConfig = [
         { label: 'Ventas Totales', value: `$${data?.stats?.revenue?.toLocaleString() || '0'}`, icon: DollarSign, color: 'from-emerald-400 to-emerald-600', shadow: 'shadow-emerald-500/20', href: '/admin/orders', detail: '+12.4% vs last month' },
-        { label: 'Ordenes Totales', value: data?.stats?.orders || '0', icon: ShoppingCart, color: 'from-blue-400 to-blue-600', shadow: 'shadow-blue-500/20', href: '/admin/orders', detail: '24 new orders today' },
-        { label: 'Usuarios Activos', value: data?.stats?.users || '0', icon: Users, color: 'from-indigo-400 to-indigo-600', shadow: 'shadow-indigo-500/20', href: '/admin/users', detail: '80% conversion rate' },
+        { label: 'Ordenes Totales', value: data?.stats?.orders || '0', icon: ShoppingCart, color: 'from-pink-400 to-pink-600', shadow: 'shadow-pink-500/20', href: '/admin/orders', detail: '24 new orders today' },
+        { label: 'Usuarios Activos', value: data?.stats?.users || '0', icon: Users, color: 'from-pink-400 to-[#e996a0]', shadow: 'shadow-pink-500/20', href: '/admin/users', detail: '80% conversion rate' },
         { label: 'Valoración Media', value: '4.8', icon: Star, color: 'from-amber-400 to-amber-600', shadow: 'shadow-amber-500/20', href: '/admin/reviews', detail: 'Based on 48 reviews' },
     ];
 
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
             <div className="bg-white/40 backdrop-blur-md rounded-[40px] p-10 border border-white/60 shadow-xl shadow-slate-200/40">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div className="flex items-center gap-5">
-                        <div className="w-16 h-16 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-blue-500/30">
+                        <div className="w-16 h-16 bg-gradient-to-tr from-[#e996a0] to-pink-400 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-pink-500/30">
                             <LayoutDashboard size={32} />
                         </div>
                         <div>
@@ -113,15 +113,15 @@ export default function AdminDashboard() {
                             href="/admin/orders" 
                             className={`h-14 px-6 bg-white rounded-2xl border shadow-sm font-bold text-[13px] text-slate-600 hover:bg-slate-50 transition-all flex items-center gap-2 relative ${
                                 data?.stats?.pendingOrders > 0 
-                                ? 'border-blue-200 ring-4 ring-blue-500/10 animate-pulse' 
+                                ? 'border-pink-200 ring-4 ring-pink-500/10 animate-pulse' 
                                 : 'border-slate-100'
                             }`}
                         >
 
-                            <ShoppingCart size={18} className="text-blue-600" />
+                            <ShoppingCart size={18} className="text-[#e996a0]" />
                             <span>Órdenes Recientes</span>
                             {data?.stats?.pendingOrders > 0 && (
-                                <span className="bg-blue-600 text-white min-w-[20px] h-[20px] px-1.5 rounded-full text-[10px] font-black flex items-center justify-center shadow-lg shadow-blue-500/30 animate-pulse">
+                                <span className="bg-[#e996a0] text-white min-w-[20px] h-[20px] px-1.5 rounded-full text-[10px] font-black flex items-center justify-center shadow-lg shadow-pink-500/30 animate-pulse">
                                     {data.stats.pendingOrders}
                                 </span>
                             )}
@@ -130,7 +130,7 @@ export default function AdminDashboard() {
                         {/* El buscador se puede integrar en la barra lateral o como un modal global más adelante */}
 
                         {data?.stats?.unreadMessages > 0 && (
-                            <Link href="/admin/messages" className="h-14 px-6 bg-blue-600 rounded-2xl shadow-xl shadow-blue-500/20 font-black text-[13px] text-white hover:scale-105 transition-all flex items-center gap-3 animate-in zoom-in">
+                            <Link href="/admin/messages" className="h-14 px-6 bg-[#e996a0] rounded-2xl shadow-xl shadow-pink-500/20 font-black text-[13px] text-white hover:scale-105 transition-all flex items-center gap-3 animate-in zoom-in">
                                 <Mail size={18} />
                                 {data.stats.unreadMessages} Mensajes
                             </Link>
@@ -143,14 +143,14 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                 {statsConfig.map((stat, i) => (
                     <Link key={i} href={stat.href} className="bg-white p-4 sm:p-8 rounded-[24px] sm:rounded-[40px] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
-                        <div className="absolute -top-10 -right-10 w-24 h-24 sm:w-40 sm:h-40 bg-slate-50 rounded-full group-hover:bg-blue-50/50 transition-colors duration-500" />
+                        <div className="absolute -top-10 -right-10 w-24 h-24 sm:w-40 sm:h-40 bg-slate-50 rounded-full group-hover:bg-pink-50/50 transition-colors duration-500" />
                         <div className="relative z-10 space-y-3 sm:space-y-6">
                             <div className="flex items-center justify-between">
                                 <div className={`w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-br ${stat.color} rounded-xl sm:rounded-2xl flex items-center justify-center text-white shadow-lg ${stat.shadow} group-hover:scale-110 transition-transform duration-500`}>
                                     <stat.icon size={20} className="sm:hidden" />
                                     <stat.icon size={28} className="hidden sm:block" />
                                 </div>
-                                <div className="p-1.5 sm:p-3 rounded-lg sm:rounded-2xl bg-slate-50 text-slate-300 group-hover:text-blue-600 group-hover:bg-blue-50 transition-all duration-500">
+                                <div className="p-1.5 sm:p-3 rounded-lg sm:rounded-2xl bg-slate-50 text-slate-300 group-hover:text-[#e996a0] group-hover:bg-pink-50 transition-all duration-500">
                                     <ArrowUpRight size={16} className="sm:hidden" />
                                     <ArrowUpRight size={20} className="hidden sm:block" />
                                 </div>
@@ -185,7 +185,7 @@ export default function AdminDashboard() {
                         <div className="sm:absolute sm:top-0 sm:right-0 sm:p-8 p-4">
                              <div className="flex bg-slate-50 p-1 rounded-xl w-fit">
                                  {['Week', 'Month', 'Year'].map(t => (
-                                     <button key={t} className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>
+                                     <button key={t} className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-white text-[#e996a0] shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>
                                          {t}
                                      </button>
                                  ))}
@@ -204,7 +204,7 @@ export default function AdminDashboard() {
                                         </div>
                                     </div>
                                     <div
-                                        className="w-full max-w-[60px] bg-gradient-to-t from-blue-700 to-blue-400 rounded-2xl transition-all duration-1000 ease-out shadow-lg shadow-blue-500/10 group-hover:shadow-blue-500/20 group-hover:to-blue-300 relative overflow-hidden"
+                                        className="w-full max-w-[60px] bg-gradient-to-t from-pink-600 to-pink-400 rounded-2xl transition-all duration-1000 ease-out shadow-lg shadow-pink-500/10 group-hover:shadow-pink-500/20 group-hover:to-pink-300 relative overflow-hidden"
                                         style={{ height: `${heightPercentage}%` }}
                                     >
                                         <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent" />
@@ -226,7 +226,7 @@ export default function AdminDashboard() {
                             <h3 className="text-xl font-black text-slate-900 tracking-tight">Actividad</h3>
                             <p className="text-slate-400 font-bold text-[13px]">Transacciones en tiempo real</p>
                         </div>
-                        <Link href="/admin/orders" className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 hover:text-blue-600 transition-all">
+                        <Link href="/admin/orders" className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#e996a0] transition-all">
                             <ArrowUpRight size={20} />
                         </Link>
                     </div>
@@ -235,7 +235,7 @@ export default function AdminDashboard() {
                         {data?.recentOrders?.length > 0 ? (
                             data.recentOrders.map((order: any, i: number) => (
                                 <Link key={i} href={`/admin/orders`} className="flex items-center gap-5 group p-2 -mx-2 rounded-3xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 group-hover:border-blue-200 group-hover:text-blue-600 transition-all shadow-sm">
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 group-hover:border-pink-200 group-hover:text-[#e996a0] transition-all shadow-sm">
                                         <ShoppingBag size={24} />
                                     </div>
                                     <div className="flex-grow min-w-0">

@@ -56,7 +56,7 @@ export function ProductCard({ product }: { product: Product }) {
 
     return (
         <div 
-            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group"
+            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#e996a0] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group"
         >
             <Link 
                 href={`/product/${product.id}`}
@@ -65,7 +65,7 @@ export function ProductCard({ product }: { product: Product }) {
                 {/* Discount Badge */}
                 {(product.discountBadge || product.salePrice) && (
                     <div
-                        className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#1a3da1] text-white flex flex-col items-center justify-center text-[10px] font-black leading-tight shadow-md border-2 border-white"
+                        className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#e996a0] text-white flex flex-col items-center justify-center text-[10px] font-black leading-tight shadow-md border-2 border-white"
                         style={{ fontFamily: '"Lato", sans-serif' }}
                     >
                         -{product.discountBadge ? product.discountBadge.replace(/[^0-9%]/g, '') : Math.round((1 - Number(product.salePrice) / Number(product.price)) * 100) + '%'}
@@ -87,7 +87,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Product Name Area */}
                 <div className="w-full px-1 mt-4">
-                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] sm:group-hover:text-[#1a3da1] transition-colors">
+                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] sm:group-hover:text-[#e996a0] transition-colors">
                         {product.name}
                     </h3>
                 </div>
@@ -109,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Price Area */}
                 <div className="w-full px-1 mt-[5px] flex items-baseline gap-2 mb-[5px]">
-                    <span className="text-[16px] font-black text-[#1a3da1] tracking-tight">
+                    <span className="text-[16px] font-black text-[#e996a0] tracking-tight">
                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                     {product.salePrice && (
@@ -136,13 +136,13 @@ export function ProductCard({ product }: { product: Product }) {
             <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-0 mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2 relative z-10">
                 <button
                     onClick={handleBuyNow}
-                    className="flex-1 h-[35px] bg-[#1c3892] hover:bg-blue-800 text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
+                    className="flex-1 h-[35px] bg-[#e996a0] hover:bg-pink-600 text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
                 >
                     Comprar Ahora
                 </button>
                 <button
                     onClick={handleAddToCart}
-                    className="w-[35px] h-[35px] border border-slate-200 rounded-[5px] flex items-center justify-center hover:bg-blue-50 transition-all text-slate-500 hover:text-[#1a3da1] shadow-sm active:scale-90"
+                    className="w-[35px] h-[35px] border border-slate-200 rounded-[5px] flex items-center justify-center hover:bg-pink-50 transition-all text-slate-500 hover:text-[#e996a0] shadow-sm active:scale-90"
                 >
                     <ShoppingCart size={18} />
                 </button>

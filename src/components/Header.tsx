@@ -64,7 +64,7 @@ export function Header() {
                     <div className="flex items-center gap-3">
                         <div
                             onClick={() => setMenuOpen(true)}
-                            className="md:hidden p-1 text-gray-700 hover:text-[#1a4a8d] cursor-pointer"
+                            className="md:hidden p-1 text-gray-700 hover:text-[#e996a0] cursor-pointer"
                         >
                             <Menu size={28} />
                         </div>
@@ -76,24 +76,24 @@ export function Header() {
                     <div className="flex md:hidden items-center gap-4">
                         <div
                             onClick={() => setWishlistOpen(true)}
-                            className="flex items-center gap-2 text-gray-700 hover:text-[#1a3da1] cursor-pointer relative pr-2"
+                            className="flex items-center gap-2 text-gray-700 hover:text-[#e996a0] cursor-pointer relative pr-2"
                         >
-                            <Heart size={24} className="text-[#1a3da1]" strokeWidth={2.5} />
-                            {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#1a3da1] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold">{favCount}</span>}
+                            <Heart size={24} className="text-[#e996a0]" strokeWidth={2.5} />
+                            {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#e996a0] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold">{favCount}</span>}
                         </div>
 
                         <div
                             onClick={() => setCartOpen(true)}
-                            className="flex items-center gap-2 text-gray-700 hover:text-[#1a3da1] cursor-pointer relative pr-2 group"
+                            className="flex items-center gap-2 text-gray-700 hover:text-[#e996a0] cursor-pointer relative pr-2 group"
                         >
-                            <ShoppingCart size={30} className="text-[#1a3da1]" />
+                            <ShoppingCart size={30} className="text-[#e996a0]" />
                             {cartCount > 0 && <span className="absolute -top-1 right-0 bg-black text-white text-[10px] w-[18px] h-[18px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">{cartCount}</span>}
                         </div>
                     </div>
                 </div>
 
                 <form onSubmit={handleSearch} className="w-full md:flex-1 md:max-w-xl md:px-12">
-                    <div className="flex w-full items-center border border-gray-300 rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-[#1a3da1] focus-within:border-[#1a3da1]">
+                    <div className="flex w-full items-center border border-gray-300 rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-[#e996a0] focus-within:border-[#e996a0]">
                         <input
                             type="text"
                             value={searchTerm}
@@ -101,7 +101,7 @@ export function Header() {
                             placeholder="Buscar productos..."
                             className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-gray-700"
                         />
-                        <button type="submit" className="bg-[#1a3da1] text-white p-[10px] px-6 hover:bg-blue-800 transition-colors">
+                        <button type="submit" className="bg-[#e996a0] text-white p-[10px] px-6 hover:bg-[#d8858f] transition-colors">
                             <Search size={20} />
                         </button>
                     </div>
@@ -113,21 +113,21 @@ export function Header() {
                             {user?.image ? (
                                 <img src={user.image} alt={user.name} className="w-full h-full object-cover" />
                             ) : user?.name ? (
-                                <span className="text-[15px] font-black text-[#1a3da1]">{user.name[0].toUpperCase()}</span>
+                                <span className="text-[15px] font-black text-[#e996a0]">{user.name[0].toUpperCase()}</span>
                             ) : (
-                                <User size={20} className="text-[#1a3da1]" strokeWidth={2.5} />
+                                <User size={20} className="text-[#e996a0]" strokeWidth={2.5} />
                             )}
                         </div>
                         <div className="flex flex-col justify-center">
                             {user ? (
                                 <>
                                     <span className="text-[11px] font-bold text-gray-400 leading-none">Mi Cuenta</span>
-                                    <span className="text-[14px] font-black text-gray-800 group-hover:text-[#1a3da1] transition-colors leading-tight truncate max-w-[120px]">
+                                    <span className="text-[14px] font-black text-gray-800 group-hover:text-[#e996a0] transition-colors leading-tight truncate max-w-[120px]">
                                         {user.name}
                                     </span>
                                 </>
                             ) : (
-                                <span className="text-[14px] font-black text-gray-800 group-hover:text-[#1a3da1] transition-colors leading-tight">
+                                <span className="text-[14px] font-black text-gray-800 group-hover:text-[#e996a0] transition-colors leading-tight">
                                     Mi cuenta
                                 </span>
                             )}
@@ -136,17 +136,17 @@ export function Header() {
 
                     <div 
                         onClick={() => setWishlistOpen(true)}
-                        className="flex items-center gap-2 text-gray-700 hover:text-[#1a3da1] cursor-pointer group relative pr-2"
+                        className="flex items-center gap-2 text-gray-700 hover:text-[#e996a0] cursor-pointer group relative pr-2"
                     >
-                        <Heart size={28} className="text-[#1a3da1] group-hover:fill-[#1a3da1] transition-all" strokeWidth={2.5} />
-                        {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#1a3da1] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold animate-in zoom-in">{favCount}</span>}
+                        <Heart size={28} className="text-[#e996a0] group-hover:fill-[#e996a0] transition-all" strokeWidth={2.5} />
+                        {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#e996a0] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold animate-in zoom-in">{favCount}</span>}
                     </div>
 
                     <div
                         onClick={() => setCartOpen(true)}
-                        className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#1a3da1] cursor-pointer relative pr-2 group"
+                        className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#e996a0] cursor-pointer relative pr-2 group"
                     >
-                        <ShoppingCart size={28} className="text-[#1a3da1]" />
+                        <ShoppingCart size={28} className="text-[#e996a0]" />
                         {cartCount > 0 && <span className="absolute -top-1 right-0 bg-black text-white text-[10px] w-[18px] h-[18px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">{cartCount}</span>}
                     </div>
                 </div>

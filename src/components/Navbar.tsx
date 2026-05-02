@@ -85,10 +85,10 @@ export function Navbar() {
                                         key={cat.id || i}
                                         href={`/search?category=${cat.id}`}
                                         onClick={() => setIsOpen(false)}
-                                        className="flex items-center justify-between px-6 py-[10px] text-gray-700 hover:bg-gray-50 hover:text-[#1a3da1] transition-all group border-b border-gray-50/50 last:border-0"
+                                        className="flex items-center justify-between px-6 py-[10px] text-gray-700 hover:bg-gray-50 hover:text-[#e996a0] transition-all group border-b border-gray-50/50 last:border-0"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="text-gray-400 group-hover:text-[#1a3da1] group-hover:scale-110 transition-all w-5 h-5 flex items-center justify-center">
+                                            <div className="text-gray-400 group-hover:text-[#e996a0] group-hover:scale-110 transition-all w-5 h-5 flex items-center justify-center">
                                                 {cat.imageUrl ? (
                                                     <div className="relative w-full h-full overflow-hidden rounded-sm">
                                                         <Image

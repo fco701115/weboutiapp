@@ -30,7 +30,7 @@ export function CartSidebar() {
                     {/* Header */}
                     <div className="px-6 py-6 border-b border-slate-100 flex items-center justify-between bg-white">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#1a3da1] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                            <div className="w-10 h-10 bg-[#e996a0] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#e996a0]/20">
                                 <ShoppingBag size={20} />
                             </div>
                             <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">Mi Carrito</h2>
@@ -56,7 +56,7 @@ export function CartSidebar() {
                                 </div>
                                 <button
                                     onClick={() => setCartOpen(false)}
-                                    className="bg-[#1a3da1] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-[#153288] transition-all shadow-lg shadow-blue-500/20"
+                                    className="bg-[#e996a0] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-[#153288] transition-all shadow-lg shadow-[#e996a0]/20"
                                 >
                                     Continuar comprando
                                 </button>
@@ -75,12 +75,12 @@ export function CartSidebar() {
                                     </div>
                                     <div className="flex flex-col flex-grow justify-between py-1">
                                         <div>
-                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#1a3da1] transition-colors">
+                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#e996a0] transition-colors">
                                                 <Link href={`/product/${item.id}`} onClick={() => setCartOpen(false)}>
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="text-[#1a3da1] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                            <p className="text-[#e996a0] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
                                             <div className="flex items-center bg-slate-100 rounded-xl p-0.5 gap-1">
@@ -126,7 +126,7 @@ export function CartSidebar() {
                                 <div className="h-px bg-slate-100 w-full" />
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-900 font-extrabold text-[16px]">TOTAL</span>
-                                    <span className="text-[22px] font-black text-[#1a3da1]">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                    <span className="text-[22px] font-black text-[#e996a0]">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 </div>
                             </div>
 
@@ -134,7 +134,7 @@ export function CartSidebar() {
                                 <Link
                                     href="/checkout"
                                     onClick={() => setCartOpen(false)}
-                                    className="w-full h-14 bg-[#1a3892] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#153288] transition-all shadow-xl active:scale-95"
+                                    className="w-full h-14 bg-[#e996a0] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#153288] transition-all shadow-xl active:scale-95"
                                 >
                                     PAGAR AHORA
                                     <ArrowRight size={20} />

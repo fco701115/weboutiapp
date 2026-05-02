@@ -74,10 +74,10 @@ export function MobileMenu() {
                 className={`fixed top-0 left-0 h-full w-[80%] max-w-[300px] bg-white z-[2001] shadow-2xl transition-transform duration-300 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}
             >
                 {/* Header */}
-                <div className="bg-[#1a3da1] p-6 text-white">
+                <div className="bg-[#e996a0] p-6 text-white">
                     <div className="flex justify-between items-center mb-6">
                         <Link href="/" onClick={() => setMenuOpen(false)}>
-                            <span className="text-2xl font-black italic">Dazlea</span>
+                            <span className="text-2xl font-black italic">Webtiendapp</span>
                         </Link>
                         <button onClick={() => setMenuOpen(false)} className="p-1 hover:bg-white/10 rounded-full transition-colors">
                             <X size={24} />
@@ -94,11 +94,11 @@ export function MobileMenu() {
                         <div>
                             <p className="font-bold text-sm">Hola, {user?.name || 'Invitado'}</p>
                             {!user ? (
-                                <Link href="/login" onClick={() => setMenuOpen(false)} className="text-xs text-blue-100 hover:underline">
+                                <Link href="/login" onClick={() => setMenuOpen(false)} className="text-xs text-pink-100 hover:underline">
                                     Iniciar sesión / Registrarse
                                 </Link>
                             ) : (
-                                <Link href="/account" onClick={() => setMenuOpen(false)} className="text-xs text-blue-100 hover:underline">
+                                <Link href="/account" onClick={() => setMenuOpen(false)} className="text-xs text-pink-100 hover:underline">
                                     Ver mi perfil
                                 </Link>
                             )}
@@ -116,10 +116,10 @@ export function MobileMenu() {
                                     key={i}
                                     href={item.href}
                                     onClick={() => setMenuOpen(false)}
-                                    className="flex items-center justify-between py-3 text-gray-700 hover:text-[#1a3da1] transition-colors group"
+                                    className="flex items-center justify-between py-3 text-gray-700 hover:text-[#e996a0] transition-colors group"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <span className="text-gray-400 group-hover:text-[#1a3da1] transition-colors">{item.icon}</span>
+                                        <span className="text-gray-400 group-hover:text-[#e996a0] transition-colors">{item.icon}</span>
                                         <span className="font-medium">{item.label}</span>
                                     </div>
                                     <ChevronRight size={16} className="text-gray-300" />
@@ -133,7 +133,7 @@ export function MobileMenu() {
                 {/* Footer */}
                 <div className="p-6 border-t border-gray-100 bg-gray-50">
                     <p className="text-xs text-gray-400 text-center">
-                        © 2024 Dazlea. Todos los derechos reservados.
+                        © 2024 Webtiendapp. Todos los derechos reservados.
                     </p>
                 </div>
             </div>

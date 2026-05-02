@@ -141,7 +141,7 @@ export default function AdminReviews() {
 
                                     <div className="bg-slate-50/50 p-6 rounded-2xl border border-slate-100 space-y-3">
                                         <div className="flex items-center justify-between">
-                                            <Link href={`/product/${rev.productId}`} className="text-[13px] font-black text-[#1a3da1] hover:underline uppercase tracking-wide flex items-center gap-2">
+                                            <Link href={`/product/${rev.productId}`} className="text-[13px] font-black text-[#e996a0] hover:underline uppercase tracking-wide flex items-center gap-2">
                                                 <Package size={14} />
                                                 {rev.productName}
                                             </Link>

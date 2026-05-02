@@ -65,7 +65,7 @@ export function WishlistSidebar() {
                                 </div>
                                 <button
                                     onClick={() => setWishlistOpen(false)}
-                                    className="bg-[#1a3da1] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-[#153288] transition-all shadow-lg shadow-blue-500/20"
+                                    className="bg-[#e996a0] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-slate-900 transition-all shadow-lg shadow-pink-500/20"
                                 >
                                     Explorar productos
                                 </button>
@@ -84,17 +84,17 @@ export function WishlistSidebar() {
                                     </div>
                                     <div className="flex flex-col flex-grow justify-between py-1">
                                         <div>
-                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#1a3da1] transition-colors">
+                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#e996a0] transition-colors">
                                                 <Link href={`/product/${item.id}`} onClick={() => setWishlistOpen(false)}>
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="text-[#1a3da1] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                            <p className="text-[#e996a0] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
                                             <button
                                                 onClick={() => handleAddToCart(item)}
-                                                className="flex items-center gap-2 text-[12px] font-bold text-[#1a3da1] hover:text-blue-800 transition-colors uppercase tracking-wider"
+                                                className="flex items-center gap-2 text-[12px] font-bold text-[#e996a0] hover:text-slate-900 transition-colors uppercase tracking-wider"
                                             >
                                                 <ShoppingCart size={14} />
                                                 Agregar al carrito
@@ -115,7 +115,7 @@ export function WishlistSidebar() {
                         {/* Success Toast */}
                         {showAddToast && (
                             <div className="fixed bottom-24 right-4 left-4 md:left-auto md:w-80 z-[1002] animate-in slide-in-from-bottom-4 fade-in duration-300">
-                                <div className="bg-[#1a3da1] text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/20 backdrop-blur-md">
+                                <div className="bg-[#e996a0] text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/20 backdrop-blur-md">
                                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center shrink-0">
                                         <Check size={18} strokeWidth={3} />
                                     </div>

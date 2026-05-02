@@ -54,7 +54,7 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-[32px] font-black text-slate-900 tracking-tighter leading-tight flex items-center gap-4">
-                        <Search size={32} className="text-[#1a3da1]" />
+                        <Search size={32} className="text-[#e996a0]" />
                         {query ? `Búsqueda: "${query}"` : activeCategory ? activeCategory.name : 'Todos los productos'}
                     </h1>
                     <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
                         )}
                         <button 
                             onClick={() => router.push('/search')}
-                            className={`text-[11px] font-black uppercase tracking-widest text-[#1a3da1] hover:underline transition-all ${hasActiveFilters ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                            className={`text-[11px] font-black uppercase tracking-widest text-[#e996a0] hover:underline transition-all ${hasActiveFilters ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                         >
                             Limpiar todo
                         </button>
@@ -76,12 +76,12 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
                 <div className="flex items-center gap-4">
                     <button 
                         onClick={() => setIsFilterOpen(true)}
-                        className="flex items-center gap-3 px-8 py-4 bg-white border-2 border-slate-50 rounded-[24px] font-black text-slate-700 hover:border-[#1a3da1] hover:text-[#1a3da1] hover:shadow-xl hover:shadow-blue-900/10 transition-all active:scale-95 group"
+                        className="flex items-center gap-3 px-8 py-4 bg-white border-2 border-slate-50 rounded-[24px] font-black text-slate-700 hover:border-[#e996a0] hover:text-[#e996a0] hover:shadow-xl hover:shadow-pink-900/10 transition-all active:scale-95 group"
                     >
                         <SlidersHorizontal size={20} className="group-hover:rotate-12 transition-transform" />
                         <span>Filtros Avanzados</span>
                         {hasActiveFilters && (
-                            <span className="w-6 h-6 bg-[#1a3da1] text-white text-[10px] rounded-full flex items-center justify-center font-black animate-in zoom-in">
+                            <span className="w-6 h-6 bg-[#e996a0] text-white text-[10px] rounded-full flex items-center justify-center font-black animate-in zoom-in">
                                 !
                             </span>
                         )}
@@ -95,7 +95,7 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
                     {minPrice && (
                         <div className="bg-white border-2 border-slate-50 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
                             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Min:</span>
-                            <span className="text-[13px] font-black text-[#1a3da1]">${minPrice}</span>
+                            <span className="text-[13px] font-black text-[#e996a0]">${minPrice}</span>
                             <button onClick={() => removeFilter('minPrice')} className="text-slate-300 hover:text-red-500 transition-colors">
                                 <X size={14} />
                             </button>
@@ -104,7 +104,7 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
                     {maxPrice && (
                         <div className="bg-white border-2 border-slate-50 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
                             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Max:</span>
-                            <span className="text-[13px] font-black text-[#1a3da1]">${maxPrice}</span>
+                            <span className="text-[13px] font-black text-[#e996a0]">${maxPrice}</span>
                             <button onClick={() => removeFilter('maxPrice')} className="text-slate-300 hover:text-red-500 transition-colors">
                                 <X size={14} />
                             </button>
@@ -113,7 +113,7 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
                     {sort !== 'newest' && (
                         <div className="bg-white border-2 border-slate-50 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
                             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Orden:</span>
-                            <span className="text-[13px] font-black text-[#1a3da1]">
+                            <span className="text-[13px] font-black text-[#e996a0]">
                                 {sort === 'price_asc' ? 'Menor Precio' : 'Mayor Precio'}
                             </span>
                             <button onClick={() => removeFilter('sort')} className="text-slate-300 hover:text-red-500 transition-colors">
@@ -124,7 +124,7 @@ export function SearchClient({ initialProducts, categories, searchParams }: Sear
                     {categoryId && activeCategory && (
                         <div className="bg-white border-2 border-slate-50 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
                             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Categoría:</span>
-                            <span className="text-[13px] font-black text-[#1a3da1] truncate max-w-[150px]">{activeCategory.name}</span>
+                            <span className="text-[13px] font-black text-[#e996a0] truncate max-w-[150px]">{activeCategory.name}</span>
                             <button onClick={() => removeFilter('category')} className="text-slate-300 hover:text-red-500 transition-colors">
                                 <X size={14} />
                             </button>

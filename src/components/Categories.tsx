@@ -99,14 +99,14 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                     <div className="relative group/nav">
                         <button
                             onClick={() => scroll('left')}
-                            className="absolute left-[-10px] md:left-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#1a3da1] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
+                            className="absolute left-[-10px] md:left-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#e996a0] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
                         >
                             <ChevronLeft size={18} className="md:w-6 md:h-6" />
                         </button>
 
                         <button
                             onClick={() => scroll('right')}
-                            className="absolute right-[-10px] md:right-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#1a3da1] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
+                            className="absolute right-[-10px] md:right-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#e996a0] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
                         >
                             <ChevronRight size={18} className="md:w-6 md:h-6" />
                         </button>
@@ -128,7 +128,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                         prefetch={true}
                                         className="flex-shrink-0 w-[30%] sm:w-[30%] md:w-[22%] lg:w-[15%] snap-start flex flex-col items-center justify-center gap-5 group cursor-pointer"
                                     >
-                                        <div className="w-[85px] h-[85px] sm:w-[100px] md:w-[120px] md:h-[120px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex items-center justify-center text-slate-400 group-hover:border-[#173495] group-hover:text-[#173495] group-hover:bg-blue-50/30 group-hover:shadow-2xl group-hover:shadow-blue-500/10 transition-all duration-500 ease-out overflow-hidden relative">
+                                        <div className="w-[85px] h-[85px] sm:w-[100px] md:w-[120px] md:h-[120px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex items-center justify-center text-slate-400 group-hover:border-[#e996a0] group-hover:text-[#e996a0] group-hover:bg-pink-50/30 group-hover:shadow-2xl group-hover:shadow-pink-500/10 transition-all duration-500 ease-out overflow-hidden relative">
                                             {c.imageUrl ? (
                                                 <div className="relative w-full h-full p-2">
                                                     <Image 
@@ -143,7 +143,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                                 <IconComponent size={32} className="md:w-[48px] md:h-[48px]" strokeWidth={1.5} />
                                             )}
                                         </div>
-                                        <span className="text-[16px] font-bold text-[#003F99] group-hover:text-[#1a3da1] transition-colors text-center capitalize tracking-tight leading-tight px-2">
+                                        <span className="text-[16px] font-bold text-slate-900 group-hover:text-[#e996a0] transition-colors text-center capitalize tracking-tight leading-tight px-2">
                                             {c.name ? c.name.toLowerCase() : ''}
                                         </span>
                                     </Link>

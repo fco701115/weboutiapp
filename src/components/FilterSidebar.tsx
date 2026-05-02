@@ -72,7 +72,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                 {/* Header */}
                 <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0 z-10">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#1a3da1] to-[#0d1f52] rounded-[18px] flex items-center justify-center text-white shadow-lg shadow-blue-900/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[#e996a0] to-[#d8858f] rounded-[18px] flex items-center justify-center text-white shadow-lg shadow-pink-900/20">
                             <SlidersHorizontal size={24} />
                         </div>
                         <div>
@@ -92,7 +92,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                     {/* Sort */}
                     <div className="space-y-5">
                         <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-4 bg-[#1a3da1] rounded-full" />
+                            <div className="w-1.5 h-4 bg-[#e996a0] rounded-full" />
                             <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-slate-400">Ordenar por</h3>
                         </div>
                         <div className="grid grid-cols-1 gap-2.5">
@@ -106,13 +106,13 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                                     onClick={() => setSort(option.id)}
                                     className={`flex items-center justify-between p-5 rounded-[24px] border-2 transition-all duration-300 font-bold group ${
                                         sort === option.id 
-                                        ? 'border-[#1a3da1] bg-blue-50/30 text-[#1a3da1] shadow-sm' 
+                                        ? 'border-[#e996a0] bg-pink-50/30 text-[#e996a0] shadow-sm' 
                                         : 'border-slate-50 hover:border-slate-200 text-slate-500 hover:text-slate-700'
                                     }`}
                                 >
                                     <span className="tracking-tight">{option.label}</span>
                                     {sort === option.id ? (
-                                        <div className="w-6 h-6 bg-[#1a3da1] rounded-full flex items-center justify-center text-white">
+                                        <div className="w-6 h-6 bg-[#e996a0] rounded-full flex items-center justify-center text-white">
                                             <Check size={14} strokeWidth={4} />
                                         </div>
                                     ) : (
@@ -126,7 +126,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                     {/* Price Range */}
                     <div className="space-y-5">
                         <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-4 bg-[#1a3da1] rounded-full" />
+                            <div className="w-1.5 h-4 bg-[#e996a0] rounded-full" />
                             <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-slate-400">Rango de Precio</h3>
                         </div>
                         <div className="bg-slate-50/50 p-6 rounded-[32px] border border-slate-100">
@@ -134,13 +134,13 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                                 <div className="flex-1 space-y-2.5">
                                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Mínimo</label>
                                     <div className="relative group">
-                                        <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-300 group-focus-within:text-[#1a3da1] transition-colors">$</span>
+                                        <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-300 group-focus-within:text-[#e996a0] transition-colors">$</span>
                                         <input
                                             type="number"
                                             value={minPrice}
                                             onChange={(e) => setMinPrice(e.target.value)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-4 bg-white border-2 border-white rounded-2xl font-black text-slate-900 focus:border-[#1a3da1] focus:ring-4 focus:ring-blue-100 transition-all outline-none shadow-sm"
+                                            className="w-full pl-8 pr-4 py-4 bg-white border-2 border-white rounded-2xl font-black text-slate-900 focus:border-[#e996a0] focus:ring-4 focus:ring-pink-100 transition-all outline-none shadow-sm"
                                         />
                                     </div>
                                 </div>
@@ -148,13 +148,13 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                                 <div className="flex-1 space-y-2.5">
                                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Máximo</label>
                                     <div className="relative group">
-                                        <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-300 group-focus-within:text-[#1a3da1] transition-colors">$</span>
+                                        <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-300 group-focus-within:text-[#e996a0] transition-colors">$</span>
                                         <input
                                             type="number"
                                             value={maxPrice}
                                             onChange={(e) => setMaxPrice(e.target.value)}
                                             placeholder="Max"
-                                            className="w-full pl-8 pr-4 py-4 bg-white border-2 border-white rounded-2xl font-black text-slate-900 focus:border-[#1a3da1] focus:ring-4 focus:ring-blue-100 transition-all outline-none shadow-sm"
+                                            className="w-full pl-8 pr-4 py-4 bg-white border-2 border-white rounded-2xl font-black text-slate-900 focus:border-[#e996a0] focus:ring-4 focus:ring-pink-100 transition-all outline-none shadow-sm"
                                         />
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                     {/* Category */}
                     <div className="space-y-5 pb-10">
                         <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-4 bg-[#1a3da1] rounded-full" />
+                            <div className="w-1.5 h-4 bg-[#e996a0] rounded-full" />
                             <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-slate-400">Categoría</h3>
                         </div>
                         <div className="grid grid-cols-1 gap-2.5">
@@ -173,7 +173,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                                 onClick={() => setCategoryId('')}
                                 className={`flex items-center justify-between p-5 rounded-[24px] border-2 transition-all font-bold ${
                                     categoryId === '' 
-                                    ? 'border-[#1a3da1] bg-blue-50/30 text-[#1a3da1] shadow-sm' 
+                                    ? 'border-[#e996a0] bg-pink-50/30 text-[#e996a0] shadow-sm' 
                                     : 'border-slate-50 hover:border-slate-200 text-slate-500 hover:text-slate-700'
                                 }`}
                             >
@@ -186,7 +186,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                                     onClick={() => setCategoryId(cat.id)}
                                     className={`flex items-center justify-between p-5 rounded-[24px] border-2 transition-all font-bold ${
                                         categoryId === cat.id 
-                                        ? 'border-[#1a3da1] bg-blue-50/30 text-[#1a3da1] shadow-sm' 
+                                        ? 'border-[#e996a0] bg-pink-50/30 text-[#e996a0] shadow-sm' 
                                         : 'border-slate-50 hover:border-slate-200 text-slate-500 hover:text-slate-700'
                                 }`}
                                 >
@@ -210,7 +210,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                     </button>
                     <button
                         onClick={handleApply}
-                        className="col-span-3 px-8 py-5 bg-[#1a3da1] hover:bg-[#122e7a] text-white rounded-[24px] font-black shadow-2xl shadow-blue-500/30 active:scale-[0.97] transition-all flex items-center justify-center gap-3 uppercase tracking-[0.2em] text-[11px] group overflow-hidden relative"
+                        className="col-span-3 px-8 py-5 bg-[#e996a0] hover:bg-slate-900 text-white rounded-[24px] font-black shadow-2xl shadow-pink-500/30 active:scale-[0.97] transition-all flex items-center justify-center gap-3 uppercase tracking-[0.2em] text-[11px] group overflow-hidden relative"
                     >
                         <span className="relative z-10">Aplicar Filtros</span>
                         <ChevronRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />

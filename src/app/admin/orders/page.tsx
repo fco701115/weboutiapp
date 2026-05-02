@@ -366,7 +366,7 @@ export default function AdminOrders() {
                                                     <span 
                                                         onClick={() => setShowShippingModal(order)}
                                                         className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest border cursor-pointer hover:scale-105 transition-all shadow-sm inline-flex w-fit items-center gap-2 ${
-                                                            t === 'Casa' ? 'bg-blue-50 text-[#1a3da1] border-blue-100' :
+                                                            t === 'Casa' ? 'bg-pink-50 text-[#e996a0] border-pink-100' :
                                                             t === 'Trabajo' ? 'bg-amber-50 text-amber-900 border-amber-100' :
                                                             'bg-white text-slate-500 border-slate-200'
                                                         }`}
@@ -484,7 +484,7 @@ export default function AdminOrders() {
                                                 <p className="text-slate-400 text-[12px] font-bold uppercase tracking-wider">Cant: {item.quantity} × ${item.price.toLocaleString()}</p>
                                             </div>
                                             <div className="text-right">
-                                                <p className="font-black text-[#1a3da1] text-[15px]">${(item.price * item.quantity).toLocaleString()}</p>
+                                                <p className="font-black text-[#e996a0] text-[15px]">${(item.price * item.quantity).toLocaleString()}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -503,7 +503,7 @@ export default function AdminOrders() {
                                 </div>
                                 <div className="pt-4 border-t border-slate-50 flex items-center justify-between">
                                     <span className="text-lg font-black text-slate-900">Total</span>
-                                    <span className="text-2xl font-black text-[#1a3da1]">${selectedOrder.total.toLocaleString()}</span>
+                                    <span className="text-2xl font-black text-[#e996a0]">${selectedOrder.total.toLocaleString()}</span>
                                 </div>
                             </div>
 
@@ -553,7 +553,7 @@ export default function AdminOrders() {
                                     </div>
                                     <div className="pt-3 border-t border-slate-200/50 space-y-2">
                                         <p className="text-slate-900 font-bold text-[13px] flex items-center gap-2">👤 {selectedOrder.customer}</p>
-                                        <p className="text-[#1a3da1] font-black text-[13px] flex items-center gap-2">📞 {formatAddress(selectedOrder.address).phone || '---'}</p>
+                                        <p className="text-[#e996a0] font-black text-[13px] flex items-center gap-2">📞 {formatAddress(selectedOrder.address).phone || '---'}</p>
                                     </div>
                                 </div>
                             </div>

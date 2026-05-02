@@ -64,9 +64,9 @@ export default async function Home() {
         <div className="flex justify-between items-center bg-transparent border-t border-gray-100 mb-8 pt-4">
           <div className="flex flex-col gap-1">
             <h2 className="text-[24px] font-black text-slate-900 tracking-tighter capitalize">Novedades Destacadas</h2>
-            <div className="h-1 w-20 bg-[#124baf] rounded-full" />
+            <div className="h-1 w-20 bg-[#e996a0] rounded-full" />
           </div>
-          <button className="bg-[#124baf] hover:bg-[#0f4094] text-white px-8 py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-blue-500/10 active:scale-95 uppercase tracking-widest">
+          <button className="bg-[#e996a0] hover:bg-[#d8858f] text-white px-8 py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-[#e996a0]/10 active:scale-95 uppercase tracking-widest">
             Ver Todos
           </button>
         </div>
@@ -74,7 +74,7 @@ export default async function Home() {
         {/* Grilla de Productos (Server Component) */}
         <Suspense fallback={
           <div className="py-20 text-center text-slate-400 font-bold uppercase tracking-widest text-[12px] flex items-center justify-center gap-3">
-            <div className="w-5 h-5 border-2 border-[#1a3da1] border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-5 h-5 border-2 border-[#e996a0] border-t-transparent rounded-full animate-spin"></div>
             Cargando Novedades...
           </div>
         }>

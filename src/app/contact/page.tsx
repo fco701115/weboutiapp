@@ -26,7 +26,7 @@ export default function ContactPage() {
                                 <MessageCircle size={18} />
                                 WhatsApp
                             </a>
-                            <a href="tel:+15551234567" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-sm active:scale-95 text-[14px]">
+                            <a href="tel:+15551234567" className="flex-1 bg-[#e996a0] hover:bg-pink-600 text-white font-bold h-12 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-sm active:scale-95 text-[14px]">
                                 <Phone size={18} />
                                 Llamar
                             </a>
@@ -38,7 +38,7 @@ export default function ContactPage() {
                                 <h3 className="text-[20px] font-bold text-slate-900 mb-6">Información General</h3>
                                 <div className="space-y-6">
                                     <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 bg-pink-50 text-[#e996a0] rounded-2xl flex items-center justify-center flex-shrink-0">
                                             <Phone />
                                         </div>
                                         <div>
@@ -49,7 +49,7 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 bg-pink-50 text-[#e996a0] rounded-2xl flex items-center justify-center flex-shrink-0">
                                             <Mail />
                                         </div>
                                         <div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 bg-pink-50 text-[#e996a0] rounded-2xl flex items-center justify-center flex-shrink-0">
                                             <MapPin />
                                         </div>
                                         <div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className="flex gap-4">
-                                        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 bg-pink-50 text-[#e996a0] rounded-2xl flex items-center justify-center flex-shrink-0">
                                             <Clock />
                                         </div>
                                         <div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                                             name="name"
                                             type="text"
                                             placeholder="Ej: Juan Pérez"
-                                            className="w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium text-[15px]"
+                                            className="w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-[#e996a0] transition-all font-medium text-[15px]"
                                             required
                                         />
                                     </div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                                             name="email"
                                             type="email"
                                             placeholder="ejemplo@correo.com"
-                                            className="w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium text-[15px]"
+                                            className="w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-[#e996a0] transition-all font-medium text-[15px]"
                                             required
                                         />
                                     </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
 
                                 <button
                                     type="submit"
-                                    className="w-full md:w-auto px-8 h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2"
+                                    className="w-full md:w-auto px-8 h-12 bg-[#e996a0] hover:bg-pink-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-pink-500/30 flex items-center justify-center gap-2"
                                 >
                                     Enviar Mensaje
                                     <Send size={18} />

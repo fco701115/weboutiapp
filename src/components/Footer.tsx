@@ -18,7 +18,7 @@ export function Footer() {
                                 </div>
                                 <span className="text-3xl font-extrabold text-[#f15922]">Webtiendapp</span>
                             </div>
-                            <div className="text-[15px] md:text-[13px] text-[#3b609e] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
+                            <div className="text-[15px] md:text-[13px] text-[#e996a0] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
                                 Kalala Bondor Bauphal Patuakhali
                             </div>
                             <div className="text-[16px] md:text-[15px] font-bold text-black">
@@ -31,7 +31,7 @@ export function Footer() {
 
                             {/* Useful Links */}
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 lg:pl-10">
-                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#1a4a8d] uppercase tracking-wide">Useful Link</h3>
+                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#e996a0] uppercase tracking-wide">Useful Link</h3>
                                 <ul className="flex flex-col gap-3 text-[13px] text-gray-700 font-medium">
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Contact Us</li>
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Order Procedure</li>
@@ -42,7 +42,7 @@ export function Footer() {
 
                             {/* Links */}
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 lg:pl-4">
-                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#1a4a8d] uppercase tracking-wide">Link</h3>
+                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#e996a0] uppercase tracking-wide">Link</h3>
                                 <ul className="flex flex-col gap-3 text-[13px] text-gray-700 font-medium">
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Terms & Conditions</li>
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Privacy Policy</li>
@@ -55,7 +55,7 @@ export function Footer() {
 
                         {/* Social & App - Centered on mobile */}
                         <div className="flex flex-col items-center lg:items-start gap-4 mt-12 lg:mt-0">
-                            <h3 className="text-[14px] font-bold text-[#1a4a8d] uppercase tracking-wide">Stay Connected</h3>
+                            <h3 className="text-[14px] font-bold text-[#e996a0] uppercase tracking-wide">Stay Connected</h3>
                             <div className="flex items-center gap-6 md:gap-4 text-black">
                                 <Facebook size={24} className="hover:text-[#f15922] cursor-pointer sm:size-[20px]" />
                                 {/* Google G icon mock */}
@@ -84,7 +84,7 @@ export function Footer() {
             {/* Bottom Bar */}
             <div className="bg-black py-4 border-t border-gray-800">
                 <div className="max-w-[1200px] mx-auto px-4 flex flex-col items-center text-center gap-1 text-[11px] md:text-[12px] text-gray-400">
-                    <span>Copyright © 2026 Khaled.shop. All rights reserved. Design & Developed By <span className="text-[#3b609e] hover:underline cursor-pointer">khaleditsolution</span></span>
+                    <span>Copyright © 2026 Khaled.shop. All rights reserved. Design & Developed By <span className="text-[#e996a0] hover:underline cursor-pointer">khaleditsolution</span></span>
                 </div>
             </div>
         </footer>
