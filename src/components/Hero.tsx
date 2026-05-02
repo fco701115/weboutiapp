@@ -107,7 +107,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                 <div className="flex gap-4 h-full">
                     {/* Sidebar Categories (Desktop) */}
                     <div className="hidden lg:flex flex-col w-72 bg-white border border-gray-100 shadow-sm rounded-[4px] overflow-hidden">
-                        <div className="flex-1 overflow-y-auto py-3 custom-scrollbar border border-[#173495] rounded-[5px]">
+                        <div className="flex-1 overflow-y-auto py-3 custom-scrollbar border border-[#e996a0] rounded-[5px]">
                             <div className="flex flex-col">
                                 {categories.map((cat, i) => (
                                     <Link
@@ -200,7 +200,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                         </p>
 
                                         <div>
-                                            <Link href={slider.link || "/search"} className="inline-block bg-white text-slate-900 px-6 md:px-10 py-2 md:py-3 rounded-[3px] font-bold shadow-lg hover:bg-[#1a3da1] hover:text-white transition-all text-sm md:text-base">
+                                            <Link href={slider.link || "/search"} className="inline-block bg-white text-slate-900 px-6 md:px-10 py-2 md:py-3 rounded-[3px] font-bold shadow-lg hover:bg-[#e996a0] hover:text-white transition-all text-sm md:text-base">
                                                 {slider.buttonText || 'Ver Ofertas'}
                                             </Link>
                                         </div>

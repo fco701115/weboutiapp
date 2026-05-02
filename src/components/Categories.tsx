@@ -93,7 +93,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                 <>
                     <div className="flex flex-col gap-1 mb-10">
                         <h2 className="text-[24px] font-black text-slate-900 tracking-tighter capitalize">Explora Categorías</h2>
-                        <div className="h-1 w-20 bg-[#124baf] rounded-full" />
+                        <div className="h-1 w-20 bg-[#e996a0] rounded-full" />
                     </div>
 
                     <div className="relative group/nav">

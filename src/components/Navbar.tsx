@@ -42,7 +42,7 @@ export function Navbar() {
     }, []);
 
     if (!mounted) return (
-        <div className="bg-[#0a58ca] text-white hidden md:block h-[50px]" />
+        <div className="bg-[#e996a0] text-white hidden md:block h-[50px]" />
     );
 
     const getIcon = (name: string) => {
@@ -61,7 +61,7 @@ export function Navbar() {
     };
 
     return (
-        <div className="bg-[#0a58ca] text-white hidden md:block">
+        <div className="bg-[#e996a0] text-white hidden md:block">
             <div className="max-w-[1200px] mx-auto flex items-center h-[50px] px-4 relative">
                 {/* Categories Dropdown Trigger (Desktop only) */}
                 <div className="relative h-full" ref={dropdownRef}>
@@ -70,7 +70,7 @@ export function Navbar() {
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                             if (!isHome) setIsOpen(!isOpen);
                         }}
-                        className={`hidden md:flex bg-[#0947a5] h-full items-center gap-3 px-6 h-full transition-colors w-[286px] text-[14px] font-bold flex-shrink-0 cursor-pointer ${!isHome ? 'hover:bg-blue-700' : 'hover:bg-[#0b51bc]'}`}
+                        className={`hidden md:flex bg-[#d8858f] h-full items-center gap-3 px-6 h-full transition-colors w-[286px] text-[14px] font-bold flex-shrink-0 cursor-pointer ${!isHome ? 'hover:bg-[#c7747e]' : 'hover:bg-[#ce7a84]'}`}
                     >
                         <Menu size={20} />
                         Categorías
