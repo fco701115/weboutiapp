@@ -66,7 +66,7 @@ export default async function Home() {
             <h2 className="text-[22px] font-lato m-0 font-semibold text-slate-900 tracking-tighter capitalize border-[#dfdfdf]">Novedades Destacadas</h2>
 
           </div>
-          <button className="bg-[#e996a0] hover:bg-[#d8858f] text-white px-8 py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-[#e996a0]/10 active:scale-95 uppercase tracking-widest">
+          <button className="bg-[#e996a0] hover:bg-[#d8858f] text-white px-[12px] py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-[#e996a0]/10 active:scale-95 uppercase tracking-widest">
             Ver Todos
           </button>
         </div>

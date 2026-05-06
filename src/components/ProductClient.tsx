@@ -543,7 +543,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
             {/* Related Products Section */}
             {relatedProducts.length > 0 && (
                 <div className="max-w-[1200px] mx-auto px-2 sm:px-4 mt-16 pb-10">
-                    <div className="flex flex-col gap-1 mb-10 pb-[10px] border-b border-[#ececec]">
+                    <div className="flex flex-col gap-1 mb-10 pb-[10px] border-b border-[#dfdfdf]">
                         <h2 className="text-[22px] font-lato m-0 font-semibold text-slate-900 tracking-tighter capitalize border-[#dfdfdf]">Categorias</h2>
 
                     </div>
