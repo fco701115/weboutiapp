@@ -63,8 +63,8 @@ export default async function Home() {
         {/* Header/Title Category Section */}
         <div className="flex justify-between items-center bg-transparent border-t border-gray-100 mb-8 pt-4">
           <div className="flex flex-col gap-1">
-            <h2 className="text-[24px] font-black text-slate-900 tracking-tighter capitalize">Novedades Destacadas</h2>
-            <div className="h-1 w-20 bg-[#e996a0] rounded-full" />
+            <h2 className="text-[22px] font-lato m-0 font-semibold text-slate-900 tracking-tighter capitalize">Novedades Destacadas</h2>
+
           </div>
           <button className="bg-[#e996a0] hover:bg-[#d8858f] text-white px-8 py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-[#e996a0]/10 active:scale-95 uppercase tracking-widest">
             Ver Todos

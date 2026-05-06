@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Lato } from "next/font/google";
 import "./globals.css";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 import AuthProvider from "@/components/AuthProvider";
@@ -18,6 +18,12 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+});
+
 export const metadata: Metadata = {
   title: "Tech E-commerce",
   description: "Computer parts and tech accessories",
@@ -34,7 +40,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} antialiased bg-[#f7f9fa] text-gray-900 flex flex-col min-h-screen`}
+        className={`${inter.variable} ${poppins.variable} ${lato.variable} antialiased bg-[#f7f9fa] text-gray-900 flex flex-col min-h-screen`}
       >
         <AuthProvider>
           <CartProvider>
