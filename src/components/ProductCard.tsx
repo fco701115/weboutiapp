@@ -80,7 +80,7 @@ export function ProductCard({ product }: { product: Product }) {
                             alt={product.name}
                             fill
                             sizes="(max-width: 640px) 50vw, 180px"
-                            className="object-contain sm:group-hover:scale-110 transition-transform duration-500 rounded-none"
+                            className="object-contain sm:group-hover:scale-110 transition-transform duration-500 rounded-none !w-[148px] !h-[145px] sm:!w-full sm:!h-full m-auto"
                         />
                     </div>
                 </div>
