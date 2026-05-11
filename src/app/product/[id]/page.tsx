@@ -41,17 +41,22 @@ const getRelatedProducts = unstable_cache(
 );
 
 // Pre-generate the 50 most recent products at build time
+// Returns empty array if database is unavailable (e.g., during build)
 export async function generateStaticParams() {
-    const products = await prisma.product.findMany({
-        where: { isVisible: true },
-        select: { id: true },
-        take: 50,
-        orderBy: { createdAt: 'desc' }
-    });
+    try {
+        const products = await prisma.product.findMany({
+            where: { isVisible: true },
+            select: { id: true },
+            take: 50,
+            orderBy: { createdAt: 'desc' }
+        });
 
-    return products.map((product) => ({
-        id: product.id,
-    }));
+        return products.map((product) => ({
+            id: product.id,
+        }));
+    } catch {
+        return [];
+    }
 }
 
 export default async function Page({ params }: Props) {
