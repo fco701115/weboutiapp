@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 export async function GET() {
     try {
@@ -28,6 +29,10 @@ export async function POST(req: Request) {
                 type: data.type || 'SIMPLE'
             }
         });
+
+        // Revalidate home page cache
+        revalidatePath('/');
+
         return NextResponse.json(banner, { status: 201 });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to create banner' }, { status: 500 });

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 export async function GET() {
     try {
@@ -38,6 +39,10 @@ export async function POST(req: Request) {
                 imageUrl: data.imageUrl || null,
             }
         });
+
+        // Revalidate home page cache
+        revalidatePath('/');
+
         return NextResponse.json(category, { status: 201 });
     } catch (error) {
         console.error('Create category error:', error);

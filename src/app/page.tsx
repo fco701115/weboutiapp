@@ -18,7 +18,7 @@ const getBanners = unstable_cache(
     });
   },
   ['home-banners'],
-  { revalidate: 3600, tags: ['banners'] }
+  { revalidate: 10, tags: ['banners'] }
 );
 
 const getCategories = unstable_cache(
@@ -28,7 +28,7 @@ const getCategories = unstable_cache(
     });
   },
   ['home-categories'],
-  { revalidate: 3600, tags: ['categories'] }
+  { revalidate: 10, tags: ['categories'] }
 );
 
 const getSliders = unstable_cache(
@@ -39,7 +39,7 @@ const getSliders = unstable_cache(
     });
   },
   ['home-sliders'],
-  { revalidate: 3600, tags: ['sliders'] }
+  { revalidate: 10, tags: ['sliders'] }
 );
 
 export default async function Home() {

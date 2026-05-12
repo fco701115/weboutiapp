@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
 
@@ -31,6 +32,10 @@ export async function POST(req: Request) {
                 status: data.status || 'ACTIVE'
             }
         });
+
+        // Revalidate home page cache
+        revalidatePath('/');
+
         return NextResponse.json(slider, { status: 201 });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to create slider' }, { status: 500 });

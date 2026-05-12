@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 export async function POST(req: Request) {
     try {
@@ -21,6 +22,9 @@ export async function POST(req: Request) {
                 isFeatured: data.isFeatured !== undefined ? data.isFeatured : false
             }
         });
+
+        // Revalidate home page cache
+        revalidatePath('/');
 
         return NextResponse.json(product, { status: 201 });
     } catch (error) {

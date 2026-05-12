@@ -13,7 +13,7 @@ const getHomeProducts = unstable_cache(
         });
     },
     ['home-products'],
-    { revalidate: 3600, tags: ['products'] }
+    { revalidate: 10, tags: ['products'] }
 );
 
 export async function HomeProducts() {
