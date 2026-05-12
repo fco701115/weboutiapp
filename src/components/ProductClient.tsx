@@ -179,7 +179,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                     src={currentImage}
                                     alt={product.name}
                                     fill
-                                    className="object-contain p-6 transition-transform duration-200"
+                                    className="object-contain p-[10px] transition-transform duration-200"
                                     unoptimized={currentImage.startsWith('data:')}
                                 />
 
