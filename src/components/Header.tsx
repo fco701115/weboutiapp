@@ -69,7 +69,7 @@ export function Header() {
                             <Menu size={28} />
                         </div>
                         <Link href="/" prefetch={true} className="flex items-center gap-2">
-                            <span className="text-3xl md:text-4xl font-extrabold text-[#f15922]">Webtiendapp</span>
+                            <span className="text-3xl md:text-4xl font-extrabold text-[#f15922]">Webshopapp</span>
                         </Link>
                     </div>
 

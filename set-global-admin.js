@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'admin@webtiendapp.com';
+  const email = 'admin@webshopapp.com';
   const hashedPassword = await bcrypt.hash('admin123', 10);
   
   console.log('--- GLOBAL DATABASE SYNC ---');

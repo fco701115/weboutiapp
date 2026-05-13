@@ -16,7 +16,7 @@ export function Footer() {
                                 <div className="bg-[#f15922] w-8 h-8 rounded-sm flex items-center justify-center p-1 shadow-sm">
                                     <div className="w-full h-full border-2 border-white/40 border-dashed rounded-xs"></div>
                                 </div>
-                                <span className="text-3xl font-extrabold text-[#f15922]">Webtiendapp</span>
+                                <span className="text-3xl font-extrabold text-[#f15922]">Webshopapp</span>
                             </div>
                             <div className="text-[15px] md:text-[13px] text-[#e996a0] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
                                 Kalala Bondor Bauphal Patuakhali

@@ -128,7 +128,7 @@ export default function CartPage() {
                             </button>
 
                             <p className="text-[12px] text-gray-400 text-center">
-                                Pagos seguros y protegidos.<br />Garantía de satisfacción Webtiendapp.
+                                Pagos seguros y protegidos.<br />Garantía de satisfacción Webshopapp.
                             </p>
                         </div>
                     </div>

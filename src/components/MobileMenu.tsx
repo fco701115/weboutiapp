@@ -77,7 +77,7 @@ export function MobileMenu() {
                 <div className="bg-[#e996a0] p-6 text-white">
                     <div className="flex justify-between items-center mb-6">
                         <Link href="/" onClick={() => setMenuOpen(false)}>
-                            <span className="text-2xl font-black italic">Webtiendapp</span>
+                            <span className="text-2xl font-black italic">Webshopapp</span>
                         </Link>
                         <button onClick={() => setMenuOpen(false)} className="p-1 hover:bg-white/10 rounded-full transition-colors">
                             <X size={24} />
@@ -133,7 +133,7 @@ export function MobileMenu() {
                 {/* Footer */}
                 <div className="p-6 border-t border-gray-100 bg-gray-50">
                     <p className="text-xs text-gray-400 text-center">
-                        © 2024 Webtiendapp. Todos los derechos reservados.
+                        © 2024 Webshopapp. Todos los derechos reservados.
                     </p>
                 </div>
             </div>

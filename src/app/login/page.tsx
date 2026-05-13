@@ -83,7 +83,7 @@ function LoginContent() {
 
                     <div className="relative z-10">
                         <Link href="/" className="text-white text-4xl font-black tracking-tighter mb-12 block">
-                            Webtiendapp<span className="text-pink-400">.</span>
+                            Webshopapp<span className="text-pink-400">.</span>
                         </Link>
                         <h2 className="text-4xl xl:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
                             Bienvenido a la mejor tecnología.
@@ -105,7 +105,7 @@ function LoginContent() {
                     </div>
 
                     <div className="relative z-10 pt-10 border-t border-white/10">
-                        <p className="text-pink-200/50 font-medium text-sm">© 2026 Webtiendapp Technologies. All rights reserved.</p>
+                        <p className="text-pink-200/50 font-medium text-sm">© 2026 Webshopapp Technologies. All rights reserved.</p>
                     </div>
                 </div>
 

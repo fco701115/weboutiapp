@@ -85,7 +85,7 @@ export default function RegisterPage() {
                     </div>
                     <h1 className="text-3xl font-black text-slate-900 tracking-tighter mb-4">¡Cuenta Creada!</h1>
                     <p className="text-slate-500 font-medium leading-relaxed">
-                        Bienvenido a la familia Dazlea. <br/>
+                        Bienvenido a la familia Webshopapp. <br/>
                         Redirigiéndote para iniciar sesión...
                     </p>
                     <div className="mt-8 flex justify-center">
@@ -107,7 +107,7 @@ export default function RegisterPage() {
 
                     <div className="relative z-10">
                         <Link href="/" className="text-white text-4xl font-black tracking-tighter mb-12 block">
-                            Webtiendapp<span className="text-pink-400">.</span>
+                            Webshopapp<span className="text-pink-400">.</span>
                         </Link>
                         <h2 className="text-4xl xl:text-5xl font-black text-white leading-tight tracking-tighter mb-6">
                             Únete a la nueva era tecnológica.
@@ -129,7 +129,7 @@ export default function RegisterPage() {
                     </div>
 
                     <div className="relative z-10 pt-10 border-t border-white/10">
-                        <p className="text-pink-200/50 font-medium text-sm">© 2026 Webtiendapp Technologies. All rights reserved.</p>
+                        <p className="text-pink-200/50 font-medium text-sm">© 2026 Webshopapp Technologies. All rights reserved.</p>
                     </div>
                 </div>
 
@@ -140,7 +140,7 @@ export default function RegisterPage() {
                             <UserIcon size={24} />
                         </div>
                         <h1 className="text-[32px] font-black text-slate-900 tracking-tighter mb-2">Crear Cuenta</h1>
-                        <p className="text-slate-400 font-medium">Sé parte de la comunidad tech de Webtiendapp.</p>
+                        <p className="text-slate-400 font-medium">Sé parte de la comunidad tech de Webshopapp.</p>
                     </div>
 
                     <form onSubmit={handleRegister} className="space-y-4">

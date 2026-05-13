@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'admin@webtiendapp.com';
+  const email = 'admin@webshopapp.com';
   const password = 'admin123';
   const hashedPassword = await bcrypt.hash(password, 10);
 
