@@ -100,7 +100,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
     };
 
     return (
-        <div className="w-full max-w-[1200px] mx-auto px-4 mt-6 h-[300px] md:h-[380px]">
+        <div className="w-full max-w-[1200px] mx-auto px-4 mt-[10px] h-[300px] md:h-[380px]">
             {!mounted || (isLoading && categories.length === 0 && sliders.length === 0) ? (
                 <div className="w-full h-full bg-gray-50 animate-pulse rounded-[4px]" />
             ) : (
