@@ -130,13 +130,14 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                     >
                                         <div className="w-[123px] h-[123px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex flex-col items-center group-hover:border-[#198754] group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-500 ease-out overflow-hidden relative">
                                             {/* Image Section */}
-                                            <div className="relative w-full h-[85px] p-2 bg-slate-50/50 group-hover:bg-transparent transition-colors">
+                                            <div className="relative w-full h-[85px] p-2 bg-slate-50/50 group-hover:bg-transparent transition-colors flex items-center justify-center">
                                                 {c.imageUrl ? (
                                                     <Image 
                                                         src={c.imageUrl} 
                                                         alt={c.name || 'Categoría'} 
-                                                        fill 
-                                                        className="object-cover p-1" 
+                                                        width={80}
+                                                        height={80}
+                                                        className="object-cover p-1 w-[80px] h-[80px]" 
                                                         unoptimized={c.imageUrl && c.imageUrl.startsWith('data:')}
                                                     />
                                                 ) : (
