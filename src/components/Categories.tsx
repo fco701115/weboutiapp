@@ -137,7 +137,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                                         alt={c.name || 'Categoría'} 
                                                         width={80}
                                                         height={80}
-                                                        className="object-cover p-1 w-[80px] h-[80px]" 
+                                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover p-1 w-[80px] h-[80px]" 
                                                         unoptimized={c.imageUrl && c.imageUrl.startsWith('data:')}
                                                     />
                                                 ) : (
