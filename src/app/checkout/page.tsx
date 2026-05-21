@@ -36,6 +36,40 @@ export default function CheckoutPage() {
 
     const [paymentMethod, setPaymentMethod] = useState('CASH');
 
+    // Card payment state
+    const [cardData, setCardData] = useState({
+        cardNumber: '',
+        expiry: '',
+        cvv: '',
+        cardHolder: '',
+        useSameAddress: true,
+    });
+    const [showCvvTooltip, setShowCvvTooltip] = useState(false);
+
+    // Format card number with spaces every 4 digits
+    const formatCardNumber = (value: string) => {
+        const cleaned = value.replace(/\D/g, '').slice(0, 16);
+        return cleaned.replace(/(\d{4})(?=\d)/g, '$1 ');
+    };
+
+    // Format expiry MM/AA
+    const formatExpiry = (value: string) => {
+        const cleaned = value.replace(/\D/g, '').slice(0, 4);
+        if (cleaned.length >= 3) return cleaned.slice(0, 2) + '/' + cleaned.slice(2);
+        return cleaned;
+    };
+
+    // Detect card type
+    const getCardType = (num: string) => {
+        const n = num.replace(/\s/g, '');
+        if (/^4/.test(n)) return 'visa';
+        if (/^5[1-5]/.test(n) || /^2[2-7]/.test(n)) return 'mastercard';
+        if (/^3[47]/.test(n)) return 'amex';
+        return null;
+    };
+
+    const cardType = getCardType(cardData.cardNumber);
+
     React.useEffect(() => {
         const loadUserData = async (email: string, name: string) => {
             // Pre-fill basic info
@@ -454,133 +488,220 @@ export default function CheckoutPage() {
                                         <h2 className="text-[18px] font-bold text-slate-900 tracking-tight">Método de Pago</h2>
                                     </div>
                                     
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div className="grid grid-cols-3 gap-3">
+                                        {/* Pago al recibir */}
                                         <div 
                                             onClick={() => setPaymentMethod('CASH')}
-                                            className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CASH' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                                            className={`border-[1.5px] rounded-[15px] p-4 flex flex-col gap-3 cursor-pointer transition-all ${paymentMethod === 'CASH' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
                                         >
                                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CASH' ? 'bg-[#198754] text-white' : 'bg-slate-50 text-slate-300'}`}>
                                                 <Truck size={20} />
                                             </div>
-                                            <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'CASH' ? 'text-slate-900' : 'text-slate-300'}`}>Pago al recibir</span>
+                                            <span className={`font-black text-[11px] uppercase tracking-widest leading-tight ${paymentMethod === 'CASH' ? 'text-slate-900' : 'text-slate-300'}`}>Pago al recibir</span>
                                         </div>
+
+                                        {/* Tarjeta */}
                                         <div 
                                             onClick={() => setPaymentMethod('CARD')}
-                                            className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CARD' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                                            className={`border-[1.5px] rounded-[15px] p-4 flex flex-col gap-3 cursor-pointer transition-all ${paymentMethod === 'CARD' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
                                         >
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CARD' ? 'bg-[#198754] text-white' : 'bg-slate-50 text-slate-300'}`}>
-                                                <CreditCard size={20} />
+                                            <div className="flex items-center justify-between">
+                                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CARD' ? 'bg-[#198754] text-white' : 'bg-slate-50 text-slate-300'}`}>
+                                                    <CreditCard size={20} />
+                                                </div>
+                                                {/* Card brand logos */}
+                                                <div className="flex items-center gap-1">
+                                                    {/* VISA */}
+                                                    <div className={`h-6 px-1.5 rounded flex items-center justify-center border transition-all ${cardType === 'visa' || paymentMethod === 'CARD' ? 'border-slate-200 bg-white' : 'border-slate-100 bg-slate-50 opacity-40'}`}>
+                                                        <svg width="26" height="8" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <text x="0" y="10" fontFamily="Arial" fontWeight="900" fontSize="10" fill="#1A1F71" letterSpacing="0">VISA</text>
+                                                        </svg>
+                                                    </div>
+                                                    {/* Mastercard */}
+                                                    <div className={`h-6 w-8 rounded flex items-center justify-center border transition-all ${cardType === 'mastercard' || paymentMethod === 'CARD' ? 'border-slate-200 bg-white' : 'border-slate-100 bg-slate-50 opacity-40'}`}>
+                                                        <svg width="22" height="14" viewBox="0 0 28 18" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="10" cy="9" r="9" fill="#EB001B"/>
+                                                            <circle cx="18" cy="9" r="9" fill="#F79E1B"/>
+                                                            <path d="M14 3.07a9 9 0 0 1 0 11.86A9 9 0 0 1 14 3.07z" fill="#FF5F00"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'CARD' ? 'text-slate-900' : 'text-slate-300'}`}>Tarjeta</span>
+                                            <span className={`font-black text-[11px] uppercase tracking-widest leading-tight ${paymentMethod === 'CARD' ? 'text-slate-900' : 'text-slate-300'}`}>Tarjeta</span>
                                         </div>
-                                        <div 
+
+                                        {/* Transferencia */}
+                                        <div
                                             onClick={() => setPaymentMethod('TRANSFER')}
-                                            className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'TRANSFER' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                                            className={`border-[1.5px] rounded-[15px] p-4 flex flex-col gap-3 cursor-pointer transition-all ${paymentMethod === 'TRANSFER' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
                                         >
                                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'TRANSFER' ? 'bg-[#198754] text-white' : 'bg-slate-50 text-slate-300'}`}>
                                                 <Landmark size={20} />
                                             </div>
-                                            <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'TRANSFER' ? 'text-slate-900' : 'text-slate-300'}`}>Transferencia</span>
+                                            <span className={`font-black text-[11px] uppercase tracking-widest leading-tight ${paymentMethod === 'TRANSFER' ? 'text-slate-900' : 'text-slate-300'}`}>Transferencia</span>
                                         </div>
                                     </div>
 
-                                    {/* Formulario de Tarjeta de Crédito (se muestra solo al seleccionar CARD) */}
-                                    {paymentMethod === 'CARD' && (
-                                        <div className="mt-6 border border-slate-300 rounded-[8px] overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
-                                            {/* Header */}
-                                            <div className="bg-white p-4 flex items-center justify-between border-b border-slate-200">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="w-5 h-5 rounded-full border-[5px] border-slate-900 bg-white shadow-sm flex items-center justify-center">
-                                                        <div className="w-1.5 h-1.5 bg-slate-900 rounded-full"></div>
-                                                    </div>
-                                                    <span className="font-bold text-[15px] text-slate-900">Tarjeta de crédito</span>
-                                                </div>
-                                                <div className="flex items-center gap-1.5">
-                                                    <div className="bg-white border border-slate-200 rounded px-2 py-0.5 shadow-sm">
-                                                        <span className="text-[11px] font-black italic text-[#1a1f71]">VISA</span>
-                                                    </div>
-                                                    <div className="bg-white border border-slate-200 rounded px-1.5 py-0.5 flex items-center shadow-sm">
-                                                        <div className="w-3.5 h-3.5 bg-[#eb001b] rounded-full opacity-90 z-10"></div>
-                                                        <div className="w-3.5 h-3.5 bg-[#f79e1b] rounded-full opacity-90 -ml-1.5"></div>
-                                                    </div>
-                                                    <div className="bg-[#0070ba] border border-[#0070ba] rounded px-1.5 py-0.5 text-white shadow-sm flex items-center">
-                                                        <span className="text-[9px] font-bold tracking-wider">AMEX</span>
+                                    {/* Card Form - expandable */}
+                                    <div
+                                        style={{
+                                            maxHeight: paymentMethod === 'CARD' ? '600px' : '0px',
+                                            opacity: paymentMethod === 'CARD' ? 1 : 0,
+                                            overflow: 'hidden',
+                                            transition: 'max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease',
+                                        }}
+                                    >
+                                        <div className="mt-5 p-5 border border-slate-200 rounded-[16px] bg-slate-50/60 space-y-4">
+                                            {/* Card Number */}
+                                            <div className="flex flex-col gap-1.5">
+                                                <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Número de tarjeta</label>
+                                                <div className="relative">
+                                                    <input
+                                                        type="text"
+                                                        inputMode="numeric"
+                                                        value={cardData.cardNumber}
+                                                        onChange={(e) => setCardData({ ...cardData, cardNumber: formatCardNumber(e.target.value) })}
+                                                        placeholder="•••• •••• •••• ••••"
+                                                        maxLength={19}
+                                                        className="w-full h-[48px] px-5 pr-12 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 text-[15px] tracking-widest focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none placeholder:text-slate-300 placeholder:tracking-widest placeholder:font-normal"
+                                                    />
+                                                    <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300">
+                                                        {cardType === 'visa' && (
+                                                            <svg width="32" height="10" viewBox="0 0 32 10" fill="none"><text x="0" y="10" fontFamily="Arial" fontWeight="900" fontSize="10" fill="#1A1F71">VISA</text></svg>
+                                                        )}
+                                                        {cardType === 'mastercard' && (
+                                                            <svg width="28" height="18" viewBox="0 0 28 18"><circle cx="10" cy="9" r="9" fill="#EB001B"/><circle cx="18" cy="9" r="9" fill="#F79E1B"/><path d="M14 3.07a9 9 0 0 1 0 11.86A9 9 0 0 1 14 3.07z" fill="#FF5F00"/></svg>
+                                                        )}
+                                                        {cardType === 'amex' && (
+                                                            <div className="bg-blue-600 px-1.5 py-0.5 rounded"><span className="text-white font-black text-[8px] tracking-widest">AMEX</span></div>
+                                                        )}
+                                                        {!cardType && <Lock size={16} />}
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            {/* Form Body */}
-                                            <div className="bg-[#f6f6f6] p-4 space-y-3">
-                                                <div className="relative">
-                                                    <input 
-                                                        type="text" 
-                                                        placeholder="Número de tarjeta"
-                                                        className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                            {/* Expiry + CVV */}
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="flex flex-col gap-1.5">
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Fecha de vencimiento (MM / AA)</label>
+                                                    <input
+                                                        type="text"
+                                                        inputMode="numeric"
+                                                        value={cardData.expiry}
+                                                        onChange={(e) => setCardData({ ...cardData, expiry: formatExpiry(e.target.value) })}
+                                                        placeholder="MM / AA"
+                                                        maxLength={5}
+                                                        className="w-full h-[48px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none placeholder:text-slate-300 placeholder:font-normal"
                                                     />
-                                                    <Lock size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500" />
                                                 </div>
-                                                
-                                                <div className="grid grid-cols-2 gap-3">
-                                                    <input 
-                                                        type="text" 
-                                                        placeholder="Fecha de vencimiento (MM / AA)"
-                                                        className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
-                                                    />
+                                                <div className="flex flex-col gap-1.5">
+                                                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Código de seguridad</label>
                                                     <div className="relative">
-                                                        <input 
-                                                            type="text" 
-                                                            placeholder="Código de seguridad"
-                                                            className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                                        <input
+                                                            type="password"
+                                                            inputMode="numeric"
+                                                            value={cardData.cvv}
+                                                            onChange={(e) => setCardData({ ...cardData, cvv: e.target.value.replace(/\D/g, '').slice(0, cardType === 'amex' ? 4 : 3) })}
+                                                            placeholder={cardType === 'amex' ? '••••' : '•••'}
+                                                            maxLength={cardType === 'amex' ? 4 : 3}
+                                                            className="w-full h-[48px] px-5 pr-10 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none placeholder:text-slate-300 placeholder:font-normal"
                                                         />
-                                                        <HelpCircle size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                                                        <div className="relative inline-block">
+                                                            <button
+                                                                type="button"
+                                                                onMouseEnter={() => setShowCvvTooltip(true)}
+                                                                onMouseLeave={() => setShowCvvTooltip(false)}
+                                                                className="absolute right-3 top-0 -translate-y-[30px] text-slate-300 hover:text-slate-500 transition-colors"
+                                                            >
+                                                                <HelpCircle size={16} />
+                                                            </button>
+                                                            {showCvvTooltip && (
+                                                                <div className="absolute right-0 bottom-full mb-2 w-52 bg-slate-900 text-white text-[11px] rounded-xl p-3 shadow-2xl z-50 font-medium leading-relaxed">
+                                                                    El código de seguridad (CVV) son los 3 dígitos en el reverso de tu tarjeta. En Amex son 4 dígitos en el frente.
+                                                                    <div className="absolute bottom-[-6px] right-4 w-3 h-3 bg-slate-900 rotate-45" />
+                                                                </div>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                
-                                                <input 
-                                                    type="text" 
-                                                    placeholder="Nombre del titular"
-                                                    className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                            </div>
+
+                                            {/* Cardholder Name */}
+                                            <div className="flex flex-col gap-1.5">
+                                                <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Nombre del titular</label>
+                                                <input
+                                                    type="text"
+                                                    value={cardData.cardHolder}
+                                                    onChange={(e) => setCardData({ ...cardData, cardHolder: e.target.value.toUpperCase() })}
+                                                    placeholder="Tal como aparece en la tarjeta"
+                                                    className="w-full h-[48px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 uppercase focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none placeholder:text-slate-300 placeholder:normal-case placeholder:font-normal"
                                                 />
-                                                
-                                                <label className="flex items-center gap-2 mt-4 cursor-pointer pt-2">
-                                                    <input type="checkbox" className="w-4 h-4 rounded-[4px] border-slate-300 text-slate-900 focus:ring-slate-900 accent-black cursor-pointer" defaultChecked />
-                                                    <span className="text-[13px] text-slate-700">Usar la dirección de envío como dirección de facturación</span>
-                                                </label>
+                                            </div>
+
+                                            {/* Same address checkbox */}
+                                            <label className="flex items-center gap-3 cursor-pointer group mt-1">
+                                                <div
+                                                    onClick={() => setCardData({ ...cardData, useSameAddress: !cardData.useSameAddress })}
+                                                    className={`w-5 h-5 rounded-[5px] border-2 flex items-center justify-center transition-all shrink-0 ${cardData.useSameAddress ? 'bg-[#198754] border-[#198754]' : 'border-slate-300 bg-white'}`}
+                                                >
+                                                    {cardData.useSameAddress && (
+                                                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                                                            <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        </svg>
+                                                    )}
+                                                </div>
+                                                <span className="text-[13px] font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">
+                                                    Usar la dirección de envío como dirección de facturación
+                                                </span>
+                                            </label>
+
+                                            {/* Security badge */}
+                                            <div className="flex items-center gap-2 pt-1">
+                                                <Lock size={13} className="text-[#198754] shrink-0" />
+                                                <span className="text-[11px] text-slate-400 font-medium">Tus datos de pago están cifrados con SSL de 256 bits</span>
                                             </div>
                                         </div>
-                                    )}
+                                    </div>
 
-                                    {/* Formulario de Transferencia Bancaria (se muestra solo al seleccionar TRANSFER) */}
-                                    {paymentMethod === 'TRANSFER' && (
-                                        <div className="mt-6 border border-slate-300 rounded-[8px] overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
+                                    {/* Transfer Info Panel - expandable */}
+                                    <div
+                                        style={{
+                                            maxHeight: paymentMethod === 'TRANSFER' ? '600px' : '0px',
+                                            opacity: paymentMethod === 'TRANSFER' ? 1 : 0,
+                                            overflow: 'hidden',
+                                            transition: 'max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease',
+                                        }}
+                                    >
+                                        <div className="mt-5 border border-slate-200 rounded-[16px] overflow-hidden">
                                             {/* Header */}
-                                            <div className="bg-white p-4 flex items-center gap-3 border-b border-slate-200">
-                                                <div className="w-5 h-5 rounded-full border-[5px] border-slate-900 bg-white shadow-sm flex items-center justify-center">
-                                                    <div className="w-1.5 h-1.5 bg-slate-900 rounded-full"></div>
+                                            <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100 bg-white">
+                                                <div className="w-5 h-5 rounded-full border-2 border-[#198754] flex items-center justify-center shrink-0">
+                                                    <div className="w-2.5 h-2.5 bg-[#198754] rounded-full" />
                                                 </div>
-                                                <span className="font-bold text-[15px] text-slate-900">Transferencia Bancaria</span>
+                                                <span className="font-black text-slate-900 text-[15px]">Transferencia Bancaria</span>
                                             </div>
 
                                             {/* Body */}
-                                            <div className="bg-[#f6f6f6] p-5 space-y-5 text-[14px] text-slate-800 leading-relaxed">
+                                            <div className="px-5 py-5 bg-white space-y-4 text-[14px] text-slate-700 leading-relaxed">
                                                 <p>Realiza tu pago mediante transferencia bancaria a la siguiente cuenta:</p>
-                                                
-                                                <div>
-                                                    <p>KC ROLA, INC</p>
-                                                    <p>Banco General</p>
-                                                    <p>Cuenta Corriente: 03-72-01-122123-8</p>
+
+                                                {/* Bank details */}
+                                                <div className="bg-slate-50 border border-slate-100 rounded-[12px] px-4 py-4 space-y-1">
+                                                    <p className="font-black text-slate-900 text-[14px]">KC ROLA, INC</p>
+                                                    <p className="font-semibold text-slate-600">Banco General</p>
+                                                    <p className="font-semibold text-slate-600">Cuenta Corriente: <span className="font-black text-slate-900 tracking-wide">03-72-01-122123-8</span></p>
                                                 </div>
-                                                
-                                                <p>Al momento de transferir, incluye en la descripción: nombre de la persona que realizó el pedido y número de orden.</p>
-                                                
-                                                <p>Una vez realizado el pago, envía tu comprobante a panama@kennethcolelatino.com para iniciar la validación.</p>
-                                                
+
+                                                <p>Al momento de transferir, incluye en la descripción: <span className="font-bold text-slate-900">nombre de la persona que realizó el pedido</span> y <span className="font-bold text-slate-900">número de orden</span>.</p>
+
+                                                <p>Una vez realizado el pago, envía tu comprobante a <a href="mailto:panama@kennethcolelatino.com" className="font-bold text-[#198754] hover:underline break-all">panama@kennethcolelatino.com</a> para iniciar la validación.</p>
+
                                                 <p>Tu pedido será procesado una vez confirmado el pago.</p>
-                                                
-                                                <p>Gracias por comprar en Kenneth Cole Latinoamérica.</p>
+
+                                                <p className="text-slate-500 text-[13px] pt-1 border-t border-slate-100">Gracias por comprar en Kenneth Cole Latinoamérica.</p>
                                             </div>
                                         </div>
-                                    )}
+                                    </div>
                                 </div>
 
                                 <button
