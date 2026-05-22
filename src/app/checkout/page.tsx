@@ -330,7 +330,7 @@ export default function CheckoutPage() {
                                 </div>
                             ) : null}
 
-                            <form onSubmit={handleCheckout} className="space-y-6">
+                            <form id="checkout-form" onSubmit={handleCheckout} className="space-y-6">
                                 {showAddressForm && (
                                     <>
                                         {/* Step 1: Datos Personales */}
@@ -710,8 +710,9 @@ export default function CheckoutPage() {
                                 </div>
 
                                 <button
+                                    type="submit"
                                     disabled={isProcessing}
-                                    className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
+                                    className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all hidden lg:flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
                                 >
                                     {isProcessing ? (
                                         <>
@@ -805,6 +806,26 @@ export default function CheckoutPage() {
                                     <span className="text-[32px] font-black text-white tracking-tighter">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 </div>
                             </div>
+
+                            {/* Botón Finalizar Pedido para Móvil */}
+                            <button
+                                type="submit"
+                                form="checkout-form"
+                                disabled={isProcessing}
+                                className={`w-full h-[58px] mt-8 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
+                            >
+                                {isProcessing ? (
+                                    <>
+                                        <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                                        PROCESANDO...
+                                    </>
+                                ) : (
+                                    <>
+                                        FINALIZAR PEDIDO
+                                        <ArrowRight size={20} />
+                                    </>
+                                )}
+                            </button>
 
                             <div className="mt-10 flex items-center gap-3 bg-white/5 p-4 rounded-2xl text-white/50 text-[12px] font-medium leading-tight">
                                 <ShieldCheck size={28} className="text-emerald-500" />
