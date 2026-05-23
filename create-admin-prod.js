@@ -1,14 +1,20 @@
-
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
-const prisma = new PrismaClient();
+
+// Explicitly use the public URL from .env
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: "postgresql://postgres:XHlzgFUYxaPEcFoYGTbLplPNhyoZcBdQ@viaduct.proxy.rlwy.net:46447/railway",
+    },
+  },
+});
 
 async function main() {
   const email = 'admin@webmartapp.com';
   const hashedPassword = await bcrypt.hash('admin123', 10);
-
-  console.log('--- GLOBAL DATABASE SYNC ---');
-  console.log('Using database identified by prisma/schema.prisma (should be prisma/dev.db)');
+  
+  console.log('--- CREATING ADMIN IN PRODUCTION ---');
   
   const user = await prisma.user.upsert({
     where: { email },
@@ -26,10 +32,14 @@ async function main() {
     }
   });
 
-  const check = await prisma.user.findUnique({ where: { email } });
-  console.log('Record for', email, 'updated. hasPassword:', !!check.password);
+  console.log('✅ Success! User admin@webmartapp.com created/updated.');
+  console.log('Role:', user.role);
 }
 
 main()
-  .catch(e => console.error(e))
-  .finally(async () => await prisma.$disconnect());
+  .catch(e => {
+    console.error('❌ Error:', e);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
