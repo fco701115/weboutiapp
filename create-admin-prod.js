@@ -11,7 +11,11 @@ const prisma = new PrismaClient({
 });
 
 async function main() {
+<<<<<<< HEAD
   const email = 'admin@webmartapp.com';
+=======
+  const email = 'admin@webshopapp.com';
+>>>>>>> 52ffa8e (Fix UI alignments for mobile and search page)
   const hashedPassword = await bcrypt.hash('admin123', 10);
   
   console.log('--- CREATING ADMIN IN PRODUCTION ---');
@@ -32,7 +36,11 @@ async function main() {
     }
   });
 
+<<<<<<< HEAD
   console.log('✅ Success! User admin@webmartapp.com created/updated.');
+=======
+  console.log('✅ Success! User admin@webshopapp.com created/updated.');
+>>>>>>> 52ffa8e (Fix UI alignments for mobile and search page)
   console.log('Role:', user.role);
 }
 
