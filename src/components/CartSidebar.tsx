@@ -30,7 +30,7 @@ export function CartSidebar() {
                     {/* Header */}
                     <div className="px-6 py-6 border-b border-slate-100 flex items-center justify-between bg-white">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#198754] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-green-500/20">
+                            <div className="w-10 h-10 bg-[#bea55b] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-green-500/20">
                                 <ShoppingBag size={20} />
                             </div>
                             <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">Mi Carrito</h2>
@@ -126,7 +126,7 @@ export function CartSidebar() {
                                 <div className="h-px bg-slate-100 w-full" />
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-900 font-extrabold text-[16px]">TOTAL</span>
-                                    <span className="text-[20px] font-black text-[#198754] tracking-tighter">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                    <span className="text-[20px] font-black text-[#bea55b] tracking-tighter">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 </div>
                             </div>
 

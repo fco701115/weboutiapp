@@ -64,10 +64,10 @@ export function ProductCard({ product }: { product: Product }) {
             >
                 {/* Discount Badge */}
                 {(product.discountBadge || product.salePrice) && (
-                    <div
-                        className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#198754] text-white flex flex-col items-center justify-center text-[10px] font-black leading-tight shadow-md border-2 border-white"
-                        style={{ fontFamily: '"Lato", sans-serif' }}
-                    >
+<div
+                         className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#bea55b] text-white flex flex-col items-center justify-center text-[10px] font-black leading-tight shadow-md border-2 border-white"
+                         style={{ fontFamily: '"Lato", sans-serif' }}
+                     >
                         -{product.discountBadge ? product.discountBadge.replace(/[^0-9%]/g, '') : Math.round((1 - Number(product.salePrice) / Number(product.price)) * 100) + '%'}
                     </div>
                 )}

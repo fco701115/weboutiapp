@@ -63,10 +63,10 @@ export function WishlistSidebar() {
                                     <p className="text-lg font-bold text-slate-900">Tu lista está vacía</p>
                                     <p className="text-slate-500 text-sm">¡Guarda los productos que más te gusten!</p>
                                 </div>
-                                <button
-                                    onClick={() => setWishlistOpen(false)}
-                                    className="bg-[#198754] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-slate-900 transition-all shadow-lg shadow-green-500/20"
-                                >
+                                    <button
+                                     onClick={() => setWishlistOpen(false)}
+                                     className="bg-[#bea55b] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-slate-900 transition-all shadow-lg shadow-green-500/20"
+                                 >
                                     Explorar productos
                                 </button>
                             </div>

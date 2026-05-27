@@ -709,11 +709,11 @@ export default function CheckoutPage() {
                                     </div>
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    disabled={isProcessing}
-                                    className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all hidden lg:flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
-                                >
+                                 <button
+                                     type="submit"
+                                     disabled={isProcessing}
+                                     className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all hidden lg:flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#bea55b] text-white hover:bg-[#bea55b]/90 active:scale-[0.98]'}`}
+                                 >
                                     {isProcessing ? (
                                         <>
                                             <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -813,13 +813,13 @@ export default function CheckoutPage() {
                             </div>
                         </div>
 
-                        {/* Botón Finalizar Pedido para Móvil */}
-                        <button
-                            type="submit"
-                            form="checkout-form"
-                            disabled={isProcessing}
-                            className={`w-full h-[58px] mt-[20px] rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
-                        >
+                         {/* Botón Finalizar Pedido para Móvil */}
+                         <button
+                             type="submit"
+                             form="checkout-form"
+                             disabled={isProcessing}
+                             className={`w-full h-[58px] mt-[20px] rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#bea55b] text-white hover:bg-[#bea55b]/90 active:scale-[0.98]'}`}
+                         >
                             {isProcessing ? (
                                 <>
                                     <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
