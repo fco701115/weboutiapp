@@ -334,7 +334,7 @@ export default function CheckoutPage() {
                                 {showAddressForm && (
                                     <>
                                         {/* Step 1: Datos Personales */}
-                                        <div className="space-y-6 mb-12">
+                                        <div className="space-y-6 mb-[24px]">
                                             <div className="flex items-baseline gap-2 mb-8">
                                                 <span className="text-[18px] font-bold text-slate-900">1</span>
                                                 <h3 className="text-[18px] font-bold text-slate-900 tracking-tight"><span className="border-b-2 border-slate-300">Datos</span> de Personales:</h3>
@@ -384,7 +384,7 @@ export default function CheckoutPage() {
                                         </div>
 
                                         {/* Step 2: Dirección de Envío */}
-                                        <div className="space-y-6 mb-12">
+                                        <div className="space-y-6 mb-[24px]">
                                             <div className="flex items-baseline gap-2 mb-8">
                                                 <span className="text-[18px] font-bold text-slate-900">2</span>
                                                 <h3 className="text-[18px] font-bold text-slate-900 tracking-tight"><span className="border-b-2 border-slate-300">Dirección</span> de envió:</h3>
@@ -818,7 +818,7 @@ export default function CheckoutPage() {
                             type="submit"
                             form="checkout-form"
                             disabled={isProcessing}
-                            className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
+                            className={`w-full h-[58px] mt-[20px] rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
                         >
                             {isProcessing ? (
                                 <>
