@@ -446,7 +446,7 @@ export default function CheckoutPage() {
                                                         className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2 mb-[12px] mt-[12px]">
+                                                <div className="flex flex-col gap-2 mb-[12px] mt-[12px] md:mt-0">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Colonia o Barrio (Opcional):</label>
                                                     <input
                                                         value={formData.neighborhood}
@@ -467,7 +467,7 @@ export default function CheckoutPage() {
                                                         className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2 mb-[12px] mt-[12px]">
+                                                <div className="flex flex-col gap-2 mb-[12px] mt-[12px] md:mt-0">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Código Postal (Opcional):</label>
                                                     <input
                                                         value={formData.postalCode}
