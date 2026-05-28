@@ -192,7 +192,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                         <span className="text-cyan-300 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-1">
                                             {slider.subtitle || 'OFERTA ESPECIAL'}
                                         </span>
-                                        <h2 className="text-[29px] sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[100px] h-[110px] sm:w-auto sm:h-auto overflow-hidden">
+                                        <h2 className="text-[29px] sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[170px] h-[110px] sm:w-auto sm:h-auto overflow-hidden">
                                             {slider.title}
                                         </h2>
                                         <p className="text-xs sm:text-sm md:text-lg text-gray-100 mb-4 md:mb-8 font-medium w-[150px] h-[32px] sm:w-auto sm:h-auto md:max-w-[450px] overflow-hidden">
