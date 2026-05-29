@@ -108,12 +108,12 @@ export function ProductCard({ product }: { product: Product }) {
                 </div>
 
                 {/* Price Area */}
-                <div className="w-full px-1 mt-[5px] flex items-baseline gap-2 mb-[5px]">
-                    <span className="text-[16px] font-black text-[#bea55b] tracking-tight">
+                <div className="w-[145px] sm:w-full px-1 mt-[5px] flex items-baseline gap-2 mb-[5px]">
+                    <span className="text-[14px] sm:text-[16px] font-black text-[#bea55b] tracking-tight">
                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                     {product.salePrice && (
-                        <span className="text-[12px] text-[#999] line-through font-bold">
+                        <span className="text-[11px] sm:text-[12px] text-[#999] line-through font-bold">
                             $ {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </span>
                     )}
