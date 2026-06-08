@@ -1,5 +1,6 @@
 import { Facebook, Youtube } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function Footer() {
     return (
@@ -11,7 +12,7 @@ export function Footer() {
                     <div className="flex flex-col items-center text-center gap-4 mb-10 lg:mb-0 lg:w-full lg:grid lg:grid-cols-4 lg:text-left lg:items-start">
 
                         <div className="flex flex-col items-center lg:items-start gap-3">
-<div className="flex items-center gap-3 justify-center lg:justify-start">
+                            <Link href="/" className="flex items-center gap-3 justify-center lg:justify-start">
                                 <Image
                                     src="/Logo-joye.png"
                                     alt="Logo"
@@ -20,7 +21,7 @@ export function Footer() {
                                     className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
                                     priority
                                 />
-                            </div>
+                            </Link>
                             <div className="text-[15px] md:text-[13px] text-[#bea55b] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
                                 Kalala Bondor Bauphal Patuakhali
                             </div>
