@@ -45,11 +45,11 @@ async function main() {
 
     // Default Admin User
     await prisma.user.upsert({
-        where: { email: 'admin@webmartapp.com' },
+        where: { email: 'admin@webboutapp.com' },
         update: {},
         create: {
             name: 'Administrador Principal',
-            email: 'admin@webmartapp.com',
+            email: 'admin@webboutapp.com',
             role: 'SUPER_ADMIN',
             status: 'ACTIVE'
         }

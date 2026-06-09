@@ -11,7 +11,7 @@ const prisma = new PrismaClient({
 });
 
 async function main() {
-  const email = 'admin@webmartapp.com';
+  const email = 'admin@webboutapp.com';
   const hashedPassword = await bcrypt.hash('admin123', 10);
   
   console.log('--- CREATING ADMIN IN PRODUCTION ---');
@@ -32,7 +32,7 @@ async function main() {
     }
   });
 
-  console.log('✅ Success! User admin@webmartapp.com created/updated.');
+  console.log('✅ Success! User admin@webboutapp.com created/updated.');
   console.log('Role:', user.role);
 }
 
