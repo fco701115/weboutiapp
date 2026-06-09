@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'admin@webmartapp.com';
+  const email = 'admin@webboutapp.com';
   const hashedPassword = await bcrypt.hash('admin123', 10);
 
   const admin = await prisma.user.upsert({
@@ -25,7 +25,7 @@ async function main() {
   });
 
   const check = await prisma.user.findUnique({ where: { email } });
-  console.log('Final Database State Check for admin@webmartapp.com:');
+  console.log('Final Database State Check for admin@webboutapp.com:');
   console.log(JSON.stringify(check, null, 2));
 }
 
