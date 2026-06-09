@@ -30,7 +30,7 @@ export function CartSidebar() {
                     {/* Header */}
                     <div className="px-6 py-6 border-b border-slate-100 flex items-center justify-between bg-white">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#bea55b] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-green-500/20">
+                            <div className="w-10 h-10 bg-[#bea55b] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#bea55b]/20">
                                 <ShoppingBag size={20} />
                             </div>
                             <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">Mi Carrito</h2>
@@ -83,14 +83,14 @@ export function CartSidebar() {
                                             <p className="text-[#bea55b] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
-                                            <div className="flex items-center gap-2 bg-green-50 rounded-lg p-1 border border-green-100">
+                                            <div className="flex items-center gap-2 bg-[lab(96_-2.27_13.39)] rounded-lg p-1 border border-[lab(88_-2.27_13.39)]">
                                                 <button
                                                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                                     className="w-7 h-7 flex items-center justify-center hover:bg-white rounded-lg transition-all text-slate-600 shadow-sm border border-transparent hover:border-slate-200"
                                                 >
                                                     <Minus size={14} />
                                                 </button>
-                                                <span className="w-8 text-center text-[12px] font-black text-green-700">{item.quantity}</span>
+                                                <span className="w-8 text-center text-[12px] font-black text-[#b99d0b]">{item.quantity}</span>
                                                 <button
                                                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                                     className="w-7 h-7 flex items-center justify-center hover:bg-white rounded-lg transition-all text-slate-600 shadow-sm border border-transparent hover:border-slate-200"
