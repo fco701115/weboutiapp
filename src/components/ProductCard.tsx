@@ -109,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Price Area */}
                 <div className="w-full px-1 mt-[5px] flex items-baseline gap-2 mb-[5px] pl-[2px] md:pl-0" style={{ fontFamily: '"Roboto", sans-serif', fontSize: '14px' }}>
-                    <span className="text-[14px] font-black text-[#bea55b] tracking-tight" style={{ fontFamily: '"Negita", sans-serif' }}>
+                    <span className="text-[14px] font-black text-[#bea55b] tracking-tight" style={{ fontFamily: '"Roboto", sans-serif', fontSize: '14px' }}>
                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                     {product.salePrice && (
