@@ -280,19 +280,19 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                 </h1>
                             </div>
 
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-[36px] font-black text-[#bea55b] tracking-tighter">
-                                        $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                    </span>
-                                    {product.salePrice && (
-                                        <span className="text-[18px] text-[#999] line-through font-bold">
-                                            $ {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                        </span>
-                                    )}
-                                </div>
-                                <span className="bg-[#bea55b]/5 text-[#bea55b] px-3 py-1 rounded-full text-[11px] font-black uppercase">En Stock</span>
-                            </div>
+<div className="flex items-center gap-4 mb-6 flex-wrap">
+                                 <div className="flex items-baseline gap-2">
+                                     <span className="text-[36px] font-black text-[#bea55b] tracking-tighter">
+                                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                     </span>
+                                     {product.salePrice && (
+                                         <span className="text-[18px] text-[#999] line-through font-bold">
+                                             $ {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                         </span>
+                                     )}
+                                 </div>
+                                 <span className="bg-[#bea55b]/5 text-[#bea55b] px-3 py-1 rounded-full text-[11px] font-black uppercase w-full md:w-auto text-center md:text-left">En Stock</span>
+                             </div>
 
                             <div className="flex items-center gap-2 mb-8 border-b border-slate-100 pb-6">
                                 <div className="flex text-amber-400 gap-[2px]">
