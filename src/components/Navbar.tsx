@@ -70,7 +70,7 @@ export function Navbar() {
                          window.scrollTo({ top: 0, behavior: 'smooth' });
                          if (!isHome) setIsOpen(!isOpen);
                      }}
-                      className={`hidden md:flex bg-[#ab0707] h-full items-center gap-3 px-6 h-full transition-colors w-[286px] text-[14px] font-bold flex-shrink-0 cursor-pointer ${!isHome ? 'hover:bg-[#ab0707]' : 'hover:bg-[#ab0707]'}`}
+                      className={`hidden md:flex bg-[#bd0149] h-full items-center gap-3 px-6 h-full transition-colors w-[286px] text-[14px] font-bold flex-shrink-0 cursor-pointer ${!isHome ? 'hover:bg-[#bd0149]' : 'hover:bg-[#bd0149]'}`}
                  >
                         <Menu size={20} />
                         Categorías

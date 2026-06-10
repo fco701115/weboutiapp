@@ -136,7 +136,7 @@ export function ProductCard({ product }: { product: Product }) {
             <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-0 mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2 relative z-10">
 <button
                      onClick={handleBuyNow}
-                     className="flex-1 h-[35px] bg-[#e1cb8a] hover:bg-[#e1cb8a] text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
+                     className="flex-1 h-[35px] bg-[#db0f70] hover:bg-[#db0f70] text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
                  >
                     Comprar Ahora
                 </button>

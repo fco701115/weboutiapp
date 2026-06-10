@@ -101,7 +101,7 @@ export function Header() {
                             placeholder="Buscar productos..."
                             className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-gray-700"
                         />
-                        <button type="submit" className="bg-[#e1cb8a] text-white p-[10px] px-6 hover:bg-[#e1cb8a] transition-colors">
+                        <button type="submit" className="bg-[#db0f70] text-white p-[10px] px-6 hover:bg-[#db0f70] transition-colors">
                             <Search size={20} />
                         </button>
                     </div>
