@@ -42,7 +42,7 @@ export function Navbar() {
     }, []);
 
     if (!mounted) return (
-        <div className="bg-[#e1cb8a] text-white hidden md:block h-[50px]" />
+        <div className="bg-[#f9077b] text-white hidden md:block h-[50px]" />
     );
 
     const getIcon = (name: string) => {
