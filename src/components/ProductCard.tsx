@@ -65,7 +65,7 @@ export function ProductCard({ product }: { product: Product }) {
                 {/* Discount Badge */}
                 {(product.discountBadge || product.salePrice) && (
 <div
-                         className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#bea55b] text-white flex flex-col items-center justify-center text-[11px] font-black leading-tight shadow-md border-2 border-white"
+                          className="absolute right-3 top-3 z-10 rounded-full w-[40px] h-[40px] bg-[#cc0a64] text-white flex flex-col items-center justify-center text-[11px] font-black leading-tight shadow-md border-2 border-white"
                          style={{ fontFamily: '"Lato", sans-serif' }}
                      >
                         -{product.discountBadge ? product.discountBadge.replace(/[^0-9%]/g, '') : Math.round((1 - Number(product.salePrice) / Number(product.price)) * 100) + '%'}
@@ -87,7 +87,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Product Name Area */}
                 <div className="w-full px-1 mt-4">
-                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] sm:group-hover:text-[#bea55b] transition-colors">
+                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] group-hover:text-[#db0f70] transition-colors">
                         {product.name}
                     </h3>
                 </div>

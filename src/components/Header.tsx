@@ -78,7 +78,7 @@ export function Header() {
                             onClick={() => setWishlistOpen(true)}
                             className="flex items-center gap-2 text-gray-700 hover:text-[#bea55b] cursor-pointer relative pr-2"
                         >
-                            <Heart size={24} className="text-[#bea55b]" strokeWidth={2.5} />
+                            <Heart size={24} className="text-[#db0f70]" strokeWidth={2.5} />
                             {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#bea55b] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold">{favCount}</span>}
                         </div>
 
@@ -86,7 +86,7 @@ export function Header() {
                             onClick={() => setCartOpen(true)}
                             className="flex items-center gap-2 text-gray-700 hover:text-[#bea55b] cursor-pointer relative pr-2 group"
                         >
-                            <ShoppingCart size={30} className="text-[#bea55b]" />
+                            <ShoppingCart size={30} className="text-[#db0f70]" />
                             {cartCount > 0 && <span className="absolute -top-1 right-0 bg-black text-white text-[10px] w-[18px] h-[18px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">{cartCount}</span>}
                         </div>
                     </div>
@@ -115,7 +115,7 @@ export function Header() {
                             ) : user?.name ? (
                                 <span className="text-[15px] font-black text-[#bea55b]">{user.name[0].toUpperCase()}</span>
                             ) : (
-                                <User size={20} className="text-[#bea55b]" strokeWidth={2.5} />
+                                <User size={20} className="text-[#db0f70]" strokeWidth={2.5} />
                             )}
                         </div>
                         <div className="flex flex-col justify-center">
