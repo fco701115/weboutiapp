@@ -56,7 +56,7 @@ export function ProductCard({ product }: { product: Product }) {
 
     return (
 <div 
-            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#ddd] hover:border-[#bea55b] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group"
+            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#ddd] hover:border-[#db0f70] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group"
         >
             <Link 
                 href={`/product/${product.id}`}
@@ -109,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Price Area */}
                 <div className="w-full px-1 mt-[5px] flex items-baseline gap-2 mb-[5px] pl-[4px]" style={{ fontFamily: '"Roboto", sans-serif', fontSize: '14px' }}>
-                    <span className="text-[14px] font-black text-[#bea55b] tracking-tight" style={{ fontFamily: '"Roboto", sans-serif', fontSize: '14px' }}>
+                    <span className="text-[14px] font-black text-[#db0f70] tracking-tight" style={{ fontFamily: '"Roboto", sans-serif', fontSize: '14px' }}>
                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                     {product.salePrice && (

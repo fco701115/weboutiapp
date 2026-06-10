@@ -107,7 +107,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                 <div className="flex gap-4 h-full">
                     {/* Sidebar Categories (Desktop) */}
                     <div className="hidden lg:flex flex-col w-72 bg-white border border-gray-100 shadow-sm rounded-[4px] overflow-hidden">
-                        <div className="flex-1 overflow-y-auto py-3 custom-scrollbar border border-[#bea55b] rounded-[5px]">
+                        <div className="flex-1 overflow-y-auto py-3 custom-scrollbar border border-[#db0f70] rounded-[5px]">
                             <div className="flex flex-col">
                                 {categories.map((cat, i) => (
                                     <Link
