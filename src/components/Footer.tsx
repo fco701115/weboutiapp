@@ -14,7 +14,7 @@ export function Footer() {
                         <div className="flex flex-col items-center lg:items-start gap-3">
                             <Link href="/" className="flex items-center gap-3 justify-center lg:justify-start">
                                 <Image
-                                    src="/Logo-joye.png"
+                                     src="/Logo-Boutique.png"
                                     alt="Logo"
                                     width={48}
                                     height={48}

@@ -62,7 +62,7 @@ export function Navbar() {
 
     return (
         <div className="bg-[#e1cb8a] text-white hidden md:block">
-            <div className="max-w-[1200px] mx-auto flex items-center h-[50px] px-4 relative bg-[#e1cb8a]">
+            <div className="max-w-[1200px] mx-auto flex items-center h-[50px] px-4 relative bg-[#db0f70]">
                 {/* Categories Dropdown Trigger (Desktop only) */}
                 <div className="relative h-full" ref={dropdownRef}>
 <div
@@ -70,7 +70,7 @@ export function Navbar() {
                          window.scrollTo({ top: 0, behavior: 'smooth' });
                          if (!isHome) setIsOpen(!isOpen);
                      }}
-                     className={`hidden md:flex bg-[#bea55b] h-full items-center gap-3 px-6 h-full transition-colors w-[286px] text-[14px] font-bold flex-shrink-0 cursor-pointer ${!isHome ? 'hover:bg-[#bea55b]' : 'hover:bg-[#bea55b]'}`}
+                      className={`hidden md:flex bg-[#ab0707] h-full items-center gap-3 px-6 h-full transition-colors w-[286px] text-[14px] font-bold flex-shrink-0 cursor-pointer ${!isHome ? 'hover:bg-[#ab0707]' : 'hover:bg-[#ab0707]'}`}
                  >
                         <Menu size={20} />
                         Categorías
