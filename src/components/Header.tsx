@@ -138,7 +138,7 @@ export function Header() {
                         onClick={() => setWishlistOpen(true)}
                         className="flex items-center gap-2 text-gray-700 hover:text-[#bea55b] cursor-pointer group relative pr-2"
                     >
-                        <Heart size={28} className="text-[#bea55b] group-hover:fill-[#bea55b] transition-all" strokeWidth={2.5} />
+                        <Heart size={28} className="text-[#db0f70] group-hover:fill-[#db0f70] transition-all" strokeWidth={2.5} />
                         {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#bea55b] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold animate-in zoom-in">{favCount}</span>}
                     </div>
 

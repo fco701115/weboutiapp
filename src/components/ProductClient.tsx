@@ -368,7 +368,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                                     </button>
                                     <button
                                         onClick={handleBuyNow}
-                                        className="h-[45px] bg-[#bea55b] text-white rounded-[5px] font-bold text-[14px] hover:bg-[#146c43] transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 border-b-2 border-green-900/50 px-4"
+                                        className="h-[45px] bg-[#db0f70] text-white rounded-[5px] font-bold text-[14px] hover:bg-[#a80449] transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 border-b-2 border-[#8a0339]/50 px-4"
                                     >
                                         <Zap size={18} fill="currentColor" />
                                         Comprar Ahora
