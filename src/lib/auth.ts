@@ -1,6 +1,9 @@
 
-import NextAuth from "next-auth"
+
 import type { NextAuthOptions } from "next-auth"
+import type { JWT } from "next-auth/jwt"
+import type { Session } from "next-auth"
+import type { User as NextAuthUser } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
 import CredentialsProvider from "next-auth/providers/credentials"
@@ -97,20 +100,33 @@ export const authOptions: NextAuthOptions = {
       }
       return true;
     },
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token, user }) {
+      const jwtToken = token as JWT & {
+        id?: string;
+        role?: string;
+      };
+
       if (user) {
-        token.id = user.id;
-        token.role = (user as any).role;
-        token.name = user.name;
+        const u = user as NextAuthUser & { id: string; role?: string };
+        jwtToken.id = u.id;
+        jwtToken.role = u.role;
+        jwtToken.name = u.name;
       }
-      return token;
+
+      return jwtToken;
     },
-    async session({ session, token }: any) {
-      if (token && session.user) {
-        session.user.id = token.id;
-        session.user.role = token.role;
-        session.user.name = token.name;
+    async session({ session, token }) {
+      const jwtToken = token as JWT & {
+        id?: string;
+        role?: string;
+      };
+
+      if (session.user) {
+        // These fields are added by our JWT callback.
+        (session.user as unknown as { id?: string; role?: string }).id = jwtToken.id;
+        (session.user as unknown as { id?: string; role?: string }).role = jwtToken.role;
       }
+
       return session;
     },
   },

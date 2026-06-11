@@ -274,7 +274,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                             )}
 
                             <div className="flex flex-col gap-1 mb-4">
-                                <span className="text-[12px] font-black text-[#bea55b] uppercase tracking-[0.2em]">{product.category?.name || 'TECNOLOGÍA'}</span>
+<span className="text-[12px] font-black text-[#db0f70] uppercase tracking-[0.2em]">{product.category?.name || 'TECNOLOGÍA'}</span>
                                 <h1 className="text-[26px] md:text-[32px] font-black text-slate-900 leading-[1.1] tracking-tight">
                                     {product.name}
                                 </h1>
@@ -282,7 +282,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
 
 <div className="flex items-center gap-4 mb-6 flex-wrap">
                                  <div className="flex items-baseline gap-2">
-                                     <span className="text-[36px] font-black text-[#bea55b] tracking-tighter">
+<span className="text-[36px] font-black text-[#db0f70] tracking-tighter">
                                          $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                      </span>
                                      {product.salePrice && (
