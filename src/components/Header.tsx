@@ -14,12 +14,17 @@ export function Header() {
     const { totalItems, setCartOpen, setMenuOpen } = useCart();
     const { wishlistCount, setWishlistOpen } = useWishlist();
     const [mounted, setMounted] = useState(false);
-    const [localUser, setLocalUser] = useState<any>(null);
-    
-    // Check local storage for legacy login
+
+    type LocalUser = { name?: string; image?: string };
+    const [localUser, setLocalUser] = useState<LocalUser | null>(null);
+
+    // Mark as mounted (avoid SSR hydration issues with localStorage)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         setMounted(true);
     }, []);
+
+
 
     useEffect(() => {
         const checkUser = () => {
@@ -45,7 +50,7 @@ export function Header() {
     }, [session]);
 
     const user = session?.user || localUser;
-    const displayName = user?.name || 'Invitado';
+    const displayName: string = user?.name ?? 'Invitado';
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,11 +73,10 @@ export function Header() {
                         >
                             <Menu size={28} />
                         </div>
-<Link href="/" prefetch={true} className="flex items-center gap-2">
-                              <img src="/Logo-Boutique.png" alt="Logo" className="h-10 md:h-14 w-auto" />
+                        <Link href="/" prefetch={true} className="flex items-center gap-2">
+                              <img src="/Logo-Boutique.png" alt="Logo" className="h-10 md:h-14 w-auto object-contain scale-[3]" />
                           </Link>
                     </div>
-
                     <div className="flex md:hidden items-center gap-4">
                         <div
                             onClick={() => setWishlistOpen(true)}
@@ -100,6 +104,7 @@ export function Header() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Buscar productos..."
                             className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-[#db0f70]"
+                            style={{ borderColor: 'lab(52 87.89 0.45)' }}
                         />
                         <button type="submit" className="bg-[#db0f70] text-white p-[10px] px-6 hover:bg-[#db0f70] transition-colors">
                             <Search size={20} />
