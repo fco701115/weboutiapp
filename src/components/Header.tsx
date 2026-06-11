@@ -99,7 +99,7 @@ export function Header() {
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Buscar productos..."
-                            className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-gray-700"
+                            className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-[#db0f70]"
                         />
                         <button type="submit" className="bg-[#db0f70] text-white p-[10px] px-6 hover:bg-[#db0f70] transition-colors">
                             <Search size={20} />
