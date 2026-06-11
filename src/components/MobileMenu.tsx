@@ -74,7 +74,7 @@ export function MobileMenu() {
                 className={`fixed top-0 left-0 h-full w-[80%] max-w-[300px] bg-white z-[2001] shadow-2xl transition-transform duration-300 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}
             >
                 {/* Header */}
-                <div className="bg-[#bea55b] p-6 text-white">
+                <div className="bg-[#db0f70] p-6 text-white">
                     <div className="flex justify-between items-center mb-6">
                         <Link href="/" onClick={() => setMenuOpen(false)}>
                             <span className="text-2xl font-black italic">Webshopapp</span>

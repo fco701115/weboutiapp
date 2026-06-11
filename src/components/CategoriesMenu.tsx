@@ -73,7 +73,7 @@ export function CategoriesMenu() {
             >
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-                    <h2 className="text-[18px] font-extrabold text-[#bea55b] uppercase tracking-wide">Categorías</h2>
+                    <h2 className="text-[18px] font-extrabold text-[#db0f70] uppercase tracking-wide">Categorías</h2>
                     <button
                         onClick={() => setCategoriesOpen(false)}
                         className="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-400"
