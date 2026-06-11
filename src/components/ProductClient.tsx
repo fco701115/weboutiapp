@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -27,6 +28,8 @@ interface ProductClientProps {
     relatedProducts: any[];
 }
 
+
+
 export function ProductClient({ product, relatedProducts }: ProductClientProps) {
     const router = useRouter();
     const { data: session } = useSession();
@@ -41,6 +44,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
         const saved = localStorage.getItem('user');
         if (saved) setLocalUser(JSON.parse(saved));
     }, []);
+
 
     const currentUser = session?.user || localUser;
 
