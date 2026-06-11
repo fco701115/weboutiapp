@@ -402,7 +402,7 @@ export default function CheckoutPage() {
                                                             onChange={() => setFormData({ ...formData, addressType: type })}
                                                             className="hidden"
                                                         />
-                                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${formData.addressType === type ? 'border-[#bea55b] bg-[#bea55b]' : 'border-slate-300'}`}>
+                                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${formData.addressType === type ? 'border-[#db0f70] bg-[#db0f70]' : 'border-slate-300'}`}>
                                                             {formData.addressType === type && <div className="w-2 h-2 bg-white rounded-full" />}
                                                         </div>
                                                         <span className="text-sm font-bold text-slate-600 flex items-center gap-1.5">

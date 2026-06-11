@@ -89,7 +89,7 @@ export function WishlistSidebar() {
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="text-[#bea55b] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                            <p className="text-[#db0f70] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
                                             <button

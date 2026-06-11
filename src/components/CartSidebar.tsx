@@ -30,7 +30,7 @@ export function CartSidebar() {
                     {/* Header */}
                     <div className="px-6 py-6 border-b border-slate-100 flex items-center justify-between bg-white">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#bea55b] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#bea55b]/20">
+                            <div className="w-10 h-10 bg-[#db0f70] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#db0f70]/20">
                                 <ShoppingBag size={20} />
                             </div>
                             <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">Mi Carrito</h2>
@@ -80,10 +80,10 @@ export function CartSidebar() {
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="text-[#bea55b] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                            <p className="text-[#db0f70] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
-                                            <div className="flex items-center gap-2 bg-[lab(96_-2.27_13.39)] rounded-lg p-1 border border-[lab(88_-2.27_13.39)]">
+                                            <div className="flex items-center gap-2 bg-[lab(90_13.06_0.01)] rounded-lg p-1 border border-[lab(82_13.44_-1.56)]">
                                                 <button
                                                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                                     className="w-7 h-7 flex items-center justify-center hover:bg-white rounded-lg transition-all text-slate-600 shadow-sm border border-transparent hover:border-slate-200"
@@ -126,7 +126,7 @@ export function CartSidebar() {
                                 <div className="h-px bg-slate-100 w-full" />
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-900 font-extrabold text-[16px]">TOTAL</span>
-                                    <span className="text-[20px] font-black text-[#bea55b] tracking-tighter">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                    <span className="text-[20px] font-black text-[#db0f70] tracking-tighter">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 </div>
                             </div>
 
@@ -134,7 +134,7 @@ export function CartSidebar() {
                                 <Link
                                     href="/checkout"
                                     onClick={() => setCartOpen(false)}
-                                    className="w-full h-14 bg-[#bea55b] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#146c43] transition-all shadow-xl active:scale-95"
+                                    className="w-full h-14 bg-[#db0f70] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#db0f70]/90 transition-all shadow-xl active:scale-95"
                                 >
                                     PAGAR AHORA
                                     <ArrowRight size={20} />
