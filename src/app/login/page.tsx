@@ -150,7 +150,7 @@ function LoginContent() {
                         <div className="space-y-2">
                             <div className="flex justify-between px-1">
                                 <label className="text-[12px] font-black text-slate-400 uppercase tracking-widest">Contraseña</label>
-                                <button type="button" className="text-[11px] font-black text-[#bea55b] hover:underline uppercase tracking-tight">¿Olvido clave?</button>
+                                <button type="button" className="text-[11px] font-black text-[#db0f70] hover:underline uppercase tracking-tight">¿Olvido clave?</button>
                             </div>
                             <div className="relative">
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={20} />
@@ -167,7 +167,7 @@ function LoginContent() {
 
                         <button
                             disabled={isLoading}
-                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#bea55b] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
+                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#db0f70] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
                         >
                             {isLoading ? 'Verificando...' : (
                                 <>

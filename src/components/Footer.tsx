@@ -22,7 +22,7 @@ export function Footer() {
                                     priority
                                 />
                             </Link>
-                            <div className="text-[15px] md:text-[13px] text-[#bea55b] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
+                            <div className="text-[15px] md:text-[13px] text-[#db0f70] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
                                 Kalala Bondor Bauphal Patuakhali
                             </div>
                             <div className="text-[16px] md:text-[15px] font-bold text-black">
@@ -35,7 +35,7 @@ export function Footer() {
 
                             {/* Useful Links */}
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 lg:pl-10">
-                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#bea55b] uppercase tracking-wide">Useful Link</h3>
+                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#db0f70] uppercase tracking-wide">Useful Link</h3>
                                 <ul className="flex flex-col gap-3 text-[13px] text-gray-700 font-medium">
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Contact Us</li>
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Order Procedure</li>
@@ -46,7 +46,7 @@ export function Footer() {
 
                             {/* Links */}
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 lg:pl-4">
-                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#bea55b] uppercase tracking-wide">Link</h3>
+                                <h3 className="text-[14px] md:text-[14px] font-bold text-[#db0f70] uppercase tracking-wide">Link</h3>
                                 <ul className="flex flex-col gap-3 text-[13px] text-gray-700 font-medium">
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Terms & Conditions</li>
                                     <li className="hover:text-[#f15922] cursor-pointer transition-colors">Privacy Policy</li>

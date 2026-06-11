@@ -207,7 +207,7 @@ export default function RegisterPage() {
 
                         <button
                             disabled={isLoading}
-                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#bea55b] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
+                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#db0f70] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
                         >
                             {isLoading ? 'Creando cuenta...' : (
                                 <>

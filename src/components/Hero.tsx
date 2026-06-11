@@ -212,7 +212,7 @@ unoptimized={Boolean(slider.thumbnail?.startsWith('data:'))}
                                     )}
 
                                     <div className="absolute top-1/2 left-6 md:left-14 -translate-y-1/2 z-20 text-white flex flex-col gap-1 md:gap-2 pr-4 w-full md:max-w-xl">
-                                        <span className="text-cyan-300 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-1">
+                                        <span className="text-cyan-300 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-1 w-[300px]">
                                             {slider.subtitle || 'OFERTA ESPECIAL'}
                                         </span>
                                         <h2 className="text-[29px] sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[480px] h-[110px] sm:w-auto sm:h-auto overflow-hidden">
