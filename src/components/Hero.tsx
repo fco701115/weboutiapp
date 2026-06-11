@@ -4,14 +4,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
+interface Category {
+    id: string;
+    name: string;
+    imageUrl?: string;
+}
+
+interface Slider {
+    id: string;
+    title: string;
+    subtitle?: string;
+    description?: string;
+    image?: string;
+    thumbnail?: string;
+    link?: string;
+    buttonText?: string;
+    status: string;
+}
+
 interface HeroProps {
-    initialCategories?: any[];
-    initialSliders?: any[];
+    initialCategories?: Category[];
+    initialSliders?: Slider[];
 }
 
 export function Hero({ initialCategories, initialSliders }: HeroProps) {
-    const [categories, setCategories] = useState<any[]>(initialCategories || []);
-    const [sliders, setSliders] = useState<any[]>(initialSliders || []);
+    const [categories, setCategories] = useState<Category[]>(initialCategories || []);
+    const [sliders, setSliders] = useState<Slider[]>(initialSliders || []);
     const [isLoading, setIsLoading] = useState(!initialCategories || !initialSliders);
     const [currentSlider, setCurrentSlider] = useState(0);
     const [mounted, setMounted] = useState(false);
@@ -66,7 +84,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
 
             if (sliderRes.ok) {
                 const sliderData = await sliderRes.json();
-                setSliders(sliderData.filter((s: any) => s.status === 'ACTIVE'));
+                setSliders(sliderData.filter((s: Slider) => s.status === 'ACTIVE'));
             }
         } catch (error) {
             console.error('Failed to fetch data:', error);
@@ -119,13 +137,14 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                             <div className="text-gray-400 group-hover:text-[#bea55b] group-hover:scale-110 transition-all w-5 h-5 flex items-center justify-center">
                                                 {cat.imageUrl ? (
                                                     <div className="relative w-full h-full overflow-hidden rounded-sm">
-                                                        <Image
-                                                            src={cat.imageUrl}
-                                                            alt={cat.name}
-                                                            fill
-                                                            className="object-cover"
-                                                            unoptimized={cat.imageUrl && cat.imageUrl.startsWith('data:')}
-                                                        />
+                                                    <Image
+                                                        src={cat.imageUrl}
+                                                        alt={cat.name}
+                                                        fill
+                                                        className="object-cover"
+unoptimized={Boolean(cat.imageUrl?.startsWith('data:'))}
+
+                                                    />
                                                     </div>
                                                 ) : (
                                                     getIcon(cat.name)
@@ -161,11 +180,14 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                                 alt={slider.title}
                                                 fill
                                                 className="object-cover"
-                                                unoptimized={slider.image && slider.image.startsWith('data:')}
+unoptimized={Boolean(slider.image?.startsWith('data:'))}
+
+
                                                 priority={index === 0}
                                             />
                                             {/* Subtle gradient only on the text area for legibility */}
-                                            <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent z-10" />
+                                            <div className="absolute inset-0 z-10" />
+
                                         </div>
                                     ) : (
                                         <>
@@ -182,7 +204,8 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                                     alt={slider.title + " thumbnail"}
                                                     fill
                                                     className="object-contain object-center drop-shadow-2xl hover:scale-105 transition-transform duration-700"
-                                                    unoptimized={slider.thumbnail && slider.thumbnail.startsWith('data:')}
+unoptimized={Boolean(slider.thumbnail?.startsWith('data:'))}
+
                                                 />
                                             </div>
                                         </div>
@@ -192,7 +215,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                         <span className="text-cyan-300 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-1">
                                             {slider.subtitle || 'OFERTA ESPECIAL'}
                                         </span>
-                                        <h2 className="text-[29px] sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[170px] h-[110px] sm:w-auto sm:h-auto overflow-hidden">
+                                        <h2 className="text-[29px] sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[480px] h-[110px] sm:w-auto sm:h-auto overflow-hidden">
                                             {slider.title}
                                         </h2>
                                         <p className="text-xs sm:text-sm md:text-lg text-gray-100 mb-4 md:mb-8 font-medium w-[150px] h-[32px] sm:w-auto sm:h-auto md:max-w-[450px] overflow-hidden">

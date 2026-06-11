@@ -818,7 +818,7 @@ export default function CheckoutPage() {
                              type="submit"
                              form="checkout-form"
                              disabled={isProcessing}
-                             className={`w-full h-[58px] mt-[20px] rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#bea55b] text-white hover:bg-[#bea55b]/90 active:scale-[0.98]'}`}
+                             className={`w-full h-[58px] mt-[20px] rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#db0f70] text-white hover:bg-[#db0f70]/90 active:scale-[0.98]'}`}
                          >
                             {isProcessing ? (
                                 <>

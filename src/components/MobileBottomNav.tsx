@@ -72,7 +72,7 @@ export function MobileBottomNav() {
                 {/* Home - Floating Center Button */}
                 <div className="relative -top-4">
                     <Link href="/" prefetch={true} className="flex flex-col items-center">
-                        <div className="w-[64px] h-[64px] bg-[#bea55b] rounded-full shadow-[0_4px_15px_rgba(223,202,141,0.3)] flex flex-col items-center justify-center text-white transition-transform active:scale-90 overflow-hidden">
+                        <div className="w-[64px] h-[64px] bg-[#db0f70] rounded-full shadow-[0_4px_15px_rgba(223,202,141,0.3)] flex flex-col items-center justify-center text-white transition-transform active:scale-90 overflow-hidden">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="white" className="mb-0.5">
                                 <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
                             </svg>
