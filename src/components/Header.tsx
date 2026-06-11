@@ -146,7 +146,7 @@ export function Header() {
                         onClick={() => setCartOpen(true)}
                         className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#bea55b] cursor-pointer relative pr-2 group"
                     >
-                        <ShoppingCart size={28} className="text-[#bea55b]" />
+                        <ShoppingCart size={28} className="text-[#db0f70]" />
                         {cartCount > 0 && <span className="absolute -top-1 right-0 bg-black text-white text-[10px] w-[18px] h-[18px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">{cartCount}</span>}
                     </div>
                 </div>
