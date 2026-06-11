@@ -59,7 +59,7 @@ export function Footer() {
 
                         {/* Social & App - Centered on mobile */}
                         <div className="flex flex-col items-center lg:items-start gap-4 mt-12 lg:mt-0">
-                            <h3 className="text-[14px] font-bold text-[#bea55b] uppercase tracking-wide">Stay Connected</h3>
+                            <h3 className="text-[14px] font-bold text-[#db0f70] uppercase tracking-wide">Stay Connected</h3>
                             <div className="flex items-center gap-6 md:gap-4 text-black">
                                 <Facebook size={24} className="hover:text-[#f15922] cursor-pointer sm:size-[20px]" />
                                 {/* Google G icon mock */}

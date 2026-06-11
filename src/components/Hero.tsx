@@ -216,7 +216,7 @@ unoptimized={Boolean(slider.thumbnail?.startsWith('data:'))}
                                             {slider.subtitle || 'OFERTA ESPECIAL'}
                                         </span>
                                         <h2 className="font-black mb-2 tracking-tight leading-tight capitalize overflow-hidden">
-                                            <span className="block md:hidden text-[29px] w-[200px] h-[110px]">
+                                            <span className="block md:hidden text-[30px] w-[200px] h-[110px]">
                                                 {slider.title}
                                             </span>
                                             <span className="hidden md:block text-5xl lg:text-6xl w-[350px] h-[150px]">
