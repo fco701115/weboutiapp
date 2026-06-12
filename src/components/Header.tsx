@@ -1,5 +1,6 @@
 'use client';
 import { Search, ShoppingCart, User, Menu, Heart } from 'lucide-react';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { useEffect, useState } from 'react';
@@ -13,18 +14,12 @@ export function Header() {
     const router = useRouter();
     const { totalItems, setCartOpen, setMenuOpen } = useCart();
     const { wishlistCount, setWishlistOpen } = useWishlist();
-    const [mounted, setMounted] = useState(false);
-
-    type LocalUser = { name?: string; image?: string };
-    const [localUser, setLocalUser] = useState<LocalUser | null>(null);
-
-    // Mark as mounted (avoid SSR hydration issues with localStorage)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-
+    // `mounted` is used to guard rendering of cart and wishlist counts.
+    // It can be initialized to `true` to avoid an extra render cycle.
+    const [mounted, setMounted] = useState(true);
+    const [localUser, setLocalUser] = useState<any>(null);
+    
+    // The component is considered mounted from the start, so no effect is needed.
 
     useEffect(() => {
         const checkUser = () => {
@@ -50,7 +45,7 @@ export function Header() {
     }, [session]);
 
     const user = session?.user || localUser;
-    const displayName: string = user?.name ?? 'Invitado';
+    const displayName = user?.name || 'Invitado';
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -73,16 +68,17 @@ export function Header() {
                         >
                             <Menu size={28} />
                         </div>
-                        <Link href="/" prefetch={true} className="flex items-center gap-2">
-                              <img src="/Logo-Boutique.png" alt="Logo" className="h-10 md:h-14 w-auto object-contain scale-[3]" />
+<Link href="/" prefetch={true} className="flex items-center gap-2">
+                              <img src="/Logo-joye.png" alt="Logo" className="h-10 md:h-14 w-auto" />
                           </Link>
                     </div>
+
                     <div className="flex md:hidden items-center gap-4">
                         <div
                             onClick={() => setWishlistOpen(true)}
                             className="flex items-center gap-2 text-gray-700 hover:text-[#bea55b] cursor-pointer relative pr-2"
                         >
-                            <Heart size={24} className="text-[#db0f70]" strokeWidth={2.5} />
+                            <Heart size={24} className="text-[#bea55b]" strokeWidth={2.5} />
                             {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#bea55b] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold">{favCount}</span>}
                         </div>
 
@@ -90,23 +86,22 @@ export function Header() {
                             onClick={() => setCartOpen(true)}
                             className="flex items-center gap-2 text-gray-700 hover:text-[#bea55b] cursor-pointer relative pr-2 group"
                         >
-                            <ShoppingCart size={30} className="text-[#db0f70]" />
+                            <ShoppingCart size={30} className="text-[#bea55b]" />
                             {cartCount > 0 && <span className="absolute -top-1 right-0 bg-black text-white text-[10px] w-[18px] h-[18px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">{cartCount}</span>}
                         </div>
                     </div>
                 </div>
 
                 <form onSubmit={handleSearch} className="w-full md:flex-1 md:max-w-xl md:px-12">
-                    <div className="flex w-full items-center border border-gray-300 rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-[#bea55b] focus-within:border-[#bea55b]">
+                    <div className="flex w-full items-center border border-[#db0f70] rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-[#db0f70] focus-within:border-[#db0f70]">
                         <input
                             type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Buscar productos..."
-                            className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-[#db0f70]"
-                            style={{ borderColor: 'lab(52 87.89 0.45)' }}
+                            className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-[#231f20]"
                         />
-                        <button type="submit" className="bg-[#db0f70] text-white p-[10px] px-6 hover:bg-[#db0f70] transition-colors">
+                        <button type="submit" className="bg-[#e1cb8a] text-white p-[10px] px-6 hover:bg-[#e1cb8a] transition-colors">
                             <Search size={20} />
                         </button>
                     </div>
@@ -120,7 +115,7 @@ export function Header() {
                             ) : user?.name ? (
                                 <span className="text-[15px] font-black text-[#bea55b]">{user.name[0].toUpperCase()}</span>
                             ) : (
-                                <User size={20} className="text-[#db0f70]" strokeWidth={2.5} />
+                                <User size={20} className="text-[#bea55b]" strokeWidth={2.5} />
                             )}
                         </div>
                         <div className="flex flex-col justify-center">
@@ -143,7 +138,7 @@ export function Header() {
                         onClick={() => setWishlistOpen(true)}
                         className="flex items-center gap-2 text-gray-700 hover:text-[#bea55b] cursor-pointer group relative pr-2"
                     >
-                        <Heart size={28} className="text-[#db0f70] group-hover:fill-[#db0f70] transition-all" strokeWidth={2.5} />
+                        <Heart size={28} className="text-[#bea55b] group-hover:fill-[#bea55b] transition-all" strokeWidth={2.5} />
                         {favCount > 0 && <span className="absolute -top-1 -right-1 bg-[#bea55b] text-white text-[9px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-bold animate-in zoom-in">{favCount}</span>}
                     </div>
 
@@ -151,7 +146,7 @@ export function Header() {
                         onClick={() => setCartOpen(true)}
                         className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#bea55b] cursor-pointer relative pr-2 group"
                     >
-                        <ShoppingCart size={28} className="text-[#db0f70]" />
+                        <ShoppingCart size={28} className="text-[#bea55b]" />
                         {cartCount > 0 && <span className="absolute -top-1 right-0 bg-black text-white text-[10px] w-[18px] h-[18px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">{cartCount}</span>}
                     </div>
                 </div>
