@@ -404,7 +404,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
 
                                 {/* Shipping Info Box */}
                                 <div className="bg-green-50/50 border border-green-100 rounded-[20px] p-5 flex items-center gap-4 text-green-900 shadow-sm">
-                                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-[#bea55b] shrink-0">
+                                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm text-[#db0f70] shrink-0">
                                         <Truck size={24} />
                                     </div>
                                     <div className="text-[12.5px] font-bold leading-tight">
@@ -421,13 +421,13 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                     <div className="flex border-b border-slate-100 bg-slate-50/50 rounded-t-[5px]">
                         <button
                             onClick={() => setActiveTab('description')}
-                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'description' ? 'text-[#bea55b] bg-white border-b-2 border-[#bea55b]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'description' ? 'text-[#db0f70] bg-white border-b-2 border-[#db0f70]' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             Descripción
                         </button>
                         <button
                             onClick={() => setActiveTab('reviews')}
-                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'reviews' ? 'text-[#bea55b] bg-white border-b-2 border-[#bea55b]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`px-10 py-5 text-[13px] font-black uppercase tracking-widest transition-all ${activeTab === 'reviews' ? 'text-[#db0f70] bg-white border-b-2 border-[#db0f70]' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             Valoraciones ({reviews.length})
                         </button>

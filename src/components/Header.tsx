@@ -64,7 +64,7 @@ export function Header() {
                     <div className="flex items-center gap-3">
                         <div 
                             onClick={() => setMenuOpen(true)}
-                            className="md:hidden p-1 text-gray-700 hover:text-[#bea55b] cursor-pointer"
+                            className="md:hidden p-1 text-gray-700 hover:text-[#db0f70] cursor-pointer"
                         >
                             <Menu size={28} />
                         </div>
@@ -109,25 +109,25 @@ export function Header() {
 
                 <div className="hidden md:flex items-center gap-8">
                     <Link href="/account" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center transition-all group-hover:border-blue-400 group-hover:bg-white overflow-hidden shadow-sm">
+                        <div className="w-10 h-10 bg-slate-50 rounded-full border border-slate-200 flex items-center justify-center transition-all group-hover:border-[#db0f70] group-hover:bg-white overflow-hidden shadow-sm">
                             {user?.image ? (
                                 <img src={user.image} alt={user.name} className="w-full h-full object-cover" />
                             ) : user?.name ? (
-                                <span className="text-[15px] font-black text-[#bea55b]">{user.name[0].toUpperCase()}</span>
+                                <span className="text-[15px] font-black text-[#db0f70]">{user.name[0].toUpperCase()}</span>
                             ) : (
-                                <User size={20} className="text-[#bea55b]" strokeWidth={2.5} />
+                                <User size={20} className="text-[#db0f70]" strokeWidth={2.5} />
                             )}
                         </div>
                         <div className="flex flex-col justify-center">
                             {user ? (
                                 <>
                                     <span className="text-[11px] font-bold text-gray-400 leading-none">Mi Cuenta</span>
-                                    <span className="text-[14px] font-black text-gray-800 group-hover:text-[#bea55b] transition-colors leading-tight truncate max-w-[120px]">
+                                    <span className="text-[14px] font-black text-gray-800 group-hover:text-[#db0f70] transition-colors leading-tight truncate max-w-[120px]">
                                         {user.name}
                                     </span>
                                 </>
                             ) : (
-                                <span className="text-[14px] font-black text-gray-800 group-hover:text-[#bea55b] transition-colors leading-tight">
+                                <span className="text-[14px] font-black text-gray-800 group-hover:text-[#db0f70] transition-colors leading-tight">
                                     Mi cuenta
                                 </span>
                             )}
