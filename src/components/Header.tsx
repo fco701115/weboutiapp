@@ -3,7 +3,7 @@ import { Search, ShoppingCart, User, Menu, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -18,6 +18,13 @@ export function Header() {
     // It can be initialized to `true` to avoid an extra render cycle.
     const [mounted, setMounted] = useState(true);
     const [localUser, setLocalUser] = useState<any>(null);
+    
+    // Search Autocomplete States
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+    const [searchResults, setSearchResults] = useState<any[]>([]);
+    const [isSearching, setIsSearching] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const searchRef = useRef<HTMLFormElement>(null);
     
     // The component is considered mounted from the start, so no effect is needed.
 
@@ -43,6 +50,53 @@ export function Header() {
             window.removeEventListener('local-user-updated', checkUser);
         };
     }, [session]);
+
+    // Debounce search term
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedSearchTerm(searchTerm);
+        }, 300);
+        return () => clearTimeout(timer);
+    }, [searchTerm]);
+
+    // Fetch search results
+    useEffect(() => {
+        if (!debouncedSearchTerm.trim()) {
+            setSearchResults([]);
+            setIsSearching(false);
+            setShowDropdown(false);
+            return;
+        }
+
+        const fetchResults = async () => {
+            setIsSearching(true);
+            setShowDropdown(true);
+            try {
+                const res = await fetch(`/api/search?q=${encodeURIComponent(debouncedSearchTerm)}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    setSearchResults(data);
+                }
+            } catch (error) {
+                console.error("Error fetching search results", error);
+            } finally {
+                setIsSearching(false);
+            }
+        };
+
+        fetchResults();
+    }, [debouncedSearchTerm]);
+
+    // Click outside to close dropdown
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+                setShowDropdown(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const user = session?.user || localUser;
     const displayName = user?.name || 'Invitado';
@@ -92,12 +146,18 @@ export function Header() {
                     </div>
                 </div>
 
-                <form onSubmit={handleSearch} className="w-full md:flex-1 md:max-w-xl md:px-12">
+                <form ref={searchRef} onSubmit={handleSearch} className="w-full md:flex-1 md:max-w-xl md:px-12 relative">
                     <div className="flex w-full items-center border border-[#db0f70] rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-[#db0f70] focus-within:border-[#db0f70]">
                         <input
                             type="text"
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                                if (!showDropdown) setShowDropdown(true);
+                            }}
+                            onFocus={() => {
+                                if (searchTerm.trim()) setShowDropdown(true);
+                            }}
                             placeholder="Buscar productos..."
                             className="flex-1 pt-[10px] pb-[10px] px-4 text-sm outline-none text-[#231f20]"
                         />
@@ -105,6 +165,53 @@ export function Header() {
                             <Search size={20} />
                         </button>
                     </div>
+
+                    {showDropdown && searchTerm.trim() && (
+                        <div className="absolute top-full left-0 right-0 md:left-12 md:right-12 mt-1 bg-white border border-gray-200 rounded-md shadow-xl z-[1001] max-h-[400px] overflow-y-auto">
+                            {isSearching ? (
+                                <div className="p-4 text-center text-sm text-gray-500">Buscando...</div>
+                            ) : searchResults.length > 0 ? (
+                                <div className="flex flex-col">
+                                    {searchResults.slice(0, 5).map((product: any) => (
+                                        <Link 
+                                            key={product.id} 
+                                            href={`/product/${product.id}`}
+                                            onClick={() => {
+                                                setShowDropdown(false);
+                                                setSearchTerm('');
+                                            }}
+                                            className="flex items-center gap-3 p-3 hover:bg-gray-50 border-b border-gray-100 transition-colors"
+                                        >
+                                            <div className="w-10 h-10 relative rounded overflow-hidden shrink-0 bg-gray-50 border border-gray-100">
+                                                <Image 
+                                                    src={product.imageUrl || "https://via.placeholder.com/150"} 
+                                                    alt={product.name} 
+                                                    fill 
+                                                    className="object-cover" 
+                                                    unoptimized={product.imageUrl?.startsWith('data:')}
+                                                />
+                                            </div>
+                                            <div className="flex flex-col flex-1 overflow-hidden">
+                                                <span className="text-sm font-bold text-gray-800 truncate">{product.name}</span>
+                                                <span className="text-xs text-[#db0f70] font-black">${(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                    {searchResults.length > 5 && (
+                                        <Link 
+                                            href={`/search?q=${encodeURIComponent(searchTerm.trim())}`}
+                                            onClick={() => setShowDropdown(false)}
+                                            className="p-3 text-center text-sm font-bold text-[#db0f70] hover:bg-gray-50 transition-colors"
+                                        >
+                                            Ver todos los resultados ({searchResults.length})
+                                        </Link>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className="p-4 text-center text-sm text-gray-500">No se encontraron productos</div>
+                            )}
+                        </div>
+                    )}
                 </form>
 
                 <div className="hidden md:flex items-center gap-8">
