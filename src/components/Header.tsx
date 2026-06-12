@@ -55,7 +55,7 @@ export function Header() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedSearchTerm(searchTerm);
-        }, 300);
+        }, 150);
         return () => clearTimeout(timer);
     }, [searchTerm]);
 
@@ -152,8 +152,15 @@ export function Header() {
                             type="text"
                             value={searchTerm}
                             onChange={(e) => {
-                                setSearchTerm(e.target.value);
-                                if (!showDropdown) setShowDropdown(true);
+                                const val = e.target.value;
+                                setSearchTerm(val);
+                                if (val.trim()) {
+                                    setIsSearching(true);
+                                    setShowDropdown(true);
+                                } else {
+                                    setIsSearching(false);
+                                    setShowDropdown(false);
+                                }
                             }}
                             onFocus={() => {
                                 if (searchTerm.trim()) setShowDropdown(true);
